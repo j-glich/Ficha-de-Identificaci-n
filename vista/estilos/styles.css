@@ -2,9 +2,6 @@
   Color de fondo: hsl(185, 75%, 39%)
   Color del texto gris: hsl(227, 10%, 46%)
  */
-
-
-
 .bg-image {
   position: absolute;
 }
@@ -18,7 +15,6 @@
   bottom: -450px;
   right: -100px;
 }
-
 .card {
   position: relative;
   top: 0vh;
@@ -31,20 +27,17 @@
   border-radius: 20px;
   overflow: hidden;
 }
-
 .card__header {
   position: relative;
   height: 120px;
   text-align: center;
 }
-
 .card__header-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
 }
-
 .card__header-profile {
   position: absolute;
   top: 90px;
@@ -61,16 +54,13 @@
   text-align: center;
   border-bottom: 2px solid rgb(0 0 0 / 0.1);
 }
-
 .card__text {
   margin: 0;
   margin-bottom: 0.5em;
 }
-
 .card__text--light {
   color: hsl(227, 10%, 46%);
 }
-
 .card__footer {
   position: absolute;
   /* AJUSTE PARA QUE QUEDE IGUAL */
@@ -78,14 +68,12 @@
   width: 100%;
   text-align: center;
 }
-
 .card__stats {
   display: inline-block;
   margin: 0 0.5em;
   width: 100px;
   text-align: center;
 }
-
 .card__number {
   margin-bottom: 0.5em;
   font-size: 1.0rem;
