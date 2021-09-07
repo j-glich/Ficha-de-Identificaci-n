@@ -6,7 +6,7 @@
     <h3 style="text-align: center;">Datos de localización</h3>
     <div id="map"></div>
     <div id="informacion">
-      Hola soy texto
+      Hola soy texto   
     <form id='formularioGeo' method="post" action = ''>
             <table>
               <tr>
