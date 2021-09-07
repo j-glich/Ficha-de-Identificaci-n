@@ -6,13 +6,14 @@
     <h3 style="text-align: center;">Datos de localización</h3>
     <div id="map"></div>
     <div id="informacion">
+      Hola soy texto
     <form id='formularioGeo' method="post" action = ''>
             <table>
               <tr>
                 <td>  Calle:   </td>
                 <td>  <input type="text" class= "form-control" name="Calle" placeholder="callle" id ="calle" auntocompleto= "off"> </td>          
               </tr> 
-               <tr>
+              <tr>
                 <td>  Municipio:   </td>
                 <td>  <input type="text" class= "form-control" name="municipio" placeholder="Municipio" id ="municipio" auntocompleto= "off"> </td>          
               </tr> 
