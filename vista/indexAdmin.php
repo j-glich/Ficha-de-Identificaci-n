@@ -7,11 +7,10 @@
 include_once 'cnx.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
-
-$consulta = "SELECT * FROM cima2.alumno";
-$resultado = $conexion->prepare($consulta);
-$resultado->execute();
-$data=$resultado->fetchAll(PDO::FETCH_ASSOC);
+$sql = 'CALL cima2.sp_fi_listar_alumnos()';
+$stmt = $conexion->prepare($sql);
+$stmt->execute();
+$data=$stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="container">
         <div class="row">

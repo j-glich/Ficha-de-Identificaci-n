@@ -2,22 +2,19 @@
 <!--INICIO del cont principal-->
 <div class="container">
     <h1 style="text-align: center;">Perfil</h1>
-	
-	<?php
+<?php
 include_once 'cnx.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 $alumno =$_SESSION["id_Cliente"];
-
-// FETCH_ASSOC
-$stmt1 = $conexion->prepare("SELECT * FROM cima2.alumno where AL_MATRICULA = $alumno");
-// Especificamos el fetch mode antes de llamar a fetch()
-$stmt1->setFetchMode(PDO::FETCH_ASSOC);
-// Ejecutamos
-$stmt1->execute();
+$sql = 'CALL cima2.sp_fi_listar_alumno(?)';
+$stmt = $conexion->prepare($sql);
+//Envio de parametros mediante PDO
+$stmt->bindParam(1, $alumno, PDO::PARAM_STR, 10);
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
 // Mostramos los resultados
-while ($row = $stmt1->fetch()){
-
+while ($row = $stmt->fetch()){
 ?>	
     <article class="card">
       <header class="card__header">
@@ -46,10 +43,6 @@ while ($row = $stmt1->fetch()){
         </div>
       </footer>
     </article>
-    
-  
-
-
     <?php } ?>
 </div>
 <?php require_once "vistas/parte_inferior.php"?>
