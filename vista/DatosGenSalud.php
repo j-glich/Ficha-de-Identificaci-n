@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="../vista/estilos/s_GenSalud.css" />
 <script src="../vista/js/js_GenSalud.js"></script>
 <!--INICIO del cont principal-->
-
 <div class="container" id='container'>
     <h1 style="text-align: center;">Ficha de identificación</h1>
     <h3 style="text-align: center;">Datos Generales de Salud</h3>
