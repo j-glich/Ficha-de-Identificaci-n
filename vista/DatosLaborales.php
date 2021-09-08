@@ -1,17 +1,95 @@
 
 <?php require_once "Registros/control/in_genSalud.php"?>
 <?php require_once "vistas/parte_superiorAlumno.php"?>
-<link rel="stylesheet" href="./estilos/styleAN_LABORALES.css" />
+<style type="text/css">
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
+}
+
+.controls{
+    width: 100%;
+    background: withe;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    font-family: 'calibri';
+    font-size: 18px;
+    border: 1px solid #1f53c5;
+}
+#cam1{
+    width: 500px;
+    height: 750px;
+    background: white;
+    float: left;
+    padding: 10px;
+}
+#cam2{
+    width: 500px;
+    height: 750px;
+    background: white;
+    float: left;
+    padding: 10px;
+}
+#cam1,#cam2 .label{
+    color: black;
+    font-family: 'calibri';
+    font-size: 19px;
+}
+#container{
+    width: 1180px;
+    height: 900px;
+    background: white;
+
+}
+#boton{
+    width: 1000px;
+    height: 100px;
+    background: white;   
+    float: left;
+    text-align: center;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  cursor: pointer;
+  width: 30%;
+}
+.button4 {border-radius: 12px;}
+#div1{
+    width: 240px;
+    height: 390px;
+    background: white;   
+    float: left; 
+}
+#div2{
+    width: 240px;
+    height: 390px;
+    background: white;   
+    float: left; 
+}
+</style>
 <!--INICIO del cont principal-->
 <script>        
             function habilitar(id,id2){
                 document.getElementById(id).disabled=false; 
-                document.getElementById(id2).disabled=false;       
+                document.getElementById(id2).disabled=false; 
+              
+              
             }
             function desahabilitar(id,id2){
                 document.getElementById(id).disabled=true; 
                 document.getElementById(id2).disabled=true; 
+               
             }
             function crearotro(){
                //input 
@@ -21,24 +99,24 @@
                 x.setAttribute('class','controls');
                 x.setAttribute('name','Especifique');
                 x.setAttribute('id','id_Especificacion');
-                document.getElementById('esc3').appendChild(x); 
-                document.getElementById("radio11").disabled=true;    
+               document.getElementById('esc3').appendChild(x); 
+               document.getElementById("radio11").disabled=true;    
             }
             function Eliminar3(id){
-                var x = document.getElementById(id);
+               var x = document.getElementById(id);
                 if(x){
                     padre = x.parentNode;
                     padre.removeChild(x);
                     document.getElementById("radio11").disabled=false;                 
+                     }
                 }
-            }
 </script>
 <div class="container" id='container'>
-    <h1 style="text-align: center;">Ficha de identificación</h1>
-    <h3 style="text-align: center;">Datos Laborales</h3>
+    <h1>Ficha de identificación</h1>
+    <h3>Datos Laborales</h3>
     <form  method = 'post' action= 'DatosGeolocalizacion.php'>
-        <section class="form-register">
-            <div id='cam1'>
+      <section class="form-register">
+     <div id='cam1'>
             <label class ='label'>Trabajas</label><br>
             <label class='label'>(</label><input  type='radio' id='radio1' onclick ="habilitar('nomEmpresa','horario')" name='grupo' value="si"><label class='label'>) Si</label>  &nbsp &nbsp &nbsp
             <label class='label'>(</label><input  type='radio' id='radio2' onclick ="desahabilitar('nomEmpresa','horario')" name='grupo' value="no"><label class='label'>) No</label><br>
@@ -56,7 +134,7 @@
             <label class='label'>A cuánto asciende el ingreso mensual familiar: </label>
             <input class="controls" type="text" name="IngresoFamiliar" id="IngresoFamiliar" placeholder="$">
     </div>
-        <div id='cam2'> 
+    <div id='cam2'> 
             <label class='label'>En caso de ser económicamente independiente a cuánto asciende tu ingreso: </label>
             <input class="controls" type="text" name="IngresoPersonal" id="IngresoPersonal" placeholder="$">   
             <label class='label'>Grado máximo de estudios de: </label>
@@ -73,9 +151,9 @@
             <label class='label'>(</label><input type='radio' id='radio19' value="Finado" name='grup2' ><label class='label'>) Finado</label><br> 
             <label class='label'>Ocupacion: </label>
             <input class="controls" type="text" name="OcupacionPadre" id="OcupacionPadre" placeholder="Ocupacion">    
-            </div>
-        <div id="div2">
-            <label class ='label'>Madre:</label><br>
+                 </div>
+                 <div id="div2">
+                 <label class ='label'>Madre:</label><br>
             <label class='label'>(</label><input type='radio' id='radio20' value="Prim." name='grup3' ><label class='label'>) Prim.</label><br>
             <label class='label'>(</label><input type='radio' id='radio21' value="Sec." name='grup3' ><label class='label'>) Sec.</label><br>
             <label class='label'>(</label><input type='radio' id='radio22' value="Pre." name='grup3' ><label class='label'>) Pre.</label><br>

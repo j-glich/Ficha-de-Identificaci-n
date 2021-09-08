@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Contenido principal</h1>
 <?php
-include_once '../vista/bd/conexion.php';
+include_once 'cnx.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 

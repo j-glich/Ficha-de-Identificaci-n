@@ -1,7 +1,80 @@
 <?php require_once "Registros/control/in_Escolares.php"?>
 <?php require_once "vistas/parte_superiorAlumno.php"?>
-<link rel="stylesheet" href="./estilos/styleAN_GENSALUD.css" />
+<style type="text/css">
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
+}
+
+.controls{
+    width: 100%;
+    background: withe;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    font-family: 'calibri';
+    font-size: 18px;
+    border: 1px solid #1f53c5;
+}
+#cam1{
+    width: 500px;
+    height: 600px;
+    background: white;
+    float: left;
+    padding: 10px;
+}
+#cam2{
+    width: 500px;
+    height: 600px;
+    background: white;
+    float: left;
+    padding: 10px;
+}
+#cam1,#cam2 .label{
+    color: black;
+    font-family: 'calibri';
+    font-size: 19px;
+}
+#container{
+    width: 1180px;
+    height: 800px;
+    background: white;
+
+}
+#boton{
+    width: 1000px;
+    height: 100px;
+    background: white;   
+    float: left;
+    text-align: center;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  cursor: pointer;
+  width: 30%;
+}
+.button4 {border-radius: 12px;}
+#esc {
+    background: white;
+}
+#esc3{
+    background: white;
+}
+#esc1{
+    background: white;
+}
+</style>
 <!--INICIO del cont principal-->
 <script>        
             function crearInput(){
@@ -23,8 +96,8 @@
                 x.setAttribute('class','controls');
                 x.setAttribute('name','Especifique2');
                 x.setAttribute('id','id_Especificacion2');
-                document.getElementById('esc3').appendChild(x); 
-                document.getElementById("radio11").disabled=true;    
+               document.getElementById('esc3').appendChild(x); 
+               document.getElementById("radio11").disabled=true;    
             }
             function crearotro1(){
                //input 
@@ -34,34 +107,34 @@
                 x.setAttribute('class','controls');
                 x.setAttribute('name','Especifique');
                 x.setAttribute('id','id_Especificacion3');
-                document.getElementById('div').appendChild(x); 
-                document.getElementById("radio15").disabled=true;    
+               document.getElementById('div').appendChild(x); 
+               document.getElementById("radio15").disabled=true;    
             }
             function Eliminar(id){
-                var x = document.getElementById(id);
+               var x = document.getElementById(id);
                 if(x){
                     padre = x.parentNode;
                     padre.removeChild(x);
-                    document.getElementById("radio1").disabled=false;                
+                    document.getElementById("radio1").disabled=false;                 
+                     }
                 }
-                }
-            function Eliminar3(id){
-                var x = document.getElementById(id);
+                function Eliminar3(id){
+               var x = document.getElementById(id);
                 if(x){
                     padre = x.parentNode;
                     padre.removeChild(x);
                     document.getElementById("radio11").disabled=false;                 
+                     }
                 }
-                }
-            function Eliminar4(id){
-                var x = document.getElementById(id);
+                function Eliminar4(id){
+               var x = document.getElementById(id);
                 if(x){
                     padre = x.parentNode;
                     padre.removeChild(x);
                     document.getElementById("radio15").disabled=false;                 
-                    }
+                     }
                 }
-            function habilitar(id,id2,id3,id4){
+                function habilitar(id,id2,id3,id4){
                 document.getElementById(id).disabled=false; 
                 document.getElementById(id2).disabled=false;
                 document.getElementById(id3).disabled=false;
@@ -80,8 +153,8 @@
     <h1 style="text-align: center;">Ficha de identificación</h1>
     <h3 style="text-align: center;">Datos Generales de Salud</h3>
     <form  method = 'post' action= 'DatosLaborales.php' >
-    <section class="form-register">
-    <div id='cam1'>
+      <section class="form-register">
+     <div id='cam1'>
         <div id ='esc1'>
             <label class ='label'>¿Presentas algun problema de salud que requiere cuidado o manejo especial?</label><br>
             <label class='label'>(</label><input  type='radio' id='radio1' name='grupo' value="si" onclick='crearInput()' ><label class='label'>) Si</label>  &nbsp &nbsp &nbsp
