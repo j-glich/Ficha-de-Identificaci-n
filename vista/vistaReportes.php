@@ -4,30 +4,15 @@
 </div>
 <!--FIN del cont principal-->
 <?php
-
 include_once 'cnx.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
-
-$consulta = "SELECT * FROM cima2.alumno";
-$resultado = $conexion->prepare($consulta);
-$resultado->execute();
-$data=$resultado->fetchAll(PDO::FETCH_ASSOC);
-
-$consulta2 = "SELECT * FROM cima2.antecedentes_generales";
-$res = $conexion->prepare($consulta2);
-$res->execute();
-$data1=$res->fetchAll(PDO::FETCH_ASSOC);
+$sql = 'CALL cima2.sp_fi_listar_alumnos()';
+$stmt = $conexion->prepare($sql);
+$stmt->execute();
+$data=$stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<style type="text/css">
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 
-}
-
-</style>
 <div class="container">
 <div class="row">
                 <div class="col-lg-12">
