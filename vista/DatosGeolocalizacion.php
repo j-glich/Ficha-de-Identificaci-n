@@ -1,24 +1,6 @@
 <?php require_once "vistas/parte_superiorAlumno.php"?>
 <?php require_once "Registros/control/in_laborales.php"?>
-<style type="text/css">
-#map {
-    width: 500px;
-    height: 450px;
-    background: grey;
-    float:left;
-}
-#panel {
-    width: 500px;
-    height: 400px;
-}
-#BOTON{
-  background-image:url(assets/images/xd.jpg);
-  background-repeat:no-repeat;
-  height:35px;
-  width:35px;
-  background-position:center;
-}
-</style>
+<link rel="stylesheet" href="../vista/estilos/s_Geolocalizacion.css" />
 <div class="container" id='container'>
     <h1 style="text-align: center;">Ficha de identificación</h1>
     <h3 style="text-align: center;">Datos de localización</h3>

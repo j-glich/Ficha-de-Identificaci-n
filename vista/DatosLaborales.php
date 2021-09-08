@@ -6,14 +6,11 @@
 <script>        
             function habilitar(id,id2){
                 document.getElementById(id).disabled=false; 
-                document.getElementById(id2).disabled=false; 
-              
-              
+                document.getElementById(id2).disabled=false;    
             }
             function desahabilitar(id,id2){
                 document.getElementById(id).disabled=true; 
                 document.getElementById(id2).disabled=true; 
-               
             }
             function crearotro(){
                //input 
@@ -23,24 +20,24 @@
                 x.setAttribute('class','controls');
                 x.setAttribute('name','Especifique');
                 x.setAttribute('id','id_Especificacion');
-               document.getElementById('esc3').appendChild(x); 
-               document.getElementById("radio11").disabled=true;    
+                document.getElementById('esc3').appendChild(x); 
+                document.getElementById("radio11").disabled=true;    
             }
             function Eliminar3(id){
-               var x = document.getElementById(id);
+                var x = document.getElementById(id);
                 if(x){
                     padre = x.parentNode;
                     padre.removeChild(x);
                     document.getElementById("radio11").disabled=false;                 
-                     }
+                    }
                 }
 </script>
 <div class="container" id='container'>
-    <h1>Ficha de identificación</h1>
-    <h3>Datos Laborales</h3>
+    <h1 style="text-align: center;">Ficha de identificación</h1>
+    <h3 st>Datos Laborales</h3>
     <form  method = 'post' action= 'DatosGeolocalizacion.php'>
-      <section class="form-register">
-     <div id='cam1'>
+    <section class="form-register">
+    <div id='cam1'>
             <label class ='label'>Trabajas</label><br>
             <label class='label'>(</label><input  type='radio' id='radio1' onclick ="habilitar('nomEmpresa','horario')" name='grupo' value="si"><label class='label'>) Si</label>  &nbsp &nbsp &nbsp
             <label class='label'>(</label><input  type='radio' id='radio2' onclick ="desahabilitar('nomEmpresa','horario')" name='grupo' value="no"><label class='label'>) No</label><br>
@@ -75,9 +72,9 @@
             <label class='label'>(</label><input type='radio' id='radio19' value="Finado" name='grup2' ><label class='label'>) Finado</label><br> 
             <label class='label'>Ocupacion: </label>
             <input class="controls" type="text" name="OcupacionPadre" id="OcupacionPadre" placeholder="Ocupacion">    
-                 </div>
-                 <div id="div2">
-                 <label class ='label'>Madre:</label><br>
+            </div>
+            <div id="div2">
+            <label class ='label'>Madre:</label><br>
             <label class='label'>(</label><input type='radio' id='radio20' value="Prim." name='grup3' ><label class='label'>) Prim.</label><br>
             <label class='label'>(</label><input type='radio' id='radio21' value="Sec." name='grup3' ><label class='label'>) Sec.</label><br>
             <label class='label'>(</label><input type='radio' id='radio22' value="Pre." name='grup3' ><label class='label'>) Pre.</label><br>
