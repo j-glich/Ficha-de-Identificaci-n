@@ -381,6 +381,7 @@ $(document).on("click", ".generarPDF", function(){
                     dataType: "json",
                     data: {opcion:opcion, id:id},
                     success: function(data){
+                        console.log(data);
                         let aux = data.length;
                         if(aux<1){
                             Swal.fire({
@@ -396,6 +397,7 @@ $(document).on("click", ".generarPDF", function(){
                             grupo = data[0].ANG_GRUPO;
                             fecha_apli = data[0].ANG_FEC_APL;
                             sexo = data[0].ANG_SEXO;
+                            
                             genPDF(id,programa,matricula,semestre,grupo,fecha_apli,nombre,sexo);
                         }   
                     }

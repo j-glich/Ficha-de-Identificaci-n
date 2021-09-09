@@ -12,7 +12,6 @@ $stmt = $conexion->prepare($sql);
 $stmt->execute();
 $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
 <div class="container">
 <div class="row">
                 <div class="col-lg-12">

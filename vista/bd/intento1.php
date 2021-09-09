@@ -13,10 +13,12 @@ switch($opcion){
         $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
         break;
     case 4://baja
-        $consulta = "SELECT * FROM cima2.antecedentes_generales WHERE ANG_AL_MATRICULA=".$id;       
-        $resultado = $conexion->prepare($consulta);
-        $resultado->execute();
-        $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
+        $sql = "call cima2.sp_fi_listar_reporte_ficha(?)";
+        $stmt = $conexion->prepare($sql);
+        //Envio de parametros mediante PDO
+        $stmt->bindParam(1, $id, PDO::PARAM_STR, 10);
+        $stmt->execute();
+        $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
         break;        
 }
 print json_encode($data, JSON_UNESCAPED_UNICODE); //enviar el array final en formato json a JS
