@@ -4,7 +4,7 @@
 <div class="container" id='container'>
     <h1 style="text-align: center;">Ficha de identificación</h1>
     <h3 style="text-align: center;">Datos generales</h3>
-    <form  method = 'post' action= 'DatosEscolares.php' >
+    <form  class="form" method = 'post' action= 'DatosEscolares.php' >
         <section class="form-register">
 <div id='cam1'> 
     <label>Carrera: </label>
