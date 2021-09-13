@@ -1,18 +1,10 @@
             function crearInput(){
-               //input 
-                var x = document.createElement('input');
-                x.setAttribute('type','text');
-                x.setAttribute('placeholder','Numero de hijos');
-                x.setAttribute('class','controls');
-                x.setAttribute('name','numhijos');
-                x.setAttribute('id','id_input');
+                var z = document.createElement('div');
+                z.setAttribute('id','matricula');
+                z.setAttribute('class','form');
+                z.innerHTML = "<input class='textbox' type='text' autocomplete='off' name='numhijos' id='id_input' placeholder=' '><label class='form_label'>Numero de hijos:</label>";
                 //label
-                var y = document.createElement('label');    
-                y.setAttribute('id','id_eti'); 
-                y.setAttribute('class','label');
-                y.innerHTML ="Cuantos:";
-                document.getElementById('cam2').appendChild(y);
-                document.getElementById('cam2').appendChild(x);
+                document.getElementById('cam2').appendChild(z);
                 document.getElementById("radio1").disabled=true;    
             }
             function Eliminar(id,id1){

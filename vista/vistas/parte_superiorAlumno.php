@@ -116,9 +116,7 @@ if($_SESSION["id_Cliente"] === null){
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
-
-         
-
+          <img src="../vista/img/sdf.jpg" alt="ITSOEH">
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
