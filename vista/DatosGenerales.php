@@ -1,53 +1,6 @@
 <?php require_once "vistas/parte_superiorAlumno.php"?>
 <link rel="stylesheet" href="../vista/estilos/s_General.css" />
 <script src="../vista/js/js_Generales.js"></script>
-<style>
-
-    #matricula{
-        width: 100%;
-        height: auto;
-        background:red;
-    }   
-    .form{
-        position: relative;
-    }
-    .textbox{
-        width: 80%;
-        height: 45px;
-        border: 1px solid black;
-        border-radius: 5px;
-        outline: none;
-        background: none;
-        padding: 8px;
-        margin:auto;
-        color: black;
-        left: 35px;
-        position: relative;
-        
-    }
-    .form_label{
-        position: absolute;
-        top: 0.6rem;
-        left: 3.4rem;
-        cursor: text;
-        transition: top 100ms, let 100ms, font-size 100ms ease-in;
-        opacity: 0.5;
-    }
-    .textbox:focus{
-        border: 2px solid #00aae4;
-    }
-    .textbox:focus ~ .form_label,
-    .textbox:not(:placeholder-shown).textbox:not(:focus)~.form_label
-        {
-        top: -0.7rem;
-        left: 2.7rem;
-        font-size: 15px;
-        background: white;
-        color: black;   
-        opacity: 1;
-
-    }
-</style>
 <div class="container" id='container'>
     <h1 style="text-align: center;">Ficha de identificación</h1>
     <h3 style="text-align: center;">Datos generales</h3>
@@ -68,26 +21,8 @@
         <label class="form_label">Carrera:</label>
         </div>
         <br>
-        <script> 
-        function solonumeros(e) {
-            key= e.keyCode || e.which;
-            teclado = String.fromCharCode(key);
-            numero="0123456789";
-            especiales ="8-37-38-46"; //array
-            teclado_es = false;
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    teclado_es = true;
-                }
-            }
-            if(numero.indexOf(teclado) == -1 && !teclado_es){
-            return false;
-        }
-
-        }
-        </script>
         <div id="matricula" class="form">
-            <input onkeypress="return solonumeros(event)" type="text" name="matricula" autocomplete="off" placeholder=" " class="textbox">
+            <input onkeypress="return solonumeros(event)" maxlength="8" type="text" name="matricula" autocomplete="off" placeholder=" " class="textbox">
             <label class="form_label">Matricula:</label>
         </div>
         <br>
@@ -97,7 +32,7 @@
         </div>   
         <br>
         <div id="matricula" class="form">
-            <input onkeypress="return solonumeros(event)" maxlength="1" class="textbox" type="text" name="semestre" id="semestre" placeholder=" ">
+            <input onkeypress="return solonumeros(event)" autocomplete="off" maxlength="1" class="textbox" type="text" name="semestre" id="semestre" placeholder=" ">
             <label class="form_label">Semestre:</label>
         </div>
         <br>
