@@ -13,6 +13,7 @@
 .form{
     position: relative;
 }
+
 .textbox{
     width: 80%;
     height: 45px;
@@ -44,17 +45,30 @@
     top: -0.7rem;
     left: 2.7rem;
     font-size: 15px;
-    background: white;
+    background: ghostwhite;
     color: black;   
     opacity: 1;
 
 }
-
+#esc{
+    position: relative;
+    background:none;  
+}
+#esc1{
+    position: relative;
+    background:none;  
+}
+.Titulo__label{
+    color: white;
+}
+.Subtitulo__label{
+    color: white;
+}
 
 </style>
 <div class="container" id='container'>
-    <h1 style="text-align: center;">Ficha de identificación</h1>
-    <h3 style="text-align: center;">Datos Escolares</h3>
+    <h1 style="text-align: center;" class="Titulo__label">Ficha de identificación</h1>
+    <h3 style="text-align: center;" class="Subtitulo__label">Datos Escolares</h3>
     <form class="form" method = 'post' action= 'DatosGenSalud.php' >
         <section class="form-register">
             <div id='cam1'>
@@ -82,22 +96,25 @@
             <div id ='esc1'>
             <label class ='label'>Has estado becado: </label><br>
             <label class='label'>(</label><input  type='radio' id='radio6' name='gru' value="SI" onclick="habilitar('radio8','radio9','radio10','radio11')" ><label class='label'>) Si</label>  &nbsp &nbsp &nbsp
-            <label class='label'>(</label><input  type='radio' id='radio7' name='gru' value="NO" onclick="desahabilitar('radio8','radio9','radio10','radio11','id_beca')"  ><label class='label'>) No</label><br>
+            <label class='label'>(</label><input  type='radio' id='radio7' name='gru' value="NO" onclick="desahabilitar('radio8','radio9','radio10','radio11','id_beca','id_eti')"  ><label class='label'>) No</label><br>
             <label class='label'>Tipo de beca:</label><br>
-            <label class='label'>(</label><input  type='radio' id='radio8' disabled='true' value="Federal" name='grup' onclick="Eliminar1('id_beca')"><label class='label'>) Federal</label><br>
-            <label class='label'>(</label><input  type='radio' id='radio9' disabled='true' value="Estatal" name='grup' onclick="Eliminar1('id_beca')"><label class='label'>) Estatal</label><br>
-            <label class='label'>(</label><input  type='radio' id='radio10' disabled='true' value="Institucional" name='grup' onclick="Eliminar1('id_beca')"><label class='label'>) Institucional</label><br>
+            <label class='label'>(</label><input  type='radio' id='radio8' disabled='true' value="Federal" name='grup' onclick="Eliminar1('id_beca','id_eti')"><label class='label'>) Federal</label><br>
+            <label class='label'>(</label><input  type='radio' id='radio9' disabled='true' value="Estatal" name='grup' onclick="Eliminar1('id_beca','id_eti')"><label class='label'>) Estatal</label><br>
+            <label class='label'>(</label><input  type='radio' id='radio10' disabled='true' value="Institucional" name='grup' onclick="Eliminar1('id_beca','id_eti')"><label class='label'>) Institucional</label><br>
             <label class='label'>(</label><input  type='radio' id='radio11' disabled='true' name='grup' onclick='crearotro()'><label class='label'>) Otra:</label><br>
         </div>
-        <label class ='label'>En el transcurso de tus estudios viviras con: </label>
-        <select class="controls" name="vivir" id="vivir">
-            <option value="familia">Familia</option>
-            <option value="parientes">Parientes</option>
-            <option value="companeros">Compañeros</option>
-            <option value="solo">Solo</option>
-            <option value="cambiarasDeResidencia">Cambiaras de residencia</option>
-        </select>
         <br>
+        <div id="control" class="form">
+            <select class="textbox" name="vivir" id="vivir">
+                <option value="Familia">Familia</option>
+                <option value="Parientes">Parientes</option>
+                <option value="Companeros">Compañeros</option>
+                <option value="Solo">Solo</option>
+                <option value="Cambiaras De Residencia">Cambiaras de residencia</option>
+            </select>
+                    <label class="form_label">En el transcurso de tus estudios viviras con:</label>
+                </div>
+                <br>
         <br>
         </div>
         <div id='boton'> 

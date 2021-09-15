@@ -4,8 +4,8 @@
 <script src="../vista/js/js_GenSalud.js"></script>
 <!--INICIO del cont principal-->
 <div class="container" id='container'>
-    <h1 style="text-align: center;">Ficha de identificación</h1>
-    <h3 style="text-align: center;">Datos Generales de Salud</h3>
+    <h1 style="text-align: center;" class="Titulo__label">Ficha de identificación</h1>
+    <h3 style="text-align: center;" class="Subtitulo__label">Datos Generales de Salud</h3>
     <form  method = 'post' action= 'DatosLaborales.php' >
         <section class="form-register">
             <div id='cam1'>

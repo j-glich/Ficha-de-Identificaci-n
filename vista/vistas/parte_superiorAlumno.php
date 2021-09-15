@@ -117,6 +117,7 @@ if($_SESSION["id_Cliente"] === null){
             <i class="fa fa-bars"></i>
           </button>
           <img src="../vista/img/sdf.jpg" alt="ITSOEH">
+          <img src="../vista/img/LogoTecNM.jpg" alt="ITSOEH" style="position:relative; left: 20px; height: 65px; width: 165px;">
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 

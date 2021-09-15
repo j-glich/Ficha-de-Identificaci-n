@@ -2,8 +2,8 @@
 <link rel="stylesheet" href="../vista/estilos/s_General.css" />
 <script src="../vista/js/js_Generales.js"></script>
 <div class="container" id='container'>
-    <h1 style="text-align: center;">Ficha de identificación</h1>
-    <h3 style="text-align: center;">Datos generales</h3>
+    <h1 style="text-align: center;" class="Titulo__label">Ficha de identificación</h1>
+    <h3 style="text-align: center;" class="Subtitulo__label">Datos generales</h3>
     <form  method = 'post' action= 'DatosEscolares.php' >
         <section class="form-register">
 <div id='cam1'> 
