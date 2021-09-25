@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+#cam1{
+    width: 500px;
+    height: 550px;
+    background:none;
+    float: left;
+    padding: 10px;
+}
+#cam2{
+    width: 500px;
+    height: 550px;
+    background:none;
+    float: left;
+    padding: 10px;
+}
+#cam1,#cam2 .label{
+    color: black;
+    font-family: 'calibri';
+    font-size: 19px;
+}
+#container{
+    width: 1180px;
+    position: relative;
+    background-image: url('https://img.ibxk.com.br///2017/03/17/17141627416140-t1200x480.jpg');
+}
+#boton{
+    width: 200px;
+    background: none;   
+    float: left;
+    position: relative;
+    left: 35%;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  cursor: pointer;
+  width: 100%;
+}
+.button4 {border-radius: 12px;}
+#matricula{
+    width: 100%;
+    height: auto;
+    background:none;
+}
+.form{
+    position: relative;
+}
+.textbox{
+    width: 80%;
+    height: 45px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    background: none;
+    padding: 10px;
+    margin:auto;
+    color: black;
+    left: 35px;
+    position: relative;
+}
+.form_label{
+    position: absolute;
+    top: 0.6rem;
+    pointer-events: none;
+    left: 3.4rem;
+    cursor: text;
+    transition: top 100ms, let 100ms, font-size 100ms ease-in;
+    opacity: 0.5;
+}
+.textbox:focus{
+    border: 2px solid #00aae4;
+}
+.textbox:focus ~ .form_label,
+.textbox:not(:placeholder-shown).textbox:not(:focus)~.form_label
+    {
+    top: -0.7rem;
+    left: 2.7rem;
+    font-size: 15px;
+    background: ghostwhite;
+    color: black;   
+    opacity: 1;
+
+}
+.Titulo__label, .Subtitulo__label{
+    color: white;
+}

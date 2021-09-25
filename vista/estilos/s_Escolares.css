@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.controls{
+    width: 100%;
+    background: withe;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    font-family: 'calibri';
+    font-size: 18px;
+    border: 1px solid #1f53c5;
+}
+#cam1{
+    width: 450px;
+    height: 450px;
+    background:none;
+    position: relative;
+    left: 35px;
+    float: left;
+    padding: 10px;
+}
+#cam2{
+    width: 450px;
+    height: 450px;
+    background: none;
+    float: left;
+    padding: 10px;
+    position: relative;
+    left: 35px;
+}
+#cam1,#cam2 .label{
+    color: black;
+    font-family: 'calibri';
+    font-size: 19px;
+}
+#container{
+    width: 1180px;
+    background-image: url('https://w7.pngwing.com/pngs/1006/404/png-transparent-symphony-background-poster-banner-science-and-technology-science-fiction.png');
+}
+#boton{
+    width: 600px;
+    background: none;   
+    float: left;
+    position: relative;
+    left: 40%;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 1px;
+    cursor: pointer;
+    width: 30%;
+}
+.button4 {border-radius: 12px;}
