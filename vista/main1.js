@@ -28,7 +28,7 @@ $("#btnNuevo").click(function(){
     $("#formPersonas").trigger("reset");
     $(".modal-header").css("background-color", "#1cc88a");
     $(".modal-header").css("color", "white");
-    $(".modal-title").text("Nueva Persona");            
+    $(".modal-title").text("Nuevo Alumno");            
     $("#modalCRUD").modal("show");        
     id=null;
     opcion = 1; //alta
@@ -76,23 +76,36 @@ $(document).on("click", ".btnBorrar", function(){
 });
     
 $("#formPersonas").submit(function(e){
-    e.preventDefault();    
+    e.preventDefault();   
+    matricula = $.trim($("#matricula").val());
     nombre = $.trim($("#nombre").val());
-    pais = $.trim($("#pais").val());
-    edad = $.trim($("#edad").val());    
+    plan = $.trim($("#plan-academico").val());
+    correo = $.trim($("#correo").val());
+    semestre = $.trim($("#semestre").val());
+    activo = $.trim($("#activo").val());
     $.ajax({
         url: "bd/crud.php",
         type: "POST",
         dataType: "json",
-        data: {nombre:nombre, pais:pais, edad:edad, id:id, opcion:opcion},
+        data: { 
+            matricula : matricula,
+            nombre : nombre, 
+            plan : plan, 
+            correo : correo, 
+            semestre : semestre,
+            activo : activo,
+            opcion : opcion
+        },
         success: function(data){  
             console.log(data);
-            id = data[0].id;            
-            nombre = data[0].nombre;
-            pais = data[0].pais;
-            edad = data[0].edad;
-            if(opcion == 1){tablaPersonas.row.add([id,nombre,pais,edad]).draw();}
-            else{tablaPersonas.row(fila).data([id,nombre,pais,edad]).draw();}            
+            //id = data[0].id;            
+           // nombre = data[0].nombre;
+           // pais = data[0].pais;
+           // edad = data[0].edad;
+           // if(opcion == 1){
+             //   tablaPersonas.row.add([id,nombre,pais,edad]).draw();}
+           // else{
+             //   tablaPersonas.row(fila).data([id,nombre,pais,edad]).draw();}            
         }        
     });
     $("#modalCRUD").modal("hide");    

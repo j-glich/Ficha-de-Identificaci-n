@@ -66,17 +66,32 @@ $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
         <form id="formPersonas">    
             <div class="modal-body">
                 <div class="form-group">
-                <label for="nombre" class="col-form-label">Nombre:</label>
-                <input type="text" class="form-control" id="nombre">
+                <label for="matricula" class="col-form-label">Matricula:</label>
+                <input type="text" class="form-control" id="matricula">
                 </div>
                 <div class="form-group">
-                <label for="pais" class="col-form-label">País:</label>
-                <input type="text" class="form-control" id="pais">
+                <label for="nombre" class="col-form-label">Nombre completo:</label>
+                <input type="text" class="form-control" id="nombre">
                 </div>                
                 <div class="form-group">
-                <label for="edad" class="col-form-label">Edad:</label>
-                <input type="number" class="form-control" id="edad">
-                </div>            
+                <label for="plan-academico" class="col-form-label">Plan Academico:</label>
+                <input type="text" class="form-control" id="plan-academico">
+                </div>   
+                <div class="form-group">
+                <label for="correo" class="col-form-label">Correo:</label>
+                <input type="text" class="form-control" id="correo">
+                </div>    
+                <div class="form-group">
+                <label for="semestre" class="col-form-label">Semestre:</label>
+                <input type="text" class="form-control" id="semestre">
+                </div>         
+                <div class="form-group">
+                <label for="activo" class="col-form-label">Estado del Estudiante:</label>
+                <select class="form-control" name="activo" id="activo">
+                    <option value="A">Activo</option>
+                    <option value="I">Inactivo</option>
+                </select>
+                </div>              
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>

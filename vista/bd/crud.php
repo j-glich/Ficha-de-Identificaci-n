@@ -2,15 +2,17 @@
 include_once '../bd/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
-// Recepción de los datos enviados mediante POST desde el JS   
+// Recepción de los datos enviados mediante POST desde el JS 
+$matricula (isset($_POST['matricula'])) ? $_POST['matricula'] : '';
 $nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : '';
-$pais = (isset($_POST['pais'])) ? $_POST['pais'] : '';
-$edad = (isset($_POST['edad'])) ? $_POST['edad'] : '';
+$plan = (isset($_POST['plan'])) ? $_POST['plan'] : '';
+$correo = (isset($_POST['correo'])) ? $_POST['correo'] : '';
+$semestre = (isset($_POST['semestre'])) ? $_POST['semestre'] : '';
+$activo = (isset($_POST['activo'])) ? $_POST['activo'] : '';
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
-$id = (isset($_POST['id'])) ? $_POST['id'] : '';
-
 switch($opcion){
     case 1: //alta
+
         $consulta = "INSERT INTO personas (nombre, pais, edad) VALUES('$nombre', '$pais', '$edad') ";			
         $resultado = $conexion->prepare($consulta);
         $resultado->execute(); 
