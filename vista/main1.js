@@ -4,7 +4,7 @@ $(document).ready(function(){
         "columnDefs":[{
         "targets": -1,
         "data":null,
-        "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-success btnBorrar'>Editar</button><button class='btn btn-danger btnBorrar'>Borrar</button></div></div>"  
+        "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-success btnEditar '>Editar</button><button class='btn btn-danger btnBorrar'>Borrar</button></div></div>"  
     }],
         
     "language": {
@@ -49,12 +49,24 @@ $("#btnGuardar").click(function(){
             correo : correo,
             semestre : semestre,
             activo: activo,
+            opcion: opcion
         },
+        dataType: 'JSON',
         success: function(data){
             console.log(data);
+            matricula = data[0].AL_MATRICULA;
+            nombre = data[0].AL_NOM_ALUMNO;
+            semestre = data[0].AL_SEMESTRE;
+            correo = data[0].ALCORREO;
+            
+            if(opcion == 1){
+                tablaPersonas.row.add([matricula,nombre,semestre,correo]).draw();
+            }
+            else{
+                tablaPersonas.row(fila).data([matricula,nombre,semestre,correo]).draw();}       
         }
     });
-    return false;
+    $("#modalCRUD").modal("hide");  
 });    
     
 var fila; //capturar la fila para editar o borrar el registro
@@ -62,14 +74,14 @@ var fila; //capturar la fila para editar o borrar el registro
 //botón EDITAR    
 $(document).on("click", ".btnEditar", function(){
     fila = $(this).closest("tr");
-    id = parseInt(fila.find('td:eq(0)').text());
+    matricula = parseInt(fila.find('td:eq(0)').text());
     nombre = fila.find('td:eq(1)').text();
-    pais = fila.find('td:eq(2)').text();
-    edad = parseInt(fila.find('td:eq(3)').text());
-    
+    semestre = fila.find('td:eq(2)').text();
+    correo = fila.find('td:eq(3)').text();
+    $("#matricula").val(matricula);
     $("#nombre").val(nombre);
-    $("#pais").val(pais);
-    $("#edad").val(edad);
+    $("#semestre").val(semestre);
+    $("#correo").val(correo);
     opcion = 2; //editar
     
     $(".modal-header").css("background-color", "#4e73df");

@@ -2,7 +2,9 @@
 include_once '../bd/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
-$matricula = $_POST['matricula'];
+$opcion = $_POST['opcion'];
+if($opcion = 1){
+    $matricula = $_POST['matricula'];
 $sql = 'CALL cima2.sp_fi_listar_alumno(?)';
 $stmt = $conexion->prepare($sql);
 //Envio de parametros mediante PDO
@@ -29,8 +31,19 @@ if ($num_rows > 0){
     $stmt->bindParam(4, $correo, PDO::PARAM_STR, 45);
     $stmt->bindParam(5, $semestre, PDO::PARAM_STR, 2);
     $stmt->bindParam(6, $activo, PDO::PARAM_STR, 1);
-    echo  $stmt->execute();
+    $stmt->execute();
+
+}
+$sql = 'CALL cima2.sp_fi_listar_alumno(?)';
+$stmt = $conexion->prepare($sql);
+//Envio de parametros mediante PDO
+$stmt->bindParam(1, $matricula, PDO::PARAM_STR, 10);
+$stmt->execute();
+$data=$stmt->fetchAll(PDO::FETCH_ASSOC);
 $conexion = null;
+print json_encode($data, JSON_UNESCAPED_UNICODE);
+}else if($opcion = 2){
+
 }
 
 ?>
