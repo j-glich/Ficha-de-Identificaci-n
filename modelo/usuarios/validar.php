@@ -32,11 +32,7 @@ if($resultado->num_rows === 0) {
     $_SESSION["nombre"] = $registro["AL_NOM_ALUMNO"];
     $_SESSION["rol"] = $registro["AL_ROL"];
     $matricula = $registro["AL_MATRICULA"];
-    if($registro["AL_ROL"]==='1'){
-       include "../modelo/cerrar.php";
-    header("Location: ../vista/indexAdmin.php");  
-    
-    }else if($registro["AL_ROL"]==='2'){
+    if($registro["AL_ROL"]==='2'){
         include "../modelo/cerrar.php";
     header("Location: ../vista/indexAlumno.php"); 
     }
@@ -55,9 +51,6 @@ if($resultado->num_rows === 0) {
        include "../modelo/cerrar.php";
     header("Location: ../vista/indexAdmin.php");  
     
-    }else if($registro["US_ROL"]==='2'){
-        include "../modelo/cerrar.php";
-    header("Location: ../vista/indexAlumno.php"); 
     }
     
     $resultado->free();

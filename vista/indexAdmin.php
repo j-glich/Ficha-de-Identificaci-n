@@ -63,7 +63,7 @@ $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form id="formPersonas">    
+        <form id="formPersonas" method="POST">    
             <div class="modal-body">
                 <div class="form-group">
                 <label for="matricula" class="col-form-label">Matricula:</label>

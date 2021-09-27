@@ -25,17 +25,40 @@ $(document).ready(function(){
     });
     
 $("#btnNuevo").click(function(){
-    $("#formPersonas").trigger("reset");
     $(".modal-header").css("background-color", "#1cc88a");
     $(".modal-header").css("color", "white");
     $(".modal-title").text("Nuevo Alumno");            
     $("#modalCRUD").modal("show");        
     id=null;
     opcion = 1; //alta
+});  
+$("#btnGuardar").click(function(){  
+    matricula = $("#matricula").val();
+    nombre = $("#nombre").val();
+    plan = $("#plan-academico").val();
+    correo = $("#correo").val();
+    semestre = $("#semestre").val();
+    activo = $("#activo").val();
+    $.ajax({
+        type : 'POST',
+        url:'../vista/bd/crud.php',
+        data: {
+            matricula : matricula,
+            nombre : nombre,
+            plan : plan,
+            correo : correo,
+            semestre : semestre,
+            activo: activo,
+        },
+        success: function(data){
+            console.log(data);
+        }
+    });
+    return false;
 });    
     
 var fila; //capturar la fila para editar o borrar el registro
-    
+
 //botón EDITAR    
 $(document).on("click", ".btnEditar", function(){
     fila = $(this).closest("tr");
@@ -74,43 +97,7 @@ $(document).on("click", ".btnBorrar", function(){
         });
     }   
 });
-    
-$("#formPersonas").submit(function(e){
-    e.preventDefault();   
-    matricula = $.trim($("#matricula").val());
-    nombre = $.trim($("#nombre").val());
-    plan = $.trim($("#plan-academico").val());
-    correo = $.trim($("#correo").val());
-    semestre = $.trim($("#semestre").val());
-    activo = $.trim($("#activo").val());
-    $.ajax({
-        url: "bd/crud.php",
-        type: "POST",
-        dataType: "json",
-        data: { 
-            matricula : matricula,
-            nombre : nombre, 
-            plan : plan, 
-            correo : correo, 
-            semestre : semestre,
-            activo : activo,
-            opcion : opcion
-        },
-        success: function(data){  
-            console.log(data);
-            //id = data[0].id;            
-           // nombre = data[0].nombre;
-           // pais = data[0].pais;
-           // edad = data[0].edad;
-           // if(opcion == 1){
-             //   tablaPersonas.row.add([id,nombre,pais,edad]).draw();}
-           // else{
-             //   tablaPersonas.row(fila).data([id,nombre,pais,edad]).draw();}            
-        }        
-    });
-    $("#modalCRUD").modal("hide");    
-    
-});    
+   
 });
 function getDate(){
     let ahora = new Date();

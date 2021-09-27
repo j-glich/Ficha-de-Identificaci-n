@@ -1,5 +1,6 @@
 <?php require_once "vistas/parte_superiorAlumno.php"?>
-<?php require_once "Registros/control/in_laborales.php"?>
+<?php require_once "Registros/control/in_laborales.php";?>
+
 <link rel="stylesheet" href="../vista/estilos/s_Geolocalizacion.css" />
 <div class="container" id='container'>
     <h1 style="text-align: center;">Ficha de identificación</h1>
@@ -70,6 +71,7 @@
                 $('#estado').css('display','block');
                 $('#estado p').html('Guardando datos...');
               },
+              
               success: function(r){
                 if(r==1){
                   Swal.fire(
