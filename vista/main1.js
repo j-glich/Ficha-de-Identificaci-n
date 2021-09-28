@@ -32,6 +32,27 @@ $("#btnNuevo").click(function(){
     id=null;
     opcion = 1; //alta
 });  
+var fila; //capturar la fila para editar o borrar el registro
+
+//botón EDITAR    
+$(document).on("click", ".btnEditar", function(){
+    fila = $(this).closest("tr");
+    matricula = parseInt(fila.find('td:eq(0)').text());
+    nombre = fila.find('td:eq(1)').text();
+    semestre = fila.find('td:eq(2)').text();
+    correo = fila.find('td:eq(3)').text();
+    $("#matricula").val(matricula);
+    $("#nombre").val(nombre);
+    $("#semestre").val(semestre);
+    $("#correo").val(correo);
+    opcion = 2; //editar
+    
+    $(".modal-header").css("background-color", "#4e73df");
+    $(".modal-header").css("color", "white");
+    $(".modal-title").text("Editar Persona");            
+    $("#modalCRUD").modal("show");  
+    
+});
 $("#btnGuardar").click(function(){  
     matricula = $("#matricula").val();
     nombre = $("#nombre").val();
@@ -39,6 +60,8 @@ $("#btnGuardar").click(function(){
     correo = $("#correo").val();
     semestre = $("#semestre").val();
     activo = $("#activo").val();
+    alert(matricula+" " + nombre +" " + semestre +" "+ opcion);
+
     $.ajax({
         type : 'POST',
         url:'../vista/bd/crud.php',
@@ -61,35 +84,16 @@ $("#btnGuardar").click(function(){
             
             if(opcion == 1){
                 tablaPersonas.row.add([matricula,nombre,semestre,correo]).draw();
-            }
-            else{
-                tablaPersonas.row(fila).data([matricula,nombre,semestre,correo]).draw();}       
+            }else{
+                tablaPersonas.row(fila).data([matricula,nombre,semestre,correo]).draw();
+            }  
         }
+        
     });
     $("#modalCRUD").modal("hide");  
 });    
     
-var fila; //capturar la fila para editar o borrar el registro
 
-//botón EDITAR    
-$(document).on("click", ".btnEditar", function(){
-    fila = $(this).closest("tr");
-    matricula = parseInt(fila.find('td:eq(0)').text());
-    nombre = fila.find('td:eq(1)').text();
-    semestre = fila.find('td:eq(2)').text();
-    correo = fila.find('td:eq(3)').text();
-    $("#matricula").val(matricula);
-    $("#nombre").val(nombre);
-    $("#semestre").val(semestre);
-    $("#correo").val(correo);
-    opcion = 2; //editar
-    
-    $(".modal-header").css("background-color", "#4e73df");
-    $(".modal-header").css("color", "white");
-    $(".modal-title").text("Editar Persona");            
-    $("#modalCRUD").modal("show");  
-    
-});
 
 //botón BORRAR
 $(document).on("click", ".btnBorrar", function(){    
