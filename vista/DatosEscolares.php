@@ -96,16 +96,16 @@
             <div id ='esc1'>
             <label class ='label'>Has estado becado: </label><br>
             <label class='label'>(</label><input  type='radio' id='radio6' name='gru' value="SI" onclick="habilitar('radio8','radio9','radio10','radio11')" ><label class='label'>) Si</label>  &nbsp &nbsp &nbsp
-            <label class='label'>(</label><input  type='radio' id='radio7' name='gru' value="NO" onclick="desahabilitar('radio8','radio9','radio10','radio11','id_beca','id_eti')"  ><label class='label'>) No</label><br>
+            <label class='label'>(</label><input  type='radio' id='radio7' name='gru' value="NO" onclick="desahabilitar('radio8','radio9','radio10','radio11','id_beca','id_eti2')"  ><label class='label'>) No</label><br>
             <label class='label'>Tipo de beca:</label><br>
-            <label class='label'>(</label><input  type='radio' id='radio8' disabled='true' value="Federal" name='grup' onclick="Eliminar1('id_beca','id_eti')"><label class='label'>) Federal</label><br>
-            <label class='label'>(</label><input  type='radio' id='radio9' disabled='true' value="Estatal" name='grup' onclick="Eliminar1('id_beca','id_eti')"><label class='label'>) Estatal</label><br>
-            <label class='label'>(</label><input  type='radio' id='radio10' disabled='true' value="Institucional" name='grup' onclick="Eliminar1('id_beca','id_eti')"><label class='label'>) Institucional</label><br>
-            <label class='label'>(</label><input  type='radio' id='radio11' disabled='true' name='grup' onclick='crearotro()'><label class='label'>) Otra:</label><br>
+            <label class='label'>(</label><input  type='radio' id='radio8' disabled='true' value="Federal" name='grup' onclick="Eliminar1('id_beca','id_eti2')"><label class='label'>) Federal</label><br>
+            <label class='label'>(</label><input  type='radio' id='radio9' disabled='true' value="Estatal" name='grup' onclick="Eliminar1('id_beca','id_eti2')"><label class='label'>) Estatal</label><br>
+            <label class='label'>(</label><input  type='radio' id='radio10' disabled='true' value="Institucional" name='grup' onclick="Eliminar1('id_beca','id_eti2')"><label class='label'>) Institucional</label><br>
+            <label class='label'>(</label><input  type='radio' id='radio11' disabled='true' value='Otro' name='grup' onclick='crearotro()'><label class='label'>) Otra:</label><br>
         </div>
         <br>
         <div id="control" class="form">
-            <select class="textbox" name="vivir" id="vivir">
+            <select class="textbox" name="vivir_con" id="vivir">
                 <option value="Familia">Familia</option>
                 <option value="Parientes">Parientes</option>
                 <option value="Companeros">Compañeros</option>

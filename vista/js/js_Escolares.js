@@ -24,7 +24,7 @@
                 var z = document.createElement('div');
                 z.setAttribute('id','control');
                 z.setAttribute('class','form');
-                z.innerHTML = "<input class='textbox' type='text' autocomplete='off' name='tibeca' id='id_beca' placeholder=' '><label id='id_eti' class='form_label'>Cual?</label>";
+                z.innerHTML = "<input class='textbox' type='text' autocomplete='off' name='tibeca' id='id_beca' placeholder=' '><label id='id_eti2' class='form_label'>Cual?</label>";
                 document.getElementById('esc1').appendChild(z);
                 document.getElementById("radio11").disabled=true;    
             }
