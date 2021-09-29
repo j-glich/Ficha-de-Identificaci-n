@@ -1,11 +1,11 @@
 <?php require_once "vistas/parte_superiorAlumno.php"?>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
-include_once 'C:\xampp\htdocs\ProyectoITSOEH\vista\bd\conexion.php';
+include_once '../vista/bd/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 $matricula =$_SESSION["id_Cliente"];
-$sql = 'CALL cima2.sp_fi_listar_ANGENERALES(?)';
+$sql = 'CALL cima2.sp_fi_listar_ant_generales(?)';
 $stmt = $conexion->prepare($sql);
 //Envio de parametros mediante PDO
 $stmt->bindParam(1, $matricula, PDO::PARAM_STR, 10);
@@ -47,7 +47,7 @@ if ($num_rows > 0){
         $hijos = (isset($_POST['grupo'])) ? $_POST['grupo'] : 'si';
         $Cuantos = (isset($_POST['numhijos'])) ? $_POST['numhijos'] : '0';
         //Invocacion del procedimiento almacenado 
-        $sql = 'CALL sp_in_antecedentes_generales_v2(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+        $sql = 'CALL sp_fi_in_ant_generales(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
         $stmt = $conexion->prepare($sql);
         //Envio de parametros mediante PDO
         $stmt->bindParam(1, $carrera, PDO::PARAM_STR, 45);
