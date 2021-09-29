@@ -60,6 +60,12 @@ switch ($opcion) {
         $stmt->execute();
         $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
         break;
+    case '3':
+        $sql = 'call cima2.sp_fi_de_alumno(?)';
+        $stmt = $conexion->prepare($sql);
+        $stmt->bindParam(1, $matricula, PDO::PARAM_STR, 10);
+        $stmt->execute();
+        break;    
 }
 $conexion = null;
 print json_encode($data, JSON_UNESCAPED_UNICODE);

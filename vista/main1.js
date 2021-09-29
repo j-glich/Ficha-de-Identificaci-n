@@ -4,7 +4,7 @@ $(document).ready(function(){
         "columnDefs":[{
         "targets": -1,
         "data":null,
-        "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-success btnEditar '>Editar</button><button class='btn btn-danger btnBorrar'>Borrar</button></div></div>"  
+        "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-success btnEditar '>Editar</button><button class='btn btn-danger btnBorrar' >Borrar</button></div></div>"  
     }],
         
     "language": {
@@ -60,8 +60,6 @@ $("#btnGuardar").click(function(){
     correo = $("#correo").val();
     semestre = $("#semestre").val();
     activo = $("#activo").val();
-    alert(matricula+" " + nombre +" " + semestre +" "+ opcion);
-
     $.ajax({
         type : 'POST',
         url:'../vista/bd/crud.php',
@@ -92,28 +90,34 @@ $("#btnGuardar").click(function(){
     });
     $("#modalCRUD").modal("hide");  
 });    
-    
-
-
 //botón BORRAR
 $(document).on("click", ".btnBorrar", function(){    
     fila = $(this);
-    id = parseInt($(this).closest("tr").find('td:eq(0)').text());
-    opcion = 3 //borrar
-    var respuesta = confirm("¿Está seguro de eliminar el registro: "+id+"?");
+    matricula = parseInt($(this).closest("tr").find('td:eq(0)').text());
+    opcion = 3; //borrar
+    var respuesta = confirm("¿Está seguro de eliminar el registro: "+matricula+"?");
     if(respuesta){
         $.ajax({
-            url: "bd/crud.php",
+            url: "../vista/bd/crud.php",
             type: "POST",
             dataType: "json",
-            data: {opcion:opcion, id:id},
+            data: {opcion:opcion, matricula:matricula},
             success: function(){
-                tablaPersonas.row(fila.parents('tr')).remove().draw();
+                tablaPersonas.row(fila.parents('tr')).remove().draw();          
             }
         });
-    }   
+    } 
+    location.reload();  
+}); 
+$(document).on("click", "#btnMapa", function(){
+    $(".modal-header").css("background-color", "#4e73df");
+    $(".modal-header").css("color", "white");
+    $(".modal-title").css(" text-align", "center");
+    $(".modal-title").text("Geolocalizacion");            
+    $("#modalCRUD").modal("show");  
+    
 });
-   
+
 });
 function getDate(){
     let ahora = new Date();
