@@ -22,7 +22,7 @@
                 var z = document.createElement('div');
                 z.setAttribute('id','matricula');
                 z.setAttribute('class','form');
-                z.innerHTML = "<input class='textbox' type='text' autocomplete='off' name='Especifique2' id='id_Especificacion3' placeholder=' '><label id='id_eti3' class='form_label'>Especifique:</label>";
+                z.innerHTML = "<input class='textbox' type='text' autocomplete='off' name='Especifique3' id='id_Especificacion3' placeholder=' '><label id='id_eti3' class='form_label'>Especifique:</label>";
                 //label
                 document.getElementById('div').appendChild(z);  
                 document.getElementById("radio15").disabled=true;  
