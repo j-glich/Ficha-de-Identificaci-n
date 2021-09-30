@@ -7,21 +7,22 @@
                 document.getElementById(id2).disabled=true; 
             }
             function crearotro(){
-               //input 
-                var x = document.createElement('input');
-                x.setAttribute('type','text');
-                x.setAttribute('placeholder','Especifique');
-                x.setAttribute('class','controls');
-                x.setAttribute('name','Especifique');
-                x.setAttribute('id','id_Especificacion');
-                document.getElementById('esc3').appendChild(x); 
+                var z = document.createElement('div');
+                z.setAttribute('id','matricula');
+                z.setAttribute('class','form');
+                z.innerHTML = "<input class='textbox' type='text' autocomplete='off' name='Especifique' id='id_Especificacion' placeholder=' '><label id='id_eti1' class='form_label'>Especifique:</label>";
+                //label
+                document.getElementById('esc3').appendChild(z); 
                 document.getElementById("radio11").disabled=true;    
             }
-            function Eliminar3(id){
+            function Eliminar3(id,id1){
                 var x = document.getElementById(id);
-                if(x){
+                var y = document.getElementById(id1);
+                if(x && y){
                     padre = x.parentNode;
                     padre.removeChild(x);
+                    padre1 = y.parentNode;
+                    padre1.removeChild(y);
                     document.getElementById("radio11").disabled=false;                 
                     }
                 }
