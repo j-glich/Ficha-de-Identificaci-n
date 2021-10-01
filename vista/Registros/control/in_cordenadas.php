@@ -34,3 +34,4 @@ $stmt->bindParam(7, $matricula, PDO::PARAM_STR, 70);
 echo  $stmt->execute();
 }
 ?>
+

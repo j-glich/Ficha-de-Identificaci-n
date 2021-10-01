@@ -52,9 +52,9 @@ if ($num_rows > 0){
         $stmt->bindParam(5, $Especifique, PDO::PARAM_STR, 45);
         $stmt->bindParam(6, $ingresofamiliar, PDO::PARAM_STR, 45);
         $stmt->bindParam(7, $ingresopersonal, PDO::PARAM_STR, 45);
-        $stmt->bindParam(8,$domicilio, PDO::PARAM_STR,45);
+        $stmt->bindParam(8, $domicilio, PDO::PARAM_STR,45);
         $stmt->bindParam(9, $padreEscolaridad, PDO::PARAM_STR, 35);
-        $stmt->bindParam(10, $padreEstatus, PDO::PARAM_STR, 15);
+        $stmt->bindParam(10,$padreEstatus, PDO::PARAM_STR, 15);
         $stmt->bindParam(11,$padreocupacion, PDO::PARAM_STR, 45);
         $stmt->bindParam(12,$madreEscolaridad, PDO::PARAM_STR, 35);
         $stmt->bindParam(13,$madreEstatus, PDO::PARAM_STR, 15);

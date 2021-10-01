@@ -215,6 +215,27 @@ var map = new H.Map(document.getElementById('map'),
             cordenads = cordenads.replace("(","");
             cordenads = cordenads.replace("POINT ","");
             var lista = cordenads.split(" ");
+            var geocoder = platform.getGeocodingService()
+            var direccion = lista[1]+","+lista[0];
+            parameters = {
+                prox: direccion,
+                mode: 'retrieveAddresses',
+                maxresults: '1'};
+            geocoder.reverseGeocode(parameters,
+              function (result) {
+                const calle = result.Response.View[0].Result[0].Location.Address.Street;
+                const mun =  result.Response.View[0].Result[0].Location.Address.City;
+                if(calle){
+                  document.getElementById("calle").value = calle;    
+                }else{
+                  const distrito = result.Response.View[0].Result[0].Location.Address.District;
+                  document.getElementById("calle").value = distrito; 
+                }
+                document.getElementById("municipio").value = mun;  
+                             
+              }, function (error) {
+                console.log(error);
+              });
             document.getElementById("cx").value = lista[1].substring(0, 8);
             document.getElementById("cy").value = lista[0].substring(0, 8);    
 
@@ -231,11 +252,33 @@ var map = new H.Map(document.getElementById('map'),
             temp++  
             console.log(aux2+"" + temp + 'click');
             var cordenads =  marker2.getGeometry().toString();
+
+            
             // remover parentisis
             cordenads = cordenads.replace(")","");
             cordenads = cordenads.replace("(","");
             cordenads = cordenads.replace("POINT ","");
             var lista = cordenads.split(" ");
+            var geocoder = platform.getGeocodingService();
+            var direccion = lista[1]+","+lista[0];
+            parameters = {
+                prox: direccion,
+                mode: 'retrieveAddresses',
+                maxresults: '1'};
+            geocoder.reverseGeocode(parameters,
+              function (result) {
+                const calle = result.Response.View[0].Result[0].Location.Address.Street;
+                const mun =  result.Response.View[0].Result[0].Location.Address.City;
+                if(calle){
+                  document.getElementById("calle").value = calle;   
+                }else{
+                  const distrito = result.Response.View[0].Result[0].Location.Address.District;
+                  document.getElementById("calle").value = distrito; 
+                }   
+                document.getElementById("municipio").value = mun;     
+              }, function (error) {
+                console.log(error);
+              });
             document.getElementById("cx").value = lista[1].substring(0, 8);
             document.getElementById("cy").value = lista[0].substring(0, 8);
         } 
