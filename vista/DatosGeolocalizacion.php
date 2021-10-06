@@ -1,11 +1,22 @@
 <?php require_once "vistas/parte_superiorAlumno.php"?>
 <?php require_once "Registros/control/in_laborales.php";?>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/2cs-canvas2image@0.0.2/canvas2image.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <link rel="stylesheet" href="../vista/estilos/s_Geolocalizacion.css" />
+<script type="text/javascript" src="../vista/js//dom-to-image.js"></script>
+<script type="text/javascript" src=""></script>
+<script type="text/javascript" src=""></script>
+
+<h2>Generar Croquis</h2>
+<div class="Pic" id="Pic">
+<canvas id="screenshot"> </canvas>
+
+</div>
 <div class="container" id='container'>
     <h1 style="text-align: center;">Ficha de identificación</h1>
     <h3 style="text-align: center;">Datos de localización</h3>
-    <div id="map"></div>
+    <div id="map" class="map"></div>
     <div id="informacion">
     <form id='formularioGeo' method="post" action = ''>
             <table>
@@ -47,15 +58,16 @@
               </tr> 
               <tr>
                 <td> <button type="submit" id='btn_grabar' class='btn btn-success btn-sm'>Guardar</button></td>
-                <td> <button type="button" class='btn btn-danger btn-sm'>Cancelar</button></td>
+                <td> <button type="button" class='btn btn-danger btn-sm'>Cancelar</button>              </td>
                 </tr>
             </table>
         </form>
+        <button id="capturar"> Capturar img</button>
 </div> 
 <div id="estado" style="display:none;"></div>  
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
   <script>
     $(document).on('click', '#btn_grabar', function(e){
             e.preventDefault();
@@ -98,7 +110,8 @@
             });
 </script>
 <script type="text/javascript">
-
+var itsoehla = 20.20508;
+var itsoehlong =-99.2226;
 var lati = 20.21688898553249;
 var long =-99.20135962073277;
 var platform = new H.service.Platform({apikey: "uATgVUvD_u3aL87IpdbDu-cUs1zNodOcJnF8YWfvJV0"});
@@ -107,16 +120,21 @@ var defaultLayers = platform.createDefaultLayers();
 var map = new H.Map(document.getElementById('map'),
       defaultLayers.vector.normal.map,{
       center: {lat:lati, lng:long},
-      zoom: 13,
+      zoom: 10,
     pixelRatio: window.devicePixelRatio || 1});
     // add a resize listener to make sure that the map occupies the whole container
     window.addEventListener('resize', () => map.getViewPort().resize());
     //Step 3: make the map interactive
     // MapEvents enables the event system
     // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+ 
     // Create the default UI components
     var ui = H.ui.UI.createDefault(map, defaultLayers);
+    
+    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+    const routerService = platform.getRoutingService();
+
+
     // Now use the map as required...
     var aux = 0;
     var auxtemp = 0;
@@ -125,7 +143,18 @@ var map = new H.Map(document.getElementById('map'),
     var marcador3 = [];
     var marcador4 = [];
     var domicilio = "";
+    const ITSOEH = new H.map.Marker({lat: itsoehla, lng: itsoehlong});
     function buscar(id,id1,id2){
+        ITSOEH.setData('<div><a href="http://www.itsoeh.edu.mx/"  target="_blank">ITSOEH</a></div>');
+        ITSOEH.addEventListener("pointermove",event =>{const bubble = new H.ui.InfoBubble(
+        event.target.getGeometry(),
+        {
+          content: event.target.getData()
+        }
+      );
+      ui.addBubble(bubble);
+    }, false);
+    map.addObject(ITSOEH);
         var Calle = document.getElementById(id).value;
         var Municipio = document.getElementById(id1).value;
         var Estado = document.getElementById(id2).value;
@@ -136,6 +165,36 @@ var map = new H.Map(document.getElementById('map'),
               success=>{
                       const location = success.Response.View[0].Result[0].Location.DisplayPosition;
                       const marker1 = new H.map.Marker({lat: location.Latitude, lng: location.Longitude});
+                      const routingline = new H.geo.LineString();
+                      const params ={
+                      mode : "fastest;car;traffic:enabled",
+                      waypoint0: itsoehla + ","+ itsoehlong,
+                      waypoint1: location.Latitude + ","+ location.Longitude,
+                      representation : "display"
+                      };
+                      routerService.calculateRoute(params, success=>{
+                        ruta = success.response.route[0].shape;
+                      ruta.forEach(points =>{
+                        let parts = points.split(",");
+                        routingline.pushPoint({
+                          lat: parts[0],
+                          lng: parts[1]
+                        });
+
+                      });
+                      const rutaestatica = new H.map.Polyline(routingline,{
+                          style:{
+                            lineWidth:5
+                          }
+                        }
+                        );
+                        map.addObject(rutaestatica);
+                        console.log(success.response.route[0].shape);
+                      },
+                      error=>{
+                        console.log(error);
+
+                      });
                       let lat = ""+ location.Latitude;
                       let long = ""+ location.Longitude;
                       document.getElementById("cx").value =  lat.substring(0,8);
@@ -184,11 +243,25 @@ var map = new H.Map(document.getElementById('map'),
     }
     var aux2 =0;
     var temp =0;
+
+  
     map.addEventListener("tap", event=>{
+        const ITSOEH = new H.map.Marker({lat: itsoehla, lng: itsoehlong});
+        ITSOEH.setData('<div><a href="http://www.itsoeh.edu.mx/"  target="_blank">ITSOEH</a></div>');
+        ITSOEH.addEventListener("pointermove",event =>{const bubble = new H.ui.InfoBubble(
+        event.target.getGeometry(),
+        {
+          content: event.target.getData()
+        }
+      );
+      ui.addBubble(bubble);
+    }, false);
+    map.addObject(ITSOEH);
       const position = map.screenToGeo(
         event.currentPointer.viewportX,
         event.currentPointer.viewportY);
         const marker = new H.map.Marker(position);
+
         if (aux2<1) {
           marcador3.push(marker);
           map.addObject(marcador3[0]);   
@@ -232,7 +305,6 @@ var map = new H.Map(document.getElementById('map'),
                   document.getElementById("calle").value = distrito; 
                 }
                 document.getElementById("municipio").value = mun;  
-                             
               }, function (error) {
                 console.log(error);
               });
@@ -283,7 +355,71 @@ var map = new H.Map(document.getElementById('map'),
             document.getElementById("cy").value = lista[0].substring(0, 8);
         } 
       });
-        
-        
+</script>
+<script type="text/javascript">
+ const a = navigator.mediaDevices.getDisplayMedia;
+ const takeScreenShot = async() =>{
+   const stream = await navigator.mediaDevices.getDisplayMedia({
+    video:{mediaSource:'screen'}
+   });
+   const track = stream.getVideoTracks()[0];
+   const image = new ImageCapture(track);
+   const bitmap = await image.grabFrame();
+   track.stop();
+   const canvas = document.getElementById('screenshot');
+   canvas.width = bitmap.width;
+   canvas.height = bitmap.height;
+   const context = canvas.getContext('2d');
+   //void ctx.drawImage(image, dx, dy, dWidth, dHeight);
+   //
+    context.drawImage(bitmap,248,50, 500,450, 250, 100, 500, 400);
+    //void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+  
+   const img = canvas.toDataURL();
+   const res = await fetch(img);
+   const buff = await res.arrayBuffer();
+   const file = [
+     new File([buff],'photo_${new Date()}.jpg',{
+       type:'image/jpeg'
+     })
+   ];
+return file;
+ };
+
+              
+$("#capturar").click(function(){
+ takeScreenShot();
+    // Base64DataURL
+
+  //$.ajax({
+ // url: 'https://image.maps.ls.hereapi.com/mia/1.6/mapview',
+ // type: 'GET',
+ // data: {
+   // apiKey: 'uATgVUvD_u3aL87IpdbDu-cUs1zNodOcJnF8YWfvJV0'
+  //},
+  //success: function (data) {
+   // console.log(JSON.stringify(data));
+ // }
+//});
+      // inserta la imagen en html
+   //    var node = document.getElementById('map');
+     //   domtoimage.toPng(node).then(function (dataUrl) {
+       //                var img = new Image();
+         //                img.src = dataUrl;
+           //              document.getElementById("Pic").appendChild(img);
+             //        });
+
+  
+//const $boton = document.querySelector("#capturar"), // El botón que desencadena
+  //$objetivo = document.querySelector("#map"), // A qué le tomamos la foto
+ // $contenedorCanvas = document.querySelector("#Pic"); // En dónde ponemos el elemento canvas
+// Agregar el listener al botón/
+//$boton.addEventListener("click", () => {
+ // html2canvas($objetivo,{allowTaint: true, useCORS: true }).then(canvas => {
+//var imgData = canvas.toDataURL('image/jpeg');
+//$contenedorCanvas.appendChild(canvas); // Lo agregamos como hijo del di
+//});
+
+});
 </script>
 <?php require_once "vistas\parte_inferior.php"?>

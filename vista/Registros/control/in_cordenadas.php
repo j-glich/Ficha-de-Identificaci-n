@@ -1,5 +1,5 @@
 <?php
-include_once '../Ficha/vista/bd/conexion.php';
+include_once '../vista/bd/conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 $matricula = (isset($_POST['matricula'])) ? $_POST['matricula'] : '';
