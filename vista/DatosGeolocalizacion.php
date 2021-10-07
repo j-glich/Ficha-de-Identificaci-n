@@ -73,12 +73,13 @@
             e.preventDefault();
             var calle = $('#calle').val(), municipio = $('#municipio').val(), estado= $('#estado1').val();
             var tutor = $('#nombreTutor').val(), telCasa = $('#telCasa').val(), telMovil= $('#telMovil').val() , cx= $('#cx').val(), cy= $('#cy').val();
+            var img =$('#screenshot');
             //alert(calle + municipio + estado + tutor + telMovil + telCasa);
             var matricula = <?php  echo $_SESSION['id_Cliente']  ?>;
             $.ajax({
               url: '../vista/Registros/control/in_cordenadas.php', // Es importante que la ruta sea correcta si no, no se va a ejecutar
               method: 'POST',
-              data: { calle:calle, municipio:municipio ,estado:estado , cx:cx , cy:cy , tutor:tutor, telCasa:telCasa , telMovil:telMovil, matricula:matricula},
+              data: { img :img ,calle:calle, municipio:municipio ,estado:estado , cx:cx , cy:cy , tutor:tutor, telCasa:telCasa , telMovil:telMovil, matricula:matricula},
               beforeSend: function(){
                 $('#estado').css('display','block');
                 $('#estado p').html('Guardando datos...');
@@ -133,17 +134,24 @@ var map = new H.Map(document.getElementById('map'),
     
     var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
     const routerService = platform.getRoutingService();
-
-
     // Now use the map as required...
-    var aux = 0;
-    var auxtemp = 0;
+    //Variables auxiliares para ciclar el proceso
+    var axbuscar = 0;
+    var tempbucar = 0;
+    var axclick =0;
+    var tempclick =0;
+    //Variables que almacenan temporal el objeto marker o marcador 
     var marcador1 = [];
     var marcador2 = [];
     var marcador3 = [];
     var marcador4 = [];
+     //Variables que almacenan temporal el dibujo del ruteo de ubicacion
+    var objrouting= [];
+    var objrouting1 = [];
     var domicilio = "";
+   
     const ITSOEH = new H.map.Marker({lat: itsoehla, lng: itsoehlong});
+    
     function buscar(id,id1,id2){
         ITSOEH.setData('<div><a href="http://www.itsoeh.edu.mx/"  target="_blank">ITSOEH</a></div>');
         ITSOEH.addEventListener("pointermove",event =>{const bubble = new H.ui.InfoBubble(
@@ -159,7 +167,8 @@ var map = new H.Map(document.getElementById('map'),
         var Municipio = document.getElementById(id1).value;
         var Estado = document.getElementById(id2).value;
         domicilio = Calle+","+Municipio+","+Estado;
-        if(aux<1){
+        //Si axbuscar = 0 < 1 entra 
+        if(axbuscar<1){
           const geocoderService = platform.getGeocodingService();
           geocoderService.geocode({"searchtext":domicilio},
               success=>{
@@ -168,8 +177,8 @@ var map = new H.Map(document.getElementById('map'),
                       const routingline = new H.geo.LineString();
                       const params ={
                       mode : "fastest;car;traffic:enabled",
-                      waypoint0: itsoehla + ","+ itsoehlong,
-                      waypoint1: location.Latitude + ","+ location.Longitude,
+                      waypoint0: location.Latitude + ","+ location.Longitude,
+                      waypoint1: itsoehla + ","+ itsoehlong,
                       representation : "display"
                       };
                       routerService.calculateRoute(params, success=>{
@@ -182,67 +191,111 @@ var map = new H.Map(document.getElementById('map'),
                         });
 
                       });
-                      const rutaestatica = new H.map.Polyline(routingline,{
+                          const rutaestatica = new H.map.Polyline(routingline,{
                           style:{
                             lineWidth:5
                           }
                         }
                         );
-                        map.addObject(rutaestatica);
+                        objrouting.push(rutaestatica);
+                        map.addObject(objrouting[0]);  
+                        
+                        console.log(success.response.route[0].shape);
+                      },
+                      error=>{console.log(error);});
+
+                      let lat = ""+ location.Latitude;
+                      let long = ""+ location.Longitude;
+                      document.getElementById("cx").value =  lat.substring(0,8);
+                      document.getElementById("cy").value =  long.substring(0,8);
+                      // Se crea el primer marcador en Marcador1[0]
+                      marcador1.push(marker1);
+                      map.addObject(marcador1[0]);    
+                      // Termina el marcador
+                      },
+                          error=>{ console.error(error);});
+                          // se incrmenta la variable axbuscar paara entra al else
+                      axbuscar++;
+                      //
+                      if(tempbucar==1){
+                        map.removeObject(marcador2[0]);
+                        marcador2.pop();
+                        map.removeObject(objrouting[0]);
+                        objrouting.pop()
+                        tempbucar--;
+                      }
+                      if(axclick == 1){
+                        axclick--;
+                        map.removeObject(marcador3[0]);
+                        marcador3.pop();  
+                        map.removeObject(objrouting1[0]);
+                        objrouting1.pop();
+                      }
+                      console.log(axbuscar+""+ tempbucar + 'buscar');   
+                      if(tempclick ==1){
+                        tempclick--;
+                        map.removeObject(marcador4[0]);
+                        marcador4.pop();  
+                        map.removeObject(objrouting1[0]);
+                        objrouting1.pop();
+                      }
+        }else{
+          axbuscar--;
+          map.removeObject(objrouting[0]);
+          objrouting.pop();
+          map.removeObject(marcador1[0]);
+          marcador1.pop(); 
+         
+        const geocoderService = platform.getGeocodingService();
+          geocoderService.geocode({"searchtext":domicilio},
+              success=>{
+                  const location = success.Response.View[0].Result[0].Location.DisplayPosition;
+                  const marker1 = new H.map.Marker({lat: location.Latitude, lng: location.Longitude});
+                  const routingline = new H.geo.LineString();
+                      let lat = ""+ location.Latitude;
+                      let long = ""+ location.Longitude;
+                      const params ={
+                      mode : "fastest;car;traffic:enabled",
+                      waypoint0: location.Latitude + ","+ location.Longitude,
+                      waypoint1: itsoehla + ","+ itsoehlong,
+                      representation : "display"
+                      };
+                      routerService.calculateRoute(params, success=>{
+                        ruta = success.response.route[0].shape;
+                      ruta.forEach(points =>{
+                        let parts = points.split(",");
+                        routingline.pushPoint({
+                          lat: parts[0],
+                          lng: parts[1]
+                        });
+
+                      });
+                          const rutaestatica = new H.map.Polyline(routingline,{
+                          style:{
+                            lineWidth:5
+                          }
+                        }
+                        );
+                        objrouting.push(rutaestatica);
+                        map.addObject(objrouting[0]);  
+                        
                         console.log(success.response.route[0].shape);
                       },
                       error=>{
                         console.log(error);
 
                       });
-                      let lat = ""+ location.Latitude;
-                      let long = ""+ location.Longitude;
-                      document.getElementById("cx").value =  lat.substring(0,8);
-                      document.getElementById("cy").value =  long.substring(0,8);
-                      marcador1.push(marker1);
-                      map.addObject(marcador1[0]);    
-                      },
-              error=>{ console.error(error);});
-                      aux++;
-                      if(auxtemp==1){
-                        map.removeObject(marcador2[0]);
-                        marcador2.pop();
-                        auxtemp--;
-                      }
-                      if(aux2 == 1){
-                        aux2--;
-                        map.removeObject(marcador3[0]);
-                        marcador3.pop();  
-                      }
-                      console.log(aux+""+ auxtemp + 'buscar');   
-                      if(temp ==1){
-                        temp--;
-                        map.removeObject(marcador4[0]);
-                        marcador4.pop();  
-                      }
-        }else{
-          aux--;
-          map.removeObject(marcador1[0]);
-          marcador1.pop(); 
-        const geocoderService = platform.getGeocodingService();
-          geocoderService.geocode({"searchtext":domicilio},
-              success=>{
-                  const location = success.Response.View[0].Result[0].Location.DisplayPosition;
-                  const marker1 = new H.map.Marker({lat: location.Latitude, lng: location.Longitude});
-                      let lat = ""+ location.Latitude;
-                      let long = ""+ location.Longitude;
                       document.getElementById("cx").value =  lat.substring(0,8);
                       document.getElementById("cy").value =  long.substring(0,8);
                   marcador2.push(marker1);
                   map.addObject(marcador2[0]);    
                       },
           error=>{ console.error(error);});
-          auxtemp++;
-          console.log(aux+"" + auxtemp + 'buscar');   
+          tempbucar++;
+          console.log(axbuscar+"" + tempbucar + 'buscar');   
           }
     }
-    var aux2 =0;
-    var temp =0;
+   
 
   
     map.addEventListener("tap", event=>{
@@ -260,27 +313,34 @@ var map = new H.Map(document.getElementById('map'),
       const position = map.screenToGeo(
         event.currentPointer.viewportX,
         event.currentPointer.viewportY);
+        
         const marker = new H.map.Marker(position);
 
-        if (aux2<1) {
+        if (axclick<1) {
           marcador3.push(marker);
           map.addObject(marcador3[0]);   
-          aux2++;
-          if(temp==1){
-            temp--;
+          axclick++;
+          if(tempclick==1){
+            tempclick--;
             map.removeObject(marcador4[0]);
             marcador4.pop();
+            map.removeObject(objrouting1[0]);
+            objrouting1.pop() ;
           }
-            console.log(aux2+"" + temp + 'click'); 
-            if(aux == 1){
-            aux--;
+            console.log(axclick+"" + tempclick + 'click'); 
+            if(axbuscar == 1){
+            axbuscar--;
             map.removeObject(marcador1[0]);
-            marcador1.pop();  
+            marcador1.pop(); 
+            map.removeObject(objrouting[0]);
+            objrouting.pop() ;
                       }  
-            if(auxtemp == 1){
-            auxtemp--;
+            if(tempbucar == 1){
+            tempbucar--;
             map.removeObject(marcador2[0]);
-            marcador2.pop();  
+            marcador2.pop(); 
+            map.removeObject(objrouting[0]);
+            objrouting.pop() ; 
                       }        
           var cordenads =  marker.getGeometry().toString();
             // remover parentisis
@@ -309,23 +369,52 @@ var map = new H.Map(document.getElementById('map'),
                 console.log(error);
               });
             document.getElementById("cx").value = lista[1].substring(0, 8);
-            document.getElementById("cy").value = lista[0].substring(0, 8);    
+            document.getElementById("cy").value = lista[0].substring(0, 8);   
+            const routingline = new H.geo.LineString();
+                      const params ={
+                      mode : "fastest;car;traffic:enabled",
+                      waypoint0: lista[1].substring(0, 8) + ","+ lista[0].substring(0, 8),
+                      waypoint1: itsoehla + ","+ itsoehlong,
+                      representation : "display"
+                      };
+                      routerService.calculateRoute(params, success=>{
+                        ruta = success.response.route[0].shape;
+                      ruta.forEach(points =>{
+                        let parts = points.split(",");
+                        routingline.pushPoint({
+                          lat: parts[0],
+                          lng: parts[1]
+                        });
 
+                      });
+                          const rutaestatica = new H.map.Polyline(routingline,{
+                          style:{
+                            lineWidth:5
+                          }
+                        }
+                        );
+                        objrouting1.push(rutaestatica);
+                        map.addObject(objrouting1[0]);  
+                        
+                        console.log(success.response.route[0].shape);
+                      },
+                      error=>{console.log(error);}); 
+            
         }else{
-          aux2--;
+          axclick--;
           map.removeObject(marcador3[0]);
           marcador3.pop();  
+          map.removeObject(objrouting1[0]);
+          objrouting1.pop() ;
           const position = map.screenToGeo(
             event.currentPointer.viewportX,
             event.currentPointer.viewportY);
             const marker2 = new H.map.Marker(position);
             marcador4.push(marker2);
             map.addObject(marcador4[0]);
-            temp++  
-            console.log(aux2+"" + temp + 'click');
+            tempclick++  
+            console.log(axclick+"" + tempclick + 'click');
             var cordenads =  marker2.getGeometry().toString();
-
-            
             // remover parentisis
             cordenads = cordenads.replace(")","");
             cordenads = cordenads.replace("(","");
@@ -353,6 +442,35 @@ var map = new H.Map(document.getElementById('map'),
               });
             document.getElementById("cx").value = lista[1].substring(0, 8);
             document.getElementById("cy").value = lista[0].substring(0, 8);
+            const routingline = new H.geo.LineString();
+                      const params ={
+                      mode : "fastest;car;traffic:enabled",
+                      waypoint0: lista[1].substring(0, 8) + ","+ lista[0].substring(0, 8),
+                      waypoint1: itsoehla + ","+ itsoehlong,
+                      representation : "display"
+                      };
+                      routerService.calculateRoute(params, success=>{
+                        ruta = success.response.route[0].shape;
+                      ruta.forEach(points =>{
+                        let parts = points.split(",");
+                        routingline.pushPoint({
+                          lat: parts[0],
+                          lng: parts[1]
+                        });
+
+                      });
+                          const rutaestatica = new H.map.Polyline(routingline,{
+                          style:{
+                            lineWidth:5
+                          }
+                        }
+                        );
+                        objrouting1.push(rutaestatica);
+                        map.addObject(objrouting1[0]);  
+                        
+                        console.log(success.response.route[0].shape);
+                      },
+                      error=>{console.log(error);}); 
         } 
       });
 </script>
