@@ -108,9 +108,9 @@
             <select class="textbox" name="vivir_con" id="vivir">
                 <option value="Familia">Familia</option>
                 <option value="Parientes">Parientes</option>
-                <option value="Companeros">Compañeros</option>
+                <option value="Compañeros">Compañeros</option>
                 <option value="Solo">Solo</option>
-                <option value="Cambiaras De Residencia">Cambiaras de residencia</option>
+                <option value="Cambiaras De Residencia">Cambiarás de residencia</option>
             </select>
                     <label class="form_label">En el transcurso de tus estudios viviras con:</label>
                 </div>

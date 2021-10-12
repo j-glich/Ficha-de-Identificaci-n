@@ -73,19 +73,19 @@
             e.preventDefault();
             var calle = $('#calle').val(), municipio = $('#municipio').val(), estado= $('#estado1').val();
             var tutor = $('#nombreTutor').val(), telCasa = $('#telCasa').val(), telMovil= $('#telMovil').val() , cx= $('#cx').val(), cy= $('#cy').val();
-            var img =$('#screenshot');
             //alert(calle + municipio + estado + tutor + telMovil + telCasa);
             var matricula = <?php  echo $_SESSION['id_Cliente']  ?>;
             $.ajax({
               url: '../vista/Registros/control/in_cordenadas.php', // Es importante que la ruta sea correcta si no, no se va a ejecutar
               method: 'POST',
-              data: { img :img ,calle:calle, municipio:municipio ,estado:estado , cx:cx , cy:cy , tutor:tutor, telCasa:telCasa , telMovil:telMovil, matricula:matricula},
+              data: {calle:calle, municipio:municipio ,estado:estado , cx:cx , cy:cy , tutor:tutor, telCasa:telCasa , telMovil:telMovil, matricula:matricula},
               beforeSend: function(){
                 $('#estado').css('display','block');
                 $('#estado p').html('Guardando datos...');
               },
               
               success: function(r){
+                console.log(r);
                 if(r==1){
                   Swal.fire(
                     "Registro Exitoso",
@@ -121,7 +121,7 @@ var defaultLayers = platform.createDefaultLayers();
 var map = new H.Map(document.getElementById('map'),
       defaultLayers.vector.normal.map,{
       center: {lat:lati, lng:long},
-      zoom: 10,
+      zoom: 14,
     pixelRatio: window.devicePixelRatio || 1});
     // add a resize listener to make sure that the map occupies the whole container
     window.addEventListener('resize', () => map.getViewPort().resize());
@@ -151,8 +151,9 @@ var map = new H.Map(document.getElementById('map'),
     var domicilio = "";
    
     const ITSOEH = new H.map.Marker({lat: itsoehla, lng: itsoehlong});
-    
+    //Metodo buscar se puede ejecutar cuanta veses sea nesesario
     function buscar(id,id1,id2){
+      //Etiqueta que permite darle un mesaje al marcador
         ITSOEH.setData('<div><a href="http://www.itsoeh.edu.mx/"  target="_blank">ITSOEH</a></div>');
         ITSOEH.addEventListener("pointermove",event =>{const bubble = new H.ui.InfoBubble(
         event.target.getGeometry(),
@@ -494,6 +495,18 @@ var map = new H.Map(document.getElementById('map'),
     //void ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
   
    const img = canvas.toDataURL();
+   $.ajax({
+        url:"../vista/Registros/control/in_cordenadas.php",
+        // Enviar un parámetro post con el nombre base64 y con la imagen en el
+        data:{
+            9: img
+        },
+        // Método POST
+        type:"post",
+        complete:function(){
+            console.log("Todo en orden");
+        }
+    });
    const res = await fetch(img);
    const buff = await res.arrayBuffer();
    const file = [
@@ -501,7 +514,11 @@ var map = new H.Map(document.getElementById('map'),
        type:'image/jpeg'
      })
    ];
+   console.log(file);
 return file;
+
+
+
  };
 
               

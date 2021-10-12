@@ -65,7 +65,14 @@ switch ($opcion) {
         $stmt = $conexion->prepare($sql);
         $stmt->bindParam(1, $matricula, PDO::PARAM_STR, 10);
         $stmt->execute();
-        break;    
+        break; 
+    case '4':
+        $sql = "call cima2.sp_fi_listar_reporte_ficha2()";
+        $stmt = $conexion->prepare($sql);
+        $stmt->execute();
+        $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        break; 
+
 }
 $conexion = null;
 print json_encode($data, JSON_UNESCAPED_UNICODE);

@@ -93,41 +93,16 @@ $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" style="text-align: center" id="exampleModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        <form id="formPersonas" method="POST">    
-            <div class="modal-body">
-                <h1 class="title__modal">  Geolocalizacion de Alumnos</h1>
-                <div id="map" class="mapa"></div>
-            </div>              
-            </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>   
+            <div id='map' class="modal-body">
+              
+            </div>            
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
                 <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
             </div>
-        </form>    
+ 
         </div>
     </div>
 </div>  
-<script type="text/javascript">
-
-var lati = 20.21688898553249;
-var long =-99.20135962073277;
-var platform = new H.service.Platform({apikey: "uATgVUvD_u3aL87IpdbDu-cUs1zNodOcJnF8YWfvJV0"});
-var defaultLayers = platform.createDefaultLayers();
-//Step 2: initialize a map - this map is centered over Europe
-var map = new H.Map(document.getElementById('map'),
-defaultLayers.vector.normal.map,{
-    center: {lat:lati, lng:long},
-    zoom: 13,
-    pixelRatio: window.devicePixelRatio || 1});
-    // add a resize listener to make sure that the map occupies the whole container
-    window.addEventListener('resize', () => map.getViewPort().resize());
-    //Step 3: make the map interactive
-    // MapEvents enables the event system
-    // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-    // Create the default UI components
-    var ui = H.ui.UI.createDefault(map, defaultLayers);
-</script>
