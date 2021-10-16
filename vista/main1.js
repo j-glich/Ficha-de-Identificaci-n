@@ -108,57 +108,7 @@ $(document).on("click", ".btnBorrar", function(){
         });
     } 
     location.reload();  
-}); 
-$(document).on("click", "#btnMapa", function(){
-    opcion = 4;
-    $(".modal-header").css("background-color", "#4e73df");
-    $(".modal-header").css("color", "white");
-    $(".modal-title").css(" text-align", "center");
-    $(".modal-title").text("Geolocalizacion");            
-    $("#modalCRUD").modal("show");  
-
-    $.ajax({
-        url: "../vista/bd/crud.php",
-        type: "POST",
-        dataType: "json",
-        data: {opcion:opcion},
-        success: function(data){
-            console.log(data);
-
-        }
-    });
-
-    $("#modalCRUD").on('shown.bs.modal', function () {
-
-        var itsoehla = 20.20508;
-        var itsoehlong =-99.2226;
-        var lati = 20.21688898553249;
-        var long =-99.20135962073277;
-        var platform = new H.service.Platform({apikey: "uATgVUvD_u3aL87IpdbDu-cUs1zNodOcJnF8YWfvJV0"});
-        var defaultLayers = platform.createDefaultLayers();
-        //Step 2: initialize a map - this map is centered over Europe
-        var map = new H.Map(document.getElementById('map'),
-            defaultLayers.vector.normal.map,{
-            center: {lat:lati, lng:long},
-            zoom: 14,
-        pixelRatio: window.devicePixelRatio || 1});
-        // add a resize listener to make sure that the map occupies the whole container
-        window.addEventListener('resize', () => map.getViewPort().resize());
-        //Step 3: make the map interactive
-        // MapEvents enables the event system
-        // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-
-        // Create the default UI components
-        var ui = H.ui.UI.createDefault(map, defaultLayers);
-
-        var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-       
-    
-    });
-
-
 });
-
 });
 var doc = new jsPDF();
 function getDate(){
@@ -944,7 +894,58 @@ $(document).ready(function(){
             "sProcessing":"Procesando...",
         }
     });
+    auxtemp =0;
+    $(document).on("click", "#btnMapa", function(){
+        opcion = 2;
+        
+        $(".modal-header").css("background-color", "#4e73df");
+        $(".modal-header").css("color", "white");
+        $(".modal-title").css(" text-align", "center");
+        $(".modal-title").text("Geolocalizacion");            
+        $("#modalCRUD").modal("show");  
 
+        
+
+        $("#modalCRUD").on('shown.bs.modal', function () {    
+            if (auxtemp < 1 ) {
+            var itsoehla = 20.20508;
+            var itsoehlong =-99.2226;
+            var lati = 20.21688898553249;
+            var long =-99.20135962073277;
+            var platform = new H.service.Platform({apikey: "uATgVUvD_u3aL87IpdbDu-cUs1zNodOcJnF8YWfvJV0"});
+            var defaultLayers = platform.createDefaultLayers();
+            //Step 2: initialize a map - this map is centered over Europe
+            var map = new H.Map(document.getElementById('map'),
+                defaultLayers.vector.normal.map,{
+                center: {lat:lati, lng:long},
+                zoom: 14,
+            pixelRatio: window.devicePixelRatio || 1});
+            // add a resize listener to make sure that the map occupies the whole container
+            window.addEventListener('resize', () => map.getViewPort().resize());
+            //Step 3: make the map interactive
+            // MapEvents enables the event system
+            // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+            // Create the default UI components
+            var ui = H.ui.UI.createDefault(map, defaultLayers);
+            var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+            $.ajax({
+                url: "bd/intento1.php",
+                type: "POST",
+                dataType: "json",
+                data: {opcion:opcion},
+                success: function(data){
+                    console.log(data);                    
+                    var lat = data[0].ANLO_LATITUDE;
+                    var lon = data[0].ANLO_LOGITUDE;
+                    const micasa = new H.map.Marker({lat: lat, lng: lon});
+                    map.addObject(micasa);
+                }
+            });
+            auxtemp++;
+            console.log(auxtemp);
+        }
+        });
+    });
 //botón BORRAR
 $(document).on("click", ".generarPDF", function(){    
     id = parseInt($(this).closest("tr").find('td:eq(0)').text());
@@ -1024,8 +1025,9 @@ $(document).on("click", ".generarPDF", function(){
                 });
             }
         });
+    
 });
-
+    
 });
 
 
