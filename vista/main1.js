@@ -895,17 +895,14 @@ $(document).ready(function(){
         }
     });
     auxtemp =0;
+    auxtempinfo = 0;
     $(document).on("click", "#btnMapa", function(){
         opcion = 2;
-        
         $(".modal-header").css("background-color", "#4e73df");
         $(".modal-header").css("color", "white");
         $(".modal-title").css(" text-align", "center");
-        $(".modal-title").text("Geolocalizacion");            
+        $(".modal-title").text("Geolocalizacion");     
         $("#modalCRUD").modal("show");  
-
-        
-
         $("#modalCRUD").on('shown.bs.modal', function () {    
             if (auxtemp < 1 ) {
             var itsoehla = 20.20508;
@@ -918,7 +915,7 @@ $(document).ready(function(){
             var map = new H.Map(document.getElementById('map'),
                 defaultLayers.vector.normal.map,{
                 center: {lat:lati, lng:long},
-                zoom: 14,
+                zoom: 10,
             pixelRatio: window.devicePixelRatio || 1});
             // add a resize listener to make sure that the map occupies the whole container
             window.addEventListener('resize', () => map.getViewPort().resize());
@@ -927,24 +924,127 @@ $(document).ready(function(){
             // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
             // Create the default UI components
             var ui = H.ui.UI.createDefault(map, defaultLayers);
-            var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+            var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));   
+            
             $.ajax({
                 url: "bd/intento1.php",
                 type: "POST",
                 dataType: "json",
                 data: {opcion:opcion},
                 success: function(data){
-                    console.log(data);                    
-                    var lat = data[0].ANLO_LATITUDE;
-                    var lon = data[0].ANLO_LOGITUDE;
-                    const micasa = new H.map.Marker({lat: lat, lng: lon});
-                    map.addObject(micasa);
+                    opcion = 5;
+                    var marcadores = [];
+                    console.log(data);  
+                    tam = data.length;
+                    for (var i = 0; i < tam; i++) {
+                        //recolar informacion de los usuarios por medio del json para crear variables independiestes
+                        var lat = data[i].ANLO_LATITUDE;
+                        var lon = data[i].ANLO_LOGITUDE;
+                        var matricula = data[i].ANLO_AL_MATRICULA;
+                        //Generacion de los maracador de usuarios individualment
+                        const micasa = new H.map.Marker({lat: lat, lng: lon});
+                        //agregramos el marcador en un arreglo dimensional agregamos con el metodo push
+                        marcadores.push(micasa);
+                        //asignamos la data que trarera individualmente la informacion del usuario
+                        marcadores[i].setData(matricula);
+                        marcadores[i].addEventListener("tap",
+                        event =>{
+                            let id = event.target.getData()
+                            $(".modal-header1").css("background-color", "#4e73df");
+                            $(".modal-header1").css("color", "white");
+                            $(".modal-title1").text(event.target.getData());            
+                            $("#modalUsuario").modal("show");  
+                            $.ajax({
+                                url: "bd/intento1.php",
+                                type: "POST",
+                                dataType: "json",
+                                data: {opcion:opcion, id:id},
+                                success: function(data){
+                                    console.log(data);
+                                    if(auxtempinfo < 1 ){
+                                        var nom__alumno = document.createElement("label");
+                                        var calle__alumno = document.createElement("label");
+                                        var municipio__alumno = document.createElement("label");
+                                        var br = document.createElement("br");
+                                        br.setAttribute('id','id__br');
+                                        var br1 = document.createElement("br");
+                                        br1.setAttribute('id','id__br1');
+
+                                        
+                                        nom__alumno.setAttribute('id','id__nombre');
+                                        nom__alumno.innerHTML ="Alumn@: " + data[0].ANG_NOMBRE + "<br />";
+                                        
+                                        calle__alumno.setAttribute('id','id__calle');
+                                        calle__alumno.innerHTML = "Calle: " + data[0].ANLO_CALLE + "<br />";
+                                        
+                                        municipio__alumno.setAttribute('id','id__municipio');
+                                        municipio__alumno.innerHTML = "Municipio: " + data[0].ANLO_MUNICIPIO + "<br />";
+
+                                        document.getElementById('body').appendChild(nom__alumno);
+                                        document.getElementById('body').appendChild(br);
+                                        document.getElementById('body').appendChild(calle__alumno);
+                                        document.getElementById('body').appendChild(br1);
+                                        document.getElementById('body').appendChild(municipio__alumno);
+                                        auxtempinfo ++;
+                                    }
+                                }
+                            });
+                            jQuery('#modalUsuario').on('hidden.bs.modal', function (e) {
+                                auxtempinfo--;
+                                var a = document.getElementById('id__nombre');
+                                var b = document.getElementById('id__calle');
+                                var c = document.getElementById('id__municipio');
+                                var d = document.getElementById('id__br');
+                                var e = document.getElementById('id__br1');
+                                if(a && b && c && d && e){            
+                                        padre = a.parentNode;
+                                        padre.removeChild(a);
+                                        padre1 = b.parentNode;
+                                        padre1.removeChild(b);
+                                        padre2 = c.parentNode;
+                                        padre2.removeChild(c);
+                                        padre3 = d.parentNode;
+                                        padre3.removeChild(d);
+                                        padre4 = e.parentNode;
+                                        padre4.removeChild(e);
+                                        
+                                    }
+                            });
+                           
+                            const bubble = new H.ui.InfoBubble(event.target.getGeometry(), {
+                                 content: event.target.getData()});
+                             ui.addBubble(bubble);
+                            }, false);
+                             //por utimo agregamos al mapa el objeto marcadores para  poder visualizar el ma    
+                        map.addObject(marcadores[i]);  
+                     }
                 }
             });
             auxtemp++;
             console.log(auxtemp);
         }
         });
+    });
+    jQuery('#modalCRUD').on('hidden.bs.modal', function (e) {
+        auxtemp--;
+        var a = document.getElementById('id__nombre');
+        var b = document.getElementById('id__calle');
+        var c = document.getElementById('id__municipio');
+        var d = document.getElementById('id__br');
+        var e = document.getElementById('id__br1');
+        if(a && b && c && d && e){            
+                padre = a.parentNode;
+                padre.removeChild(a);
+                padre1 = b.parentNode;
+                padre1.removeChild(b);
+                padre2 = c.parentNode;
+                padre2.removeChild(c);
+                padre3 = d.parentNode;
+                padre3.removeChild(d);
+                padre4 = e.parentNode;
+                padre4.removeChild(e);
+                
+            }
     });
 //botón BORRAR
 $(document).on("click", ".generarPDF", function(){    

@@ -21,7 +21,6 @@ if($_SESSION["id_Cliente"] === null){
   <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
   <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
   <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-
   <title>ITSOEH  - Dashboard</title>
 
   <!-- Custom fonts for this template-->
@@ -85,10 +84,8 @@ if($_SESSION["id_Cliente"] === null){
           </div>
         </div>
       </li>
-
-
-    
-
+      <i class="bi bi-display"></i>
+      
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
