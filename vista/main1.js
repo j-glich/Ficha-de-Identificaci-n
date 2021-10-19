@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+
     tablaPersonas = $("#tablaPersonas").DataTable({
         "columnDefs":[{
         "targets": -1,
@@ -53,13 +54,14 @@ $(document).on("click", ".btnEditar", function(){
     $("#modalCRUD").modal("show");  
     
 });
-$("#btnGuardar").click(function(){  
-    matricula = $("#matricula").val();
-    nombre = $("#nombre").val();
-    plan = $("#plan-academico").val();
-    correo = $("#correo").val();
-    semestre = $("#semestre").val();
-    activo = $("#activo").val();
+$("#btnGuardar").click(function(e){   
+    e.preventDefault(); 
+    matricula = $.trim($("#matricula").val());
+    nombre = $.trim($("#nombre").val());
+    plan = $.trim($("#plan-academico").val());
+    correo = $.trim($("#correo").val());
+    semestre = $.trim($("#semestre").val());
+    activo = $.trim($("#activo").val());
     $.ajax({
         type : 'POST',
         url:'../vista/bd/crud.php',
@@ -75,25 +77,26 @@ $("#btnGuardar").click(function(){
         dataType: 'JSON',
         success: function(data){
             console.log(data);
-            matricula = data[0].AL_MATRICULA;
-            nombre = data[0].AL_NOM_ALUMNO;
-            semestre = data[0].AL_SEMESTRE;
-            correo = data[0].ALCORREO;
+            matricula = "" +data[0].AL_MATRICULA;
+            nombre = "" + data[0].AL_NOM_ALUMNO;
+            semestre = "" + data[0].AL_SEMESTRE;
+            correo = "" + data[0].AL_CORREO;
             
             if(opcion == 1){
                 tablaPersonas.row.add([matricula,nombre,semestre,correo]).draw();
-            }else{
+            }else if (opcion == 2){
                 tablaPersonas.row(fila).data([matricula,nombre,semestre,correo]).draw();
             }  
         }
         
     });
+    
     $("#modalCRUD").modal("hide");  
 });    
 //botón BORRAR
-$(document).on("click", ".btnBorrar", function(){    
+$(document).on("click", ".btnBorrar", function(){
     fila = $(this);
-    matricula = parseInt($(this).closest("tr").find('td:eq(0)').text());
+    matricula = $(this).closest("tr").find('td:eq(0)').text();
     opcion = 3; //borrar
     var respuesta = confirm("¿Está seguro de eliminar el registro: "+matricula+"?");
     if(respuesta){
@@ -103,11 +106,14 @@ $(document).on("click", ".btnBorrar", function(){
             dataType: "json",
             data: {opcion:opcion, matricula:matricula},
             success: function(){
-                tablaPersonas.row(fila.parents('tr')).remove().draw();          
+                tablaPersonas.row(fila.parents('tr')).remove().draw(); 
+                tablaPersonas.ajax.reload();   
             }
         });
+        setTimeout(() => {
+            window.location.reload();
+        }, 2500);
     } 
-    location.reload();  
 });
 });
 var doc = new jsPDF();
@@ -872,7 +878,7 @@ function genPDF(
    
 }
 $(document).ready(function(){
-    tablaPersonas = $("#tablaPersonas2").DataTable({
+    tablaPersonas1 = $("#tablaPersonas2").DataTable({
         "columnDefs":[{
         "targets": -1,
         "data":null,
@@ -896,36 +902,43 @@ $(document).ready(function(){
     });
     auxtemp =0;
     auxtempinfo = 0;
+    auxtempmapa = 0;
+    dimesion =0;
+    var map;
+    var marcadores = [];
     $(document).on("click", "#btnMapa", function(){
         opcion = 2;
         $(".modal-header").css("background-color", "#4e73df");
         $(".modal-header").css("color", "white");
         $(".modal-title").css(" text-align", "center");
         $(".modal-title").text("Geolocalizacion");     
-        $("#modalCRUD").modal("show");  
+        $("#modalCRUD").modal("show"); 
+
         $("#modalCRUD").on('shown.bs.modal', function () {    
             if (auxtemp < 1 ) {
-            var itsoehla = 20.20508;
-            var itsoehlong =-99.2226;
-            var lati = 20.21688898553249;
-            var long =-99.20135962073277;
-            var platform = new H.service.Platform({apikey: "uATgVUvD_u3aL87IpdbDu-cUs1zNodOcJnF8YWfvJV0"});
-            var defaultLayers = platform.createDefaultLayers();
-            //Step 2: initialize a map - this map is centered over Europe
-            var map = new H.Map(document.getElementById('map'),
-                defaultLayers.vector.normal.map,{
-                center: {lat:lati, lng:long},
-                zoom: 10,
-            pixelRatio: window.devicePixelRatio || 1});
-            // add a resize listener to make sure that the map occupies the whole container
-            window.addEventListener('resize', () => map.getViewPort().resize());
-            //Step 3: make the map interactive
-            // MapEvents enables the event system
-            // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
-            // Create the default UI components
-            var ui = H.ui.UI.createDefault(map, defaultLayers);
-            var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));   
-            
+                if (auxtempmapa < 1) {
+                    var itsoehla = 20.20508;
+                    var itsoehlong =-99.2226;
+                    var lati = 20.21688898553249;
+                    var long =-99.20135962073277;
+                    var platform = new H.service.Platform({apikey: "uATgVUvD_u3aL87IpdbDu-cUs1zNodOcJnF8YWfvJV0"});
+                    var defaultLayers = platform.createDefaultLayers();
+                    //Step 2: initialize a map - this map is centered over Europe
+                    var map = new H.Map(document.getElementById('map'),
+                        defaultLayers.vector.normal.map,{
+                        center: {lat:lati, lng:long},
+                        zoom: 10,
+                    pixelRatio: window.devicePixelRatio || 1});
+                    // add a resize listener to make sure that the map occupies the whole container
+                    window.addEventListener('resize', () => map.getViewPort().resize());
+                    //Step 3: make the map interactive
+                    // MapEvents enables the event system
+                    // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+                    // Create the default UI components
+                    var ui = H.ui.UI.createDefault(map, defaultLayers);
+                    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));   
+                    auxtempmapa++;
+                }
             $.ajax({
                 url: "bd/intento1.php",
                 type: "POST",
@@ -933,9 +946,9 @@ $(document).ready(function(){
                 data: {opcion:opcion},
                 success: function(data){
                     opcion = 5;
-                    var marcadores = [];
                     console.log(data);  
                     tam = data.length;
+                    dimesion =tam;
                     for (var i = 0; i < tam; i++) {
                         //recolar informacion de los usuarios por medio del json para crear variables independiestes
                         var lat = data[i].ANLO_LATITUDE;
@@ -1015,18 +1028,30 @@ $(document).ready(function(){
                                  content: event.target.getData()});
                              ui.addBubble(bubble);
                             }, false);
-                             //por utimo agregamos al mapa el objeto marcadores para  poder visualizar el ma    
-                        map.addObject(marcadores[i]);  
+                             //por utimo agregamos al mapa el objeto marcadores para  poder visualizar el ma 
+                        unsolomarcador = 0;
+                        if (unsolomarcador <1) {
+                            map.addObject(marcadores[i]);  
+                            unsolomarcador++;
+                        }
+                       
+                    
                      }
                 }
             });
             auxtemp++;
             console.log(auxtemp);
+            
         }
+
         });
     });
     jQuery('#modalCRUD').on('hidden.bs.modal', function (e) {
         auxtemp--;
+        for (let i = 0; i < dimesion; i++) {
+           marcadores.pop(i);
+        
+        }
         var a = document.getElementById('id__nombre');
         var b = document.getElementById('id__calle');
         var c = document.getElementById('id__municipio');

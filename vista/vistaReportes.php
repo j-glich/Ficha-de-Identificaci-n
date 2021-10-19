@@ -18,7 +18,13 @@ $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
 <div class="container">
         <div class="row">
             <div class="col-lg-12">            
-            <button id="btnMapa" type="button" class="btn btn-success btnMapa" data-toggle="modal">Geolocalizar Alumnos</button>    
+            <button id="btnMapa" type="button" class="btn text-light btnMapa " data-toggle="modal">
+            <i class="bi bi-pin-map-fill"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pin-map-fill text-primary" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
+            <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>}
+            </svg>
+            </button>    
             </div>    
         </div>    
     </div>    
@@ -255,7 +261,10 @@ outline: 0;
     position: relative;
     left: 170px;
 }
-
+#label__matricula{
+    position: relative;
+    left: 0px;
+}
 </style>
 <div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -265,7 +274,7 @@ outline: 0;
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>   
             <div id='map' class="modal-body">
-                <label class="label__title"> matricula</label>
+                <label class="label__matricula"> matricula</label>
                 <input  value="text">
             </div>            
             <div class="modal-footer">
