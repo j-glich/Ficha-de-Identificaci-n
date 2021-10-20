@@ -37,7 +37,7 @@
             <label class='label'>(</label><input type='radio' id='radio8' disabled='true' value="Medicamentos" name='grup-ale' onclick="Eliminar3('id_Especificacion2','id_eti2')"><label class='label'>) Medicamentos</label><br>
             <label class='label'>(</label><input type='radio' id='radio9' disabled='true' value="Aliementos" name='grup-ale' onclick="Eliminar3('id_Especificacion2','id_eti2')"><label class='label'>) Alimentos</label><br>
             <label class='label'>(</label><input type='radio' id='radio10' disabled='true' value="Animales" name='grup-ale' onclick="Eliminar3('id_Especificacion2','id_eti2')"><label class='label'>) Animales</label><br>
-            <label class='label'>(</label><input type='radio' id='radio11' disabled='true' value="Otro" name='grup-ale' onclick='crearotro()'><label class='label'>) Otros:</label><br>
+            <label class='label'>(</label><input type='radio' id='radio11' disabled='true' value="Otros" name='grup-ale' onclick='crearotro()'><label class='label'>) Otros:</label><br>
         </div>
     </div>
     <div id='cam2'> 

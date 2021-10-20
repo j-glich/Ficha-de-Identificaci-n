@@ -116,7 +116,7 @@ $(document).on("click", ".btnBorrar", function(){
     } 
 });
 });
-var doc = new jsPDF();
+
 function getDate(){
     let ahora = new Date();
     var dia = ahora.getDate();
@@ -151,6 +151,66 @@ function getDate(){
     return dia +" de " + res +' de '+anio;
 }
 function head() {
+    var doc = new jsPDF();
+    doc.setFont('Arial','bold');
+    doc.setFontSize(15);
+    doc.text(18,16,'Instituto Tecnológico Superior del Occidente del Estado de Hidalgo');
+    //linea superior
+    doc.setLineWidth(1.1);
+    doc.setDrawColor(218,42,18);
+    doc.line(15, 19, 198,19);
+    //Rectangulo superior
+    doc.setDrawColor(0,0,0);
+    doc.setLineWidth(.4);
+    doc.rect(14, 22, 183,20);
+    //Rectangulo Logo
+    doc.setDrawColor(0,0,0);
+    doc.setLineWidth(.4);
+    doc.rect(14, 22, 44.5,20);
+    //Logo Escolar
+    var logo = new Image();
+    logo.src = '../vista/img/sdf.jpg';
+    doc.addImage(logo, 'JPEG', 15, 23,43,18);
+    //linea Intermedia
+    doc.setLineWidth(1.1);
+    doc.setLineWidth(.4);
+    doc.setDrawColor(0,0,0);
+    doc.line(58.5, 31.5, 197,31.5);
+    //rectangulo intermedio
+    doc.setDrawColor(0,0,0);
+    doc.setLineWidth(.2);
+    doc.rect(58.5,22,90,20);
+    // Titulo
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(62,27,'FICHA DE IDENTIFICACIÓN DE LA/EL TUTORADO');
+       // Titulo
+    doc.setFont('Arial MT','bold');
+    doc.setFontSize(12);
+    doc.text(65,38,'Fecha de emisión: ' + getDate());
+    //rectangulo intermedio2
+    doc.setDrawColor(0,0,0);
+    doc.setLineWidth(.4);
+    doc.rect(148.5,22,25,20);
+    //Eqiqueta codigo
+    doc.setFont('Arial','');
+    doc.setFontSize(12);
+    doc.text(155,28,'Código');
+    //Eqiqueta codigo
+    doc.setFont('Arial','');
+    doc.setFontSize(12);
+    doc.text(155,37,'Versión');
+    //Codigo
+    doc.setFont('Arial','');
+    doc.setFontSize(12);
+    doc.text(175,28,'P-T-01-F-11');
+    //Codigo
+    doc.setFont('Arial','');
+    doc.setFontSize(16);
+    doc.text(183,38,'00');
+    return doc;
+}
+function head1() {
     doc.setFont('Arial','bold');
     doc.setFontSize(15);
     doc.text(18,16,'Instituto Tecnológico Superior del Occidente del Estado de Hidalgo');
@@ -870,11 +930,118 @@ function genPDF(
     doc.setDrawColor(255,149,96);    
     doc.setLineWidth(.4); 
     doc.rect(13.5, 237, 184.5,6);
+
+    doc.setDrawColor(255,149,96);    
+    doc.setLineWidth(.4); 
+    doc.rect(13.5, 231, 184.5,22);
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(15,248,'Presenta alguna \n Discapacidad');
+
+    doc.setDrawColor(255,149,96);    
+    doc.setLineWidth(.4); 
+    doc.rect(13.5, 243, 30,10);
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(70,246,'Sensorial');
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(145,246,'Motora (  )');
+
+    doc.setDrawColor(255,149,96);    
+    doc.setLineWidth(.4); 
+    doc.rect(43.5, 243, 154.5,5);
+
+    doc.setDrawColor(255,149,96);    
+    doc.setLineWidth(.4); 
+    doc.rect(43.5, 243, 70,10);
+
+    doc.setDrawColor(255,149,96);    
+    doc.setLineWidth(.4); 
+    doc.rect(43.5, 248, 47,5);
+
+    doc.setDrawColor(255,149,96);    
+    doc.setLineWidth(.4); 
+    doc.rect(43.5, 248, 23,5);
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(70,252,'Auditiva (  )');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(47,252,'Visual (  )');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(50,256,'Temporal');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(95,252,'Táctil (  )');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(120,252,'Especifique:');
+
+    doc.setDrawColor(255,149,96);    
+    doc.setLineWidth(.4); 
+    doc.rect(13.5, 253, 184.5,5);
+
+    doc.setDrawColor(255,149,96);    
+    doc.setLineWidth(.4); 
+    doc.rect(13.5, 253, 100,10.5);
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(140,256,'Por su tipo es:');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(125,262,'Parcial (   ) ');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(160,262,'Total (   ) ');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(25,262,'Transitoria (   )');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(60,262,'Definitiva (    )');
+
+    doc.setLineWidth(1.1);
+    doc.setDrawColor(218,42,18);
+    doc.line(13, 280, 198,280);
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(187,285,'1');
+
+
     doc.addPage();
-    doc = head();
+    doc = head1();
+
+     //Rectangulo superior
+     doc.setDrawColor(255,149,96);
+     doc.setLineWidth(.4); 
+     doc.rect(13.5, 48, 184.5,72.5);
+     //Rectangulo Datos generales
+     doc.setDrawColor(255,149,96);
+     doc.setLineWidth(.4);
+     doc.rect(13.5, 48, 184.5,7);
+     // Titulo
+     doc.setFont('Arial','bold');
+     doc.setFontSize(11);
+     doc.text(62,53,'Antecedentes Laborales');
     setTimeout(() => {
         doc.save('FichadeIdentificacion'+ id +'.pdf');
-    }, 1000);
+    }, 3000);
    
 }
 $(document).ready(function(){
@@ -882,7 +1049,7 @@ $(document).ready(function(){
         "columnDefs":[{
         "targets": -1,
         "data":null,
-        "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-danger generarPDF'>Exportar PDF</button></div></div>"   
+        "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-danger generarPDF'><i class='bi bi-cloud-arrow-down-fill'></i>  <svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' class='bi bi-cloud-arrow-down-fill' viewBox='0 0 16 16'> <path d='M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z'/></svg>    </button><button id='btnMapaindividual' type='button' class='btn text-light btnMapa' data-toggle='modal'><i class='bi bi-geo-alt-fill'></i><svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' class='bi bi-geo-alt-fill text-primary' viewBox='0 0 16 16'><path d='M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z'/></svg>"   
     }], 
     "language": {
             "lengthMenu": "Mostrar _MENU_ registros",
@@ -1152,7 +1319,87 @@ $(document).on("click", ".generarPDF", function(){
         });
     
 });
+auxtempmain=0;
+//variable auxiliar que permite que el mapa no se este ciclando 
+$(document).on("click", "#btnMapaindividual", function(){
     
+    fila = $(this).closest("tr");
+    opcion = 7;
+    matricula = parseInt(fila.find('td:eq(0)').text());
+    Swal.fire({
+        title: '¿Visualizar alumno en mapa con matricula?',
+        text: matricula,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ok!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Visualización Exitosa!',
+                'El mapa a cargado correctamente',
+                'success'
+                );
+                $.ajax({
+                    url: "bd/intento1.php",
+                    type: "POST",
+                    dataType: "json",
+                    data: {opcion:opcion, id:matricula},
+                    success: function(data){
+                        console.log(data);
+                        let aux = data.length;
+                        if(aux<1){
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'No hay reportes de localización del alumno',
+                                footer: '<a href="">Why do I have this issue?</a>'
+                            });
+                        }else{         
+                            if(auxtempmain < 1 ){
+                                $(".modal-headermp").css("background-color", "#4e73df");
+                                $(".modal-headermp").css("color", "white");
+                                $(".modal-titlemp").text("Localización Individual");            
+                                $("#modalmapaindividual").modal("show"); 
+                                 $("#modalmapaindividual").on('shown.bs.modal', function () {    
+                                        var itsoehla = 20.20508;
+                                        var itsoehlong =-99.2226;
+                                        var lati = 20.21688898553249;
+                                        var long =-99.20135962073277;
+                                        var platform = new H.service.Platform({apikey: "uATgVUvD_u3aL87IpdbDu-cUs1zNodOcJnF8YWfvJV0"});
+                                        var defaultLayers = platform.createDefaultLayers();
+                                        //Step 2: initialize a map - this map is centered over Europe
+                                        var map = new H.Map(document.getElementById('bodymapa'),
+                                            defaultLayers.vector.normal.map,{
+                                            center: {lat:lati, lng:long},
+                                            zoom: 10,
+                                        pixelRatio: window.devicePixelRatio || 1});
+                                        // add a resize listener to make sure that the map occupies the whole container
+                                        window.addEventListener('resize', () => map.getViewPort().resize());
+                                        //Step 3: make the map interactive
+                                        // MapEvents enables the event system
+                                        // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+                                        // Create the default UI components
+                                        var ui = H.ui.UI.createDefault(map, defaultLayers);
+                                        var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));   
+                                        
+                                        auxtempmain++;
+                            });
+                            jQuery('#modalmapaindividual').on('hidden.bs.modal', function (e) {
+                               window.location.reload();
+                            });
+                        }
+                    }
+                    }
+                });
+            }
+        });
+   
+});
+
+
+
 });
 
 
