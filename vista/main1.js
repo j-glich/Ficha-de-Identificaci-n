@@ -755,16 +755,7 @@ function body_ant_escolares(escolaridad,especialidad,nom_inst,promedio,beca,tipo
 
     return doc;
 }
-function genPDF(
-    id , programa, matricula, semestre, grupo, fecha , nombre , sexo, correo,telcasa , telmovil,fechanac , lugarnac , estadocivil , domicilioa , tienehijos, cuantos,
-    escolaridad,especialidad,nom_inst,promedio,beca,tipobeca,cual,vive_con,
-    pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia
-
-    ) {
-     //FICHA DE IDENTIFICACIÓN DE LA/EL TUTORADO
-    doc = head();
-    doc = body_ant_generales(programa, matricula, semestre, grupo, fecha , nombre , sexo, correo,telcasa , telmovil,fechanac , lugarnac , estadocivil , domicilioa , tienehijos, cuantos);
-    doc = body_ant_escolares(escolaridad,especialidad,nom_inst,promedio,beca,tipobeca,cual,vive_con);
+function body_ante_gen_salud( pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_sensorial,tipo_dis_temporal){
     //Rectangulo superior ant gen salud
     doc.setDrawColor(255,149,96);
     doc.setLineWidth(.4); 
@@ -975,6 +966,23 @@ function genPDF(
     doc.setFontSize(10);
     doc.text(47,252,'Visual (  )');
 
+    if (dis_sensorial == 'Auditiva') {
+        doc.setFont('Arial','');
+        doc.setFontSize(11);
+        doc.text(86,252,'x');        
+    } else if(dis_sensorial == 'Visual' ) {
+        
+        doc.setFont('Arial','');
+        doc.setFontSize(11);
+        doc.text(59.5,252,'x');
+        
+    }else if(dis_sensorial == 'Tactil' ) {
+
+        doc.setFont('Arial','');
+        doc.setFontSize(11);
+        doc.text(106.5,252,'x');
+    }
+
     doc.setFont('Arial','bold');
     doc.setFontSize(10);
     doc.text(50,256,'Temporal');
@@ -986,7 +994,11 @@ function genPDF(
     doc.setFont('Arial','bold');
     doc.setFontSize(10);
     doc.text(120,252,'Especifique:');
-
+    if (esp_motora != 'Ninguna') {
+        doc.setFont('Times New Roman','');
+        doc.setFontSize(10);
+        doc.text(145,252,esp_motora);
+    }
     doc.setDrawColor(255,149,96);    
     doc.setLineWidth(.4); 
     doc.rect(13.5, 253, 184.5,5);
@@ -1003,6 +1015,26 @@ function genPDF(
     doc.setFontSize(10);
     doc.text(125,262,'Parcial (   ) ');
 
+    if(tipo_dis_temporal == 'Parcial' ){
+        doc.setFont('Arial','');
+        doc.setFontSize(11);
+        doc.text(139.5,262,'x');
+    }else if(tipo_dis_temporal == 'Total'){
+        doc.setFont('Arial','');
+        doc.setFontSize(11);
+        doc.text(171,262,'x');
+    }
+
+    if(dis_sensorial == 'Transitoria' ){
+        doc.setFont('Arial','');
+        doc.setFontSize(11);
+        doc.text(46,262,'x');       
+    }else if(dis_sensorial == 'Definitiva'){
+        doc.setFont('Arial','');
+        doc.setFontSize(11);
+        doc.text(79,262,'x');
+    }
+
     doc.setFont('Arial','bold');
     doc.setFontSize(10);
     doc.text(160,262,'Total (   ) ');
@@ -1013,7 +1045,7 @@ function genPDF(
 
     doc.setFont('Arial','bold');
     doc.setFontSize(10);
-    doc.text(60,262,'Definitiva (    )');
+    doc.text(59,262,'Definitiva (    )');
 
     doc.setLineWidth(1.1);
     doc.setDrawColor(218,42,18);
@@ -1023,26 +1055,194 @@ function genPDF(
     doc.setFontSize(10);
     doc.text(187,285,'1');
 
-
+    if (dis_motora == 'Si') {
+        doc.setFont('Arial','');
+        doc.setFontSize(11);
+        doc.text(157.5,246,'x');
+    }
+    
+    return doc;
+}
+function genPDF(
+    id , programa, matricula, semestre, grupo, fecha , nombre , sexo, correo,telcasa , telmovil,fechanac , lugarnac , estadocivil , domicilioa , tienehijos, cuantos,
+    escolaridad,especialidad,nom_inst,promedio,beca,tipobeca,cual,vive_con,
+    pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_sensorial,tipo_dis_temporal,
+    trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar
+    ) {
+     //FICHA DE IDENTIFICACIÓN DE LA/EL TUTORADO
+    doc = head();
+    doc = body_ant_generales(programa, matricula, semestre, grupo, fecha , nombre , sexo, correo,telcasa , telmovil,fechanac , lugarnac , estadocivil , domicilioa , tienehijos, cuantos);
+    doc = body_ant_escolares(escolaridad,especialidad,nom_inst,promedio,beca,tipobeca,cual,vive_con);
+    doc = body_ante_gen_salud(pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_sensorial,tipo_dis_temporal);
     doc.addPage();
     doc = head1();
+    //Rectangulo superior
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(13.5, 48, 184.5,72.5);
+    //Rectangulo Datos generales
 
-     //Rectangulo superior
-     doc.setDrawColor(255,149,96);
-     doc.setLineWidth(.4); 
-     doc.rect(13.5, 48, 184.5,72.5);
-     //Rectangulo Datos generales
-     doc.setDrawColor(255,149,96);
-     doc.setLineWidth(.4);
-     doc.rect(13.5, 48, 184.5,7);
-     // Titulo
-     doc.setFont('Arial','bold');
-     doc.setFontSize(11);
-     doc.text(62,53,'Antecedentes Laborales');
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 48, 184.5,7);
+    // Titulo
+    doc.setFont('Arial','bold');
+    doc.setFontSize(11);
+    doc.text(83,53,'Antecedentes Laborales');
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(85,59.5,'Nombre de la Empresa');
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(180,59.5,'Horario');
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 55, 184.5,6);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 61, 184.5,6);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 61, 18,6);
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(11);
+    doc.text(25,59.5,'Trabajas');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(15,65,'Si (  )');
+
+    if(trabajas == 'Si'){
+
+        doc.setFont('Arial','');
+        doc.setFontSize(11);
+        doc.text(20.5,65,'x');
+
+        doc.setFont('Arial','');
+        doc.setFontSize(10);
+        doc.text(85,65,nom_empresa);
+
+        doc.setFont('Arial','');
+        doc.setFontSize(10);
+        doc.text(180,65,horario);
+    }else if(trabajas =='No'){
+        doc.setFont('Arial','');
+        doc.setFontSize(10);
+        doc.text(41.5,65,'x');    
+    }
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(35,65,'No (  )');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(15,72,'Depende económicamente de:');
+
+    doc.setFont('Arial','');
+    doc.setFontSize(8);
+    doc.text(85,69.5,'A cuánto asciende el ingreso \n \t mensual familiar');
+
+    doc.setFont('Arial','');
+    doc.setFontSize(8);
+    doc.text(135,69.5,'En caso de ser económicamente independiente a\n \t cuánto asciende tu ingreso');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(8);
+    doc.text(15,77,'Padre\n (  )');
+
+    if (dep_economica == 'Padre') {
+        doc.setFont('Arial','');
+        doc.setFontSize(10);
+        doc.text(16.5,80.3,'x');
+        
+    }else if(dep_economica == 'Madre') {
+        doc.setFont('Arial','');
+        doc.setFontSize(10);
+        doc.text(27.5,80.3,'x');
+    } 
+    if(dep_economica == 'Desimismo') {
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(37,80,'x');  
+    }else if(dep_economica == 'Otros') {
+        doc.setFont('Arial','');
+        doc.setFontSize(10);
+        doc.text(55,80,esp_economica);
+        
+    }
+    doc.setFont('Arial','bold');
+    doc.setFontSize(8);
+    doc.text(26,77,'Madre\n (  )');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(8);
+    doc.text(37,77,'De sí mismo\n \t(  )');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(8);
+    doc.text(55,77,'Otros: Especifica');
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 67, 184.5,7);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 74, 184.5,14);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 74, 66,14);
+//
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 74, 12,14);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 74, 23,14);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 74, 41,14);
+//
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 74, 109,14);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 67, 66,7);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 67, 109,7);
+    
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 55, 37,12);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4);
+    doc.rect(13.5, 55, 160,12);
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(88,80,'$');
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(140,80,'$');
+
     setTimeout(() => {
         doc.save('FichadeIdentificacion'+ id +'.pdf');
-    }, 3000);
-   
+    }, 3000);   
 }
 $(document).ready(function(){
     tablaPersonas1 = $("#tablaPersonas2").DataTable({
@@ -1304,14 +1504,27 @@ $(document).on("click", ".generarPDF", function(){
                             tiposangre = data[0].ANGS_TIP_SANGRE;
                             alergias = data[0].ANGS_ALERGIAS;
                             tipo_alergia = data[0].ANGS_TIP_ALERGIA;
+                            dis_sensorial = data[0].ANGS_DIS_SENSORIAL;
+                            dis_motora = data[0].ANGS_DIS_MOTORA;
+                            esp_motora  = data[0].ANGS_ESP_DIS_MOTORA;
+                            dis_temporal = data[0].ANGS_DIS_TEMPORAL;
+                            tipo_dis_temporal = data[0].ANGS_TIPO_DIS;
+                            //Datos de lo calizacion
+                            trabajas = data[0].ANL_TRABAJO;
+                            nom_empresa = data[0].ANL_NOM_TRABAJO;
+                            horario = data[0].ANL_HORARIO;
+                            dep_economica = data[0].ANL_DEP_ECONO;
+                            esp_economica = data[0].ANL_ESP_DEP;
+                            ing_familiar = data[0].ANL_ING_MEN_FAMILIAR;
+                            ing_personal = data[0].ANL_ING_MEN_PERSONAL;
                                 genPDF(id,programa,matricula,semestre,grupo,
                                     fecha_apli,nombre,sexo,correo,telcasa,
                                     telmovil,fechanac,lugarnac,estadocivil,
                                     domicilioa,hijos,cuantos,escolaridad,especialidad
                                     ,nom_inst,promedio,beca,tipobeca,cual,vive_con,
-                                    pro_salud,angs_especifique,tiposangre,alergias,tipo_alergia);
-                    
-                           
+                                    pro_salud,angs_especifique,tiposangre,alergias,
+                                    tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_temporal,tipo_dis_temporal,
+                                    trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar);
                         }   
                     }
                 });

@@ -46,7 +46,7 @@
             <label class ='label'>Sensorial:</label><br>
             <label class='label'>(</label><input type='radio' id='radio12'  value="Visual" name='grupo2' onclick="Eliminar4('id_Especificacion3','id_eti3')"><label class='label'>) Visual</label><br>
             <label class='label'>(</label><input type='radio' id='radio13' value="Auditiva" name='grupo2' onclick="Eliminar4('id_Especificacion3','id_eti3')"><label class='label'>) Auditiva</label><br>
-            <label class='label'>(</label><input type='radio' id='radio14' value="Táctica" name='grupo2' onclick="Eliminar4('id_Especificacion3','id_eti3')"><label class='label'>) Táctica</label><br>
+            <label class='label'>(</label><input type='radio' id='radio14' value="Tactil" name='grupo2' onclick="Eliminar4('id_Especificacion3','id_eti3')"><label class='label'>) Táctil</label><br>
             <label class='label'>(</label><input type='radio' id='radio15'  value="Si" name='grupo3' onclick='crearotro1()'><label class='label'>) Motora :</label><br>
         </div>
         <label class ='label'>Temporal:</label><br>

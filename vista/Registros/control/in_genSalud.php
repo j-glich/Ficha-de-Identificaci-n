@@ -37,7 +37,7 @@ if ($num_rows > 0){
         $Especifique2 = (isset($_POST['Especifique2'])) ? $_POST['Especifique2'] : 'Ninguna';  
         $tip_alergia = (isset($_POST['grup-ale'])) ? $_POST['grup-ale'] : 'Ninguna';
         $sensorial = (isset($_POST['grupo2'])) ? $_POST['grupo2'] : 'Ninguna';
-        $motora = (isset($_POST['grupo3'])) ? $_POST['grupo3'] : 'Si';
+        $motora = (isset($_POST['grupo3'])) ? $_POST['grupo3'] : 'No';
         $Especifique3 = (isset($_POST['Especifique3'])) ? $_POST['Especifique3'] : 'Ninguna';
         $temporal = (isset($_POST['grupo4'])) ? $_POST['grupo4'] : 'Ninguna';
         $por_su_tipo = (isset($_POST['grupo5'])) ? $_POST['grupo5'] : 'Ninguna';
