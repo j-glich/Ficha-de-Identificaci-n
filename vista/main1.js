@@ -1063,11 +1063,376 @@ function body_ante_gen_salud( pro_salud,angs_especifique, tiposangre,alergias,ti
     
     return doc;
 }
+function body_ant_laborales( trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar,ing_personal,esc_padre,est_padre,ocup_padre,esc_madre,est_madre,ocup_madre,dom_familiar){
+//Rectangulo superior
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4); 
+doc.rect(13.5, 48, 184.5,82);
+//Rectangulo Datos generales
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 48, 184.5,7);
+// Titulo
+doc.setFont('Arial','bold');
+doc.setFontSize(11);
+doc.text(83,53,'Antecedentes Laborales');
+
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(85,59.5,'Nombre de la Empresa');
+
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(180,59.5,'Horario');
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 55, 184.5,6);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 61, 184.5,6);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 61, 18,6);
+
+doc.setFont('Arial','bold');
+doc.setFontSize(11);
+doc.text(25,59.5,'Trabajas');
+
+doc.setFont('Arial','bold');
+doc.setFontSize(10);
+doc.text(15,65,'Si (  )');
+
+if(trabajas == 'Si'){
+
+    doc.setFont('Arial','');
+    doc.setFontSize(11);
+    doc.text(20.5,65,'x');
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(85,65,nom_empresa);
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(180,65,horario);
+}else if(trabajas =='No'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(41.5,65,'x');    
+}
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(35,65,'No (  )');
+
+doc.setFont('Arial','bold');
+doc.setFontSize(10);
+doc.text(15,72,'Depende económicamente de:');
+
+doc.setFont('Arial','');
+doc.setFontSize(8);
+doc.text(85,69.5,'A cuánto asciende el ingreso \n \t mensual familiar');
+
+doc.setFont('Arial','');
+doc.setFontSize(8);
+doc.text(135,69.5,'En caso de ser económicamente independiente a\n \t cuánto asciende tu ingreso');
+
+doc.setFont('Arial','bold');
+doc.setFontSize(8);
+doc.text(15,77,'Padre\n (  )');
+
+if (dep_economica == 'Padre') {
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(16.5,80.3,'x');
+    
+}else if(dep_economica == 'Madre') {
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(27.5,80.3,'x');
+} 
+if(dep_economica == 'Desimismo') {
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(45,80.5,'x');  
+}else if(dep_economica == 'Otros') {
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(59,83,esp_economica);
+    
+}
+doc.setFont('Arial','bold');
+doc.setFontSize(8);
+doc.text(26,77,'Madre\n (  )');
+
+doc.setFont('Arial','bold');
+doc.setFontSize(8);
+doc.text(37,77,'De sí mismo\n \t(  )');
+
+doc.setFont('Arial','bold');
+doc.setFontSize(8);
+doc.text(55,77,'Otros: Especifica');
+
+//linea superior
+doc.setLineWidth(.4);
+doc.setDrawColor(0,0,0);
+doc.line(56, 85, 78,85);
+
+    //linea superior
+doc.setLineWidth(.4);
+doc.setDrawColor(0,0,0);
+doc.line(85, 84, 120,84);
+
+doc.setLineWidth(.4);
+doc.setDrawColor(0,0,0);
+doc.line(140, 84, 180,84);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 67, 184.5,7);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 74, 184.5,14);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 74, 66,14);
+//
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 74, 12,14);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 74, 23,14);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 74, 41,14);
+//
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 74, 109,14);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 67, 66,7);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 67, 109,7);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 55, 37,12);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 55, 160,12);
+
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(88,80,'$');
+
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(88,80,'$');
+
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(90,80,ing_familiar);
+
+
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(140,80,'$');
+
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(143,80,ing_personal);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 88, 184.5,6);
+
+// Titulo
+doc.setFont('Arial','bold');
+doc.setFontSize(10);
+doc.text(80,92,'Grado máximo de estudios de:');
+
+ // Titulo
+doc.setFont('Arial','bold');
+doc.setFontSize(11);
+doc.text(48,98,'Padre');
+
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(20,103.5,'Prim. (  )   Sec. (  )   Prep. (   )   Tec. (   )   Lic. (   ) \n\t\t No escolarizado (   ) ');
+if(esc_padre == 'Prim'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(30,103.5,'x');
+}else if(esc_padre == 'Sec'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(43,103.5,'x');
+}else if(esc_padre == 'Pre'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(59,103.5,'x');
+}else if(esc_padre == 'Tec'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(74,103.5,'x');
+
+}else if(esc_padre == 'Lic'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(87.5,103.5,'x');
+
+}else if(esc_padre == 'No esc'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(60.5,107,'x');
+}
+
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(115,103.5,'Prim. (  )   Sec. (  )   Prep. (   )   Tec. (   )   Lic. (   ) \n\t\t No escolarizado (   ) ');
+if(esc_madre == 'Prim'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(125,103.5,'x');
+
+}else if(esc_madre == 'Sec'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(139,103.5,'x');
+
+}else if(esc_madre == 'Pre'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(154,103.5,'x');
+
+}else if(esc_madre == 'Tec'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(169,103.5,'x');
+
+}else if(esc_madre == 'Lic'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(183,103.5,'x');
+
+}else if(esc_madre == 'No esc'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(155.5,107,'x');
+
+}
+   // Titulo
+doc.setFont('Arial','bold');
+doc.setFontSize(11);
+doc.text(145,98,'Madre');
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 94, 184.5,6);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 94, 94,6);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 100, 184.5,9);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 100, 94,9);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 109, 184.5,6);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 109, 94,6);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 115, 94,9);
+
+doc.setDrawColor(255,149,96);
+doc.setLineWidth(.4);
+doc.rect(13.5, 115, 184.5,9);
+
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(40,112,'Vive (   )      Finado (   )');
+if (est_padre == 'Vive') {
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(49,112,'x');
+}else if( est_padre == 'Finado'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(70.5,112,'x');
+}
+
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(132,112,'Vive (   )      Finada (   )');
+
+if (est_madre == 'Vive') {
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(141.5,112,'x');
+    
+}else if( est_madre == 'Finada'){
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(162,112,'x');
+}
+  // Titulo
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(43,118,'Ocupación:');
+
+// Titulo
+doc.setFont('Times New Roman','');
+doc.setFontSize(10);
+doc.text(43,122,ocup_padre);
+
+// Titulo
+doc.setFont('Arial','');
+doc.setFontSize(10);
+doc.text(140,118,'Ocupación:');
+// Titulo
+doc.setFont('Times New Roman','');
+doc.setFontSize(10);
+doc.text(140,122,ocup_madre);
+// Titulo
+doc.setFont('Arial','bold');
+doc.setFontSize(11);
+doc.text(15,128,'Domicilio:');
+
+// Titulo
+doc.setFont('Times New Roman','');
+doc.setFontSize(11);
+doc.text(70,128,dom_familiar);
+return doc;
+}
 function genPDF(
     id , programa, matricula, semestre, grupo, fecha , nombre , sexo, correo,telcasa , telmovil,fechanac , lugarnac , estadocivil , domicilioa , tienehijos, cuantos,
     escolaridad,especialidad,nom_inst,promedio,beca,tipobeca,cual,vive_con,
     pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_sensorial,tipo_dis_temporal,
-    trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar
+    trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar,ing_personal,esc_padre,est_padre,ocup_padre,esc_madre,est_madre,ocup_madre,dom_familiar,
+    nom_tutor,tel_casa_t,tel_celular_t,domicilio_alum,latitude,logitude,img_mapa
     ) {
      //FICHA DE IDENTIFICACIÓN DE LA/EL TUTORADO
     doc = head();
@@ -1076,173 +1441,122 @@ function genPDF(
     doc = body_ante_gen_salud(pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_sensorial,tipo_dis_temporal);
     doc.addPage();
     doc = head1();
-    //Rectangulo superior
+    doc = body_ant_laborales( trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar,ing_personal,esc_padre,est_padre,ocup_padre,esc_madre,est_madre,ocup_madre,dom_familiar);
+        // Titulo
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(20,138,'Información que obligatoriamente tiene que proporcionar la/el estudiante y verificada por la/el tutor');
+    
+    
+    //Rectangulo superior ant escolares
     doc.setDrawColor(255,149,96);
     doc.setLineWidth(.4); 
-    doc.rect(13.5, 48, 184.5,72.5);
-    //Rectangulo Datos generales
+    doc.rect(13.5, 124, 40,6);
+    // codigo final del documento
 
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 48, 184.5,7);
-    // Titulo
     doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(15,145,'En caso de accidente avisar a: Nombre del padre/madre/tutor (a) ');
+
+    doc.setFont('Times New Roman','');
     doc.setFontSize(11);
-    doc.text(83,53,'Antecedentes Laborales');
-
-    doc.setFont('Arial','');
-    doc.setFontSize(10);
-    doc.text(85,59.5,'Nombre de la Empresa');
-
-    doc.setFont('Arial','');
-    doc.setFontSize(10);
-    doc.text(180,59.5,'Horario');
-
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 55, 184.5,6);
-
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 61, 184.5,6);
-
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 61, 18,6);
+    doc.text(29,152,nom_tutor);
 
     doc.setFont('Arial','bold');
     doc.setFontSize(11);
-    doc.text(25,59.5,'Trabajas');
+    doc.text(18,160,'Domicilio:');
+
+    doc.setFont('Times New Roman','');
+    doc.setFontSize(11);
+    doc.text(55,160,domicilio_alum);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(13.5, 135, 184.5,85);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(13.5, 162, 184.5,35);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(13.5, 135, 184.5,6);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(13.5, 141, 184.5,15);
 
     doc.setFont('Arial','bold');
-    doc.setFontSize(10);
-    doc.text(15,65,'Si (  )');
-
-    if(trabajas == 'Si'){
-
-        doc.setFont('Arial','');
-        doc.setFontSize(11);
-        doc.text(20.5,65,'x');
-
-        doc.setFont('Arial','');
-        doc.setFontSize(10);
-        doc.text(85,65,nom_empresa);
-
-        doc.setFont('Arial','');
-        doc.setFontSize(10);
-        doc.text(180,65,horario);
-    }else if(trabajas =='No'){
-        doc.setFont('Arial','');
-        doc.setFontSize(10);
-        doc.text(41.5,65,'x');    
-    }
-    doc.setFont('Arial','');
-    doc.setFontSize(10);
-    doc.text(35,65,'No (  )');
-
-    doc.setFont('Arial','bold');
-    doc.setFontSize(10);
-    doc.text(15,72,'Depende económicamente de:');
-
-    doc.setFont('Arial','');
-    doc.setFontSize(8);
-    doc.text(85,69.5,'A cuánto asciende el ingreso \n \t mensual familiar');
-
-    doc.setFont('Arial','');
-    doc.setFontSize(8);
-    doc.text(135,69.5,'En caso de ser económicamente independiente a\n \t cuánto asciende tu ingreso');
-
-    doc.setFont('Arial','bold');
-    doc.setFontSize(8);
-    doc.text(15,77,'Padre\n (  )');
-
-    if (dep_economica == 'Padre') {
-        doc.setFont('Arial','');
-        doc.setFontSize(10);
-        doc.text(16.5,80.3,'x');
-        
-    }else if(dep_economica == 'Madre') {
-        doc.setFont('Arial','');
-        doc.setFontSize(10);
-        doc.text(27.5,80.3,'x');
-    } 
-    if(dep_economica == 'Desimismo') {
-    doc.setFont('Arial','');
-    doc.setFontSize(10);
-    doc.text(37,80,'x');  
-    }else if(dep_economica == 'Otros') {
-        doc.setFont('Arial','');
-        doc.setFontSize(10);
-        doc.text(55,80,esp_economica);
-        
-    }
-    doc.setFont('Arial','bold');
-    doc.setFontSize(8);
-    doc.text(26,77,'Madre\n (  )');
-
-    doc.setFont('Arial','bold');
-    doc.setFontSize(8);
-    doc.text(37,77,'De sí mismo\n \t(  )');
-
-    doc.setFont('Arial','bold');
-    doc.setFontSize(8);
-    doc.text(55,77,'Otros: Especifica');
-
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 67, 184.5,7);
-
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 74, 184.5,14);
-
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 74, 66,14);
-//
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 74, 12,14);
-
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 74, 23,14);
-
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 74, 41,14);
-//
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 74, 109,14);
-
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 67, 66,7);
-
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 67, 109,7);
+    doc.setFontSize(11);
+    doc.text(15,185,'Croquis');
     
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 55, 37,12);
-
-    doc.setDrawColor(255,149,96);
-    doc.setLineWidth(.4);
-    doc.rect(13.5, 55, 160,12);
 
     doc.setFont('Arial','');
     doc.setFontSize(10);
-    doc.text(88,80,'$');
+    doc.text(55,185,'http://localhost/ficha/vista/vistas/visual_map.php'+'?lati='+latitude+'&long='+logitude);
+    
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(13.5, 156, 184.5,6);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(13.5, 156, 35,6);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(138, 141,60,5);
+ 
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(138, 146,60,5);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(138, 146,15,5);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(138, 151,60,5);
+
+    doc.setDrawColor(255,149,96);
+    doc.setLineWidth(.4); 
+    doc.rect(138, 151,20,5);
+    
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(165,145,'Telefono');
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(140,149,'Casa:');
 
     doc.setFont('Arial','');
     doc.setFontSize(10);
-    doc.text(140,80,'$');
+    doc.text(158,149,tel_casa_t);
+
+    doc.setFont('Arial','bold');
+    doc.setFontSize(10);
+    doc.text(140,154,'Celular:');
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(164,154.5,tel_celular_t);
+
+
+
+    doc.setLineWidth(1.1);
+    doc.setDrawColor(218,42,18);
+    doc.line(13, 280, 198,280);
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(187,285,'2');
 
     setTimeout(() => {
         doc.save('FichadeIdentificacion'+ id +'.pdf');
-    }, 3000);   
+    }, 4000);   
 }
 $(document).ready(function(){
     tablaPersonas1 = $("#tablaPersonas2").DataTable({
@@ -1476,6 +1790,7 @@ $(document).on("click", ".generarPDF", function(){
                                 footer: '<a href="">Why do I have this issue?</a>'
                             });
                         }else{
+                            //antecedentes generales
                             programa = data[0].ANG_PROG_EDUCATIVO;
                             matricula = data[0].ANG_MATRICULA;
                             semestre = data[0].ANG_SEMESTRE;
@@ -1491,6 +1806,7 @@ $(document).on("click", ".generarPDF", function(){
                             domicilioa =  data[0].ANG_DOMICILIO;
                             hijos = data[0].ANG_HIJOS,
                             cuantos =  data[0].ANG_CUANTOS,
+                            //antecedentes escolares
                             escolaridad = data[0].AE_TIPO_ESC;
                             especialidad = data[0].AE_ESPECIALIDAD;
                             nom_inst = data[0].AE_NOM_ESC;
@@ -1499,6 +1815,7 @@ $(document).on("click", ".generarPDF", function(){
                             tipobeca = data[0].AE_TIPO_BECA;
                             cual =  data[0].AE_OTRO_TB;
                             vive_con = data[0].AE_VIVE_CON;
+                            //antecedentes Generales de salud
                             pro_salud = data[0].ANGS_PRO_SALUD
                             angs_especifique = data[0].ANGS_ESPECIFIQUE;
                             tiposangre = data[0].ANGS_TIP_SANGRE;
@@ -1517,6 +1834,27 @@ $(document).on("click", ".generarPDF", function(){
                             esp_economica = data[0].ANL_ESP_DEP;
                             ing_familiar = data[0].ANL_ING_MEN_FAMILIAR;
                             ing_personal = data[0].ANL_ING_MEN_PERSONAL;
+                            esc_padre = data[0].ANL_ESC_PADRE;
+                            esc_madre = data[0].ANL_ESC_MADRE;
+                            est_padre = data[0].ANL_EST_DEF_PA;
+                            est_madre = data[0].ANL_EST_DEF_MA;
+                            ocup_padre = data[0].ANL_OC_PADRE;
+                            ocup_madre = data[0].ANL_OC_MADRE;
+                            dom_familiar = data[0].ANL_DOMICILIO;
+                            //antecedentes de localizacion
+                            nom_tutor = data[0].ANLO_NOM_TUTOR;
+                            tel_casa_t = data[0].ANLO_TEL_CASA;
+                            tel_celular_t = data[0].ANLO_TEL_MOVIL;
+                            calle = data[0].ANLO_CALLE;
+                            municipio = data[0].ANLO_MUNICIPIO;
+                            estado =  data[0].ANLO_ESTADO;
+                            latitude = data[0].ANLO_LATITUDE;
+                            logitude = data[0].ANLO_LOGITUDE;
+                            domicilio_alum = calle +','+municipio+','+estado;
+                            img_mapa = data[0].ANLO_MAP_IMG;
+
+
+                            //generacion de pdf de la ficha de identificacion
                                 genPDF(id,programa,matricula,semestre,grupo,
                                     fecha_apli,nombre,sexo,correo,telcasa,
                                     telmovil,fechanac,lugarnac,estadocivil,
@@ -1524,7 +1862,9 @@ $(document).on("click", ".generarPDF", function(){
                                     ,nom_inst,promedio,beca,tipobeca,cual,vive_con,
                                     pro_salud,angs_especifique,tiposangre,alergias,
                                     tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_temporal,tipo_dis_temporal,
-                                    trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar);
+                                    trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar,ing_personal,
+                                    esc_padre,est_padre,ocup_padre,esc_madre,est_madre,ocup_madre,dom_familiar,
+                                    nom_tutor,tel_casa_t,tel_celular_t,domicilio_alum,latitude,logitude,img_mapa);
                         }   
                     }
                 });

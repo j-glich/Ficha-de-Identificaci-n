@@ -53,11 +53,11 @@
             <div id='contened'>
                 <div id="div1">
                     <label class ='label' style="text-align: center;">Padre:</label><br>
-                    <label class='label'>(</label><input type='radio' id='radio12' value="Prim." name='grup1' ><label class='label'>) Prim.</label><br>
-                    <label class='label'>(</label><input type='radio' id='radio13' value="Sec." name='grup1' ><label class='label'>) Sec.</label><br>
-                    <label class='label'>(</label><input type='radio' id='radio14' value="Pre." name='grup1' ><label class='label'>) Pre.</label><br>
-                    <label class='label'>(</label><input type='radio' id='radio15' value="Tec." name='grup1' ><label class='label'>) Tec.</label> <br>
-                    <label class='label'>(</label><input type='radio' id='radio16' value="Lic." name='grup1' ><label class='label'>) Lic.</label> <br>
+                    <label class='label'>(</label><input type='radio' id='radio12' value="Prim" name='grup1' ><label class='label'>) Prim.</label><br>
+                    <label class='label'>(</label><input type='radio' id='radio13' value="Sec" name='grup1' ><label class='label'>) Sec.</label><br>
+                    <label class='label'>(</label><input type='radio' id='radio14' value="Pre" name='grup1' ><label class='label'>) Pre.</label><br>
+                    <label class='label'>(</label><input type='radio' id='radio15' value="Tec" name='grup1' ><label class='label'>) Tec.</label> <br>
+                    <label class='label'>(</label><input type='radio' id='radio16' value="Lic" name='grup1' ><label class='label'>) Lic.</label> <br>
                     <label class='label'>(</label><input type='radio' id='radio17' value="No esco" name='grup1' ><label class='label'>) No escolarizado.</label><br>
                     <label class='label'>(</label><input type='radio' id='radio18' value="Vive" name='grup2' ><label class='label'>) Vive</label>
                     <label class='label'>(</label><input type='radio' id='radio19' value="Finado" name='grup2' ><label class='label'>) Finado</label><br> 
@@ -68,12 +68,12 @@
             </div>
             <div id="div2">
             <label class ='label' style="text-align: center;">Madre:</label><br>
-            <label class='label'>(</label><input type='radio' id='radio20' value="Prim." name='grup3' ><label class='label'>) Prim.</label><br>
-            <label class='label'>(</label><input type='radio' id='radio21' value="Sec." name='grup3' ><label class='label'>) Sec.</label><br>
-            <label class='label'>(</label><input type='radio' id='radio22' value="Pre." name='grup3' ><label class='label'>) Pre.</label><br>
-            <label class='label'>(</label><input type='radio' id='radio23' value="Tec." name='grup3' ><label class='label'>) Tec.</label> <br>
-            <label class='label'>(</label><input type='radio' id='radio24' value="Lic." name='grup3' ><label class='label'>) Lic.</label> <br>
-            <label class='label'>(</label><input type='radio' id='radio25' value="No Esco" name='grup3' ><label class='label'>) No escolarizado.</label><br> 
+            <label class='label'>(</label><input type='radio' id='radio20' value="Prim" name='grup3' ><label class='label'>) Prim.</label><br>
+            <label class='label'>(</label><input type='radio' id='radio21' value="Sec" name='grup3' ><label class='label'>) Sec.</label><br>
+            <label class='label'>(</label><input type='radio' id='radio22' value="Pre" name='grup3' ><label class='label'>) Pre.</label><br>
+            <label class='label'>(</label><input type='radio' id='radio23' value="Tec" name='grup3' ><label class='label'>) Tec.</label> <br>
+            <label class='label'>(</label><input type='radio' id='radio24' value="Lic" name='grup3' ><label class='label'>) Lic.</label> <br>
+            <label class='label'>(</label><input type='radio' id='radio25' value="No esco" name='grup3' ><label class='label'>) No escolarizado.</label><br> 
             <label class='label'>(</label><input type='radio' id='radio26' value="Vive" name='grup4' ><label class='label'>) Vive</label>
             <label class='label'>(</label><input type='radio' id='radio27' value="Finado" name='grup4' ><label class='label'>) Finado</label><br>  
             <div id="matricula" class="form">
