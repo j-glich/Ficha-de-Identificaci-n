@@ -1668,8 +1668,8 @@ $(document).ready(function(){
                                         br2.setAttribute('id','id__br2');
                                         var br3 = document.createElement("br");
                                         br3.setAttribute('id','id__br3');
-                                        var br3 = document.createElement("br");
-                                        br3.setAttribute('id','id__br3');
+                                        var br4 = document.createElement("br");
+                                        br4.setAttribute('id','id__br4');
 
                                         nom__alumno.setAttribute('id','id__nombre');
                                         nom__alumno.innerHTML ="Alumn@: " + data[0].ANG_NOMBRE;
@@ -1706,7 +1706,12 @@ $(document).ready(function(){
                                 var c = document.getElementById('id__municipio');
                                 var d = document.getElementById('id__br');
                                 var e = document.getElementById('id__br1');
-                                if(a && b && c && d && e){            
+                                var f = document.getElementById('id__br2');
+                                var g = document.getElementById('id__br3');
+                                var h = document.getElementById('id__br4');
+                                var i = document.getElementById('id__nomTutor');
+                                var j = document.getElementById('id__numcasa');
+                                if(a && b && c && d && e && f && g && h && i && j){            
                                         padre = a.parentNode;
                                         padre.removeChild(a);
                                         padre1 = b.parentNode;
@@ -1717,6 +1722,17 @@ $(document).ready(function(){
                                         padre3.removeChild(d);
                                         padre4 = e.parentNode;
                                         padre4.removeChild(e);
+                                        padre5 = f.parentNode;
+                                        padre5.removeChild(f);
+                                        padre6 = g.parentNode;
+                                        padre6.removeChild(g);
+                                        padre7 = h.parentNode;
+                                        padre7.removeChild(h);
+                                        padre8 = i.parentNode;
+                                        padre8.removeChild(i);
+                                        padre9 = j.parentNode;
+                                        padre9.removeChild(j);
+
                                         
                                     }
                             });
@@ -1749,17 +1765,34 @@ $(document).ready(function(){
         var c = document.getElementById('id__municipio');
         var d = document.getElementById('id__br');
         var e = document.getElementById('id__br1');
-        if(a && b && c && d && e){            
-                padre = a.parentNode;
-                padre.removeChild(a);
-                padre1 = b.parentNode;
-                padre1.removeChild(b);
-                padre2 = c.parentNode;
-                padre2.removeChild(c);
-                padre3 = d.parentNode;
-                padre3.removeChild(d);
-                padre4 = e.parentNode;
-                padre4.removeChild(e);
+        var f = document.getElementById('id__br2');
+        var g = document.getElementById('id__br3');
+        var h = document.getElementById('id__br4');
+        var i = document.getElementById('id__nomTutor');
+        var j = document.getElementById('id__numcasa');
+        if(a && b && c && d && e && f && g && h && i && j){            
+            padre = a.parentNode;
+            padre.removeChild(a);
+            padre1 = b.parentNode;
+            padre1.removeChild(b);
+            padre2 = c.parentNode;
+            padre2.removeChild(c);
+            padre3 = d.parentNode;
+            padre3.removeChild(d);
+            padre4 = e.parentNode;
+            padre4.removeChild(e);
+            padre5 = f.parentNode;
+            padre5.removeChild(f);
+            padre6 = g.parentNode;
+            padre6.removeChild(g);
+            padre7 = h.parentNode;
+            padre7.removeChild(h);
+            padre8 = i.parentNode;
+            padre8.removeChild(i);
+            padre9 = j.parentNode;
+            padre9.removeChild(j);
+
+
                 
             }
     });
