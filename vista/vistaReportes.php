@@ -86,8 +86,6 @@ $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>   
             <div id='map' class="modal-body">
-                <label class="label__matricula"> matricula</label>
-                <input  value="text">
             </div>            
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>

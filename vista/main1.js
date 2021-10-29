@@ -1432,7 +1432,7 @@ function genPDF(
     escolaridad,especialidad,nom_inst,promedio,beca,tipobeca,cual,vive_con,
     pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_sensorial,tipo_dis_temporal,
     trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar,ing_personal,esc_padre,est_padre,ocup_padre,esc_madre,est_madre,ocup_madre,dom_familiar,
-    nom_tutor,tel_casa_t,tel_celular_t,domicilio_alum,latitude,logitude,img_mapa
+    nom_tutor,tel_casa_t,tel_celular_t,domicilio_alum,latitude,logitude
     ) {
      //FICHA DE IDENTIFICACIÓN DE LA/EL TUTORADO
     doc = head();
@@ -1594,7 +1594,6 @@ $(document).ready(function(){
         $(".modal-title").css(" text-align", "center");
         $(".modal-title").text("Geolocalizacion");     
         $("#modalCRUD").modal("show"); 
-
         $("#modalCRUD").on('shown.bs.modal', function () {    
             if (auxtemp < 1 ) {
                 if (auxtempmapa < 1) {
@@ -1659,26 +1658,43 @@ $(document).ready(function(){
                                         var nom__alumno = document.createElement("label");
                                         var calle__alumno = document.createElement("label");
                                         var municipio__alumno = document.createElement("label");
+                                        var nom__tutor = document.createElement("label");
+                                        var num__casa =  document.createElement("label");
                                         var br = document.createElement("br");
                                         br.setAttribute('id','id__br');
                                         var br1 = document.createElement("br");
                                         br1.setAttribute('id','id__br1');
+                                        var br2 = document.createElement("br");
+                                        br2.setAttribute('id','id__br2');
+                                        var br3 = document.createElement("br");
+                                        br3.setAttribute('id','id__br3');
+                                        var br3 = document.createElement("br");
+                                        br3.setAttribute('id','id__br3');
 
-                                        
                                         nom__alumno.setAttribute('id','id__nombre');
-                                        nom__alumno.innerHTML ="Alumn@: " + data[0].ANG_NOMBRE + "<br />";
-                                        
+                                        nom__alumno.innerHTML ="Alumn@: " + data[0].ANG_NOMBRE;
+                                    
                                         calle__alumno.setAttribute('id','id__calle');
-                                        calle__alumno.innerHTML = "Calle: " + data[0].ANLO_CALLE + "<br />";
+                                        calle__alumno.innerHTML = "Calle: " + data[0].ANLO_CALLE;
                                         
                                         municipio__alumno.setAttribute('id','id__municipio');
-                                        municipio__alumno.innerHTML = "Municipio: " + data[0].ANLO_MUNICIPIO + "<br />";
+                                        municipio__alumno.innerHTML = "Municipio: " + data[0].ANLO_MUNICIPIO;
+
+                                        nom__tutor.setAttribute('id','id__nomTutor');
+                                        nom__tutor.innerHTML = "Tutor: " + data[0].ANLO_NOM_TUTOR;
+
+                                        num__casa.setAttribute('id','id__numcasa');
+                                        num__casa.innerHTML = "No. de Casa: " + data[0].ANLO_TEL_CASA;
 
                                         document.getElementById('body').appendChild(nom__alumno);
                                         document.getElementById('body').appendChild(br);
                                         document.getElementById('body').appendChild(calle__alumno);
                                         document.getElementById('body').appendChild(br1);
                                         document.getElementById('body').appendChild(municipio__alumno);
+                                        document.getElementById('body').appendChild(br2);
+                                        document.getElementById('body').appendChild(nom__tutor);
+                                        document.getElementById('body').appendChild(br3);
+                                        document.getElementById('body').appendChild(num__casa);
                                         auxtempinfo ++;
                                     }
                                 }
@@ -1704,10 +1720,9 @@ $(document).ready(function(){
                                         
                                     }
                             });
-                           
                             const bubble = new H.ui.InfoBubble(event.target.getGeometry(), {
-                                 content: event.target.getData()});
-                             ui.addBubble(bubble);
+                                content: event.target.getData()});
+                                ui.addBubble(bubble);
                             }, false);
                              //por utimo agregamos al mapa el objeto marcadores para  poder visualizar el ma 
                         unsolomarcador = 0;
@@ -1715,16 +1730,12 @@ $(document).ready(function(){
                             map.addObject(marcadores[i]);  
                             unsolomarcador++;
                         }
-                       
-                    
-                     }
+                    }
                 }
             });
             auxtemp++;
             console.log(auxtemp);
-            
         }
-
         });
     });
     jQuery('#modalCRUD').on('hidden.bs.modal', function (e) {
@@ -1758,9 +1769,9 @@ $(document).on("click", ".generarPDF", function(){
     fila = $(this).closest("tr");
     nombre = fila.find('td:eq(1)').text();
     opcion = 4; //borrar
-
+    //alerta dinamica con Swal
     Swal.fire({
-        title: '¿Desea exportar PDF de :?',
+        title: '¿Desea exportar PDF?',
         text: nombre,
         icon: 'warning',
         showCancelButton: true,
@@ -1769,6 +1780,7 @@ $(document).on("click", ".generarPDF", function(){
         confirmButtonText: 'Descargar!'
     }).then((result) => {
         if (result.isConfirmed) {
+            //si el administrador confirma procede a descargar el pdf gener
             Swal.fire(
                 'Descarga Exitosa!',
                 'Your file has been download.',
@@ -1864,7 +1876,7 @@ $(document).on("click", ".generarPDF", function(){
                                     tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_temporal,tipo_dis_temporal,
                                     trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar,ing_personal,
                                     esc_padre,est_padre,ocup_padre,esc_madre,est_madre,ocup_madre,dom_familiar,
-                                    nom_tutor,tel_casa_t,tel_celular_t,domicilio_alum,latitude,logitude,img_mapa);
+                                    nom_tutor,tel_casa_t,tel_celular_t,domicilio_alum,latitude,logitude);
                         }   
                     }
                 });
@@ -1875,11 +1887,15 @@ $(document).on("click", ".generarPDF", function(){
 auxtempmain=0;
 //variable auxiliar que permite que el mapa no se este ciclando 
 $(document).on("click", "#btnMapaindividual", function(){
-    
+    // ecuentra la fila selecciona  por el usuario
     fila = $(this).closest("tr");
+    //captura la opcion de consulta 
     opcion = 7;
+    //con ayuda de la anterior variable fila obtenemos la matricula del estudiante 
     matricula = parseInt(fila.find('td:eq(0)').text());
+    //alerta dinamica para que solo los que cumplan una condiccion sea solo posible visualizar el mapa mientras no?
     Swal.fire({
+        //Datos del frame
         title: '¿Visualizar alumno en mapa con matricula?',
         text: matricula,
         icon: 'warning',
@@ -1887,6 +1903,7 @@ $(document).on("click", "#btnMapaindividual", function(){
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Ok!'
+        // 
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire(
@@ -1901,6 +1918,8 @@ $(document).on("click", "#btnMapaindividual", function(){
                     data: {opcion:opcion, id:matricula},
                     success: function(data){
                         console.log(data);
+                        latitude = data[0].ANLO_LATITUDE;
+                        logitude = data[0].ANLO_LOGITUDE;
                         let aux = data.length;
                         if(aux<1){
                             Swal.fire({
@@ -1915,7 +1934,8 @@ $(document).on("click", "#btnMapaindividual", function(){
                                 $(".modal-headermp").css("color", "white");
                                 $(".modal-titlemp").text("Localización Individual");            
                                 $("#modalmapaindividual").modal("show"); 
-                                 $("#modalmapaindividual").on('shown.bs.modal', function () {    
+                                $("#modalmapaindividual").on('shown.bs.modal', function () {    
+                                   
                                         var itsoehla = 20.20508;
                                         var itsoehlong =-99.2226;
                                         var lati = 20.21688898553249;
@@ -1938,6 +1958,47 @@ $(document).on("click", "#btnMapaindividual", function(){
                                         var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));   
                                         
                                         auxtempmain++;
+                                        const routerService = platform.getRoutingService();
+                                        const ITSOEH = new H.map.Marker({lat: itsoehla, lng: itsoehlong});
+                                        ITSOEH.setData('<div><a href="http://www.itsoeh.edu.mx/"  target="_blank">ITSOEH</a></div>');
+                                        ITSOEH.addEventListener("pointermove",event =>{const bubble = new H.ui.InfoBubble(
+                                        event.target.getGeometry(),
+                                        {
+                                        content: event.target.getData()
+                                        });
+                                        ui.addBubble(bubble);}, false);
+                                        map.addObject(ITSOEH);
+                                        const marker = new H.map.Marker({lat:latitude , lng :logitude});
+                                        map.addObject(marker);
+                                        const routingline = new H.geo.LineString();
+                                        const params ={
+                                        mode : "fastest;car;traffic:enabled",
+                                        waypoint0: latitude + ","+ logitude,
+                                        waypoint1: itsoehla + ","+ itsoehlong,
+                                        representation : "display"
+                                        };
+                                        routerService.calculateRoute(params, 
+                                        success=>{
+                                            ruta = success.response.route[0].shape;
+                                            ruta.forEach(points =>{
+                                            let parts = points.split(",");
+                                            routingline.pushPoint({
+                                            lat: parts[0],
+                                            lng: parts[1]
+                                            });
+                        
+                                        });
+                                            const rutaestatica = new H.map.Polyline(routingline,{
+                                            style:{
+                                                lineWidth:5
+                                            }
+                                            }
+                                            );
+                                            map.addObject(rutaestatica);  
+                                            
+                                            console.log(success.response.route[0].shape);
+                                        },
+                                        error=>{console.log(error);}); 
                             });
                             jQuery('#modalmapaindividual').on('hidden.bs.modal', function (e) {
                                window.location.reload();
@@ -1950,9 +2011,6 @@ $(document).on("click", "#btnMapaindividual", function(){
         });
    
 });
-
-
-
 });
 
 
