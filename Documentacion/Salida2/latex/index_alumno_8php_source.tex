@@ -1,0 +1,54 @@
+\hypertarget{index_alumno_8php_source}{}\doxysection{index\+Alumno.\+php}
+\label{index_alumno_8php_source}\index{C:/xampp/htdocs/Ficha/vista/indexAlumno.php@{C:/xampp/htdocs/Ficha/vista/indexAlumno.php}}
+\mbox{\hyperlink{index_alumno_8php}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00001}00001 <?php require\_once \textcolor{stringliteral}{"{}vistas/parte\_superiorAlumno.php"{}}?>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00002}00002 <!-\/-\/INICIO del cont principal-\/-\/>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00003}00003 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}container"{}}>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00004}00004     <h1 style=\textcolor{stringliteral}{"{}text-\/align: center;"{}}>Perfil</h1>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00005}00005 <?php}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00006}00006 include\_once \textcolor{stringliteral}{'cnx.php'};}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00007}\mbox{\hyperlink{index_alumno_8php_acabcbb58bb693a8fb04dd7d5d720974f}{00007}} \mbox{\hyperlink{index_alumno_8php_acabcbb58bb693a8fb04dd7d5d720974f}{\$objeto}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_conexion}{Conexion}}();}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00008}\mbox{\hyperlink{index_alumno_8php_a881924afaecbe8ee5c0d26174a1e8081}{00008}} \mbox{\hyperlink{index_alumno_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}} = \mbox{\hyperlink{index_alumno_8php_acabcbb58bb693a8fb04dd7d5d720974f}{\$objeto}}-\/>Conectar();}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00009}\mbox{\hyperlink{index_alumno_8php_aa51c57907c0c95e42b4ed5991d429567}{00009}} \mbox{\hyperlink{index_alumno_8php_aa51c57907c0c95e42b4ed5991d429567}{\$alumno}} =\$\_SESSION[\textcolor{stringliteral}{"{}id\_Cliente"{}}];}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00010}\mbox{\hyperlink{index_alumno_8php_a047170d6020a882807665812a27e2525}{00010}} \mbox{\hyperlink{index_alumno_8php_a047170d6020a882807665812a27e2525}{\$sql}} = \textcolor{stringliteral}{'CALL cima2.sp\_fi\_listar\_alumno(?)'};}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00011}\mbox{\hyperlink{index_alumno_8php_af27a9140d5f2658693e7fd107f716449}{00011}} \mbox{\hyperlink{index_alumno_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}} = \mbox{\hyperlink{index_alumno_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}}-\/>prepare(\mbox{\hyperlink{index_alumno_8php_a047170d6020a882807665812a27e2525}{\$sql}});}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00012}00012 \textcolor{comment}{//Envio de parametros mediante PDO}}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00013}00013 \mbox{\hyperlink{index_alumno_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}}-\/>bindParam(1, \mbox{\hyperlink{index_alumno_8php_aa51c57907c0c95e42b4ed5991d429567}{\$alumno}}, PDO::PARAM\_STR, 10);}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00014}00014 \mbox{\hyperlink{index_alumno_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}}-\/>setFetchMode(PDO::FETCH\_ASSOC);}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00015}00015 \mbox{\hyperlink{index_alumno_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}}-\/>execute();}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00016}00016 \textcolor{comment}{// Mostramos los resultados}}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00017}00017 \textcolor{keywordflow}{while} (\$row = \mbox{\hyperlink{index_alumno_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}}-\/>fetch())\{}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00018}00018 ?>  }
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00019}00019     <article \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card"{}}>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00020}00020       <header \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_header"{}}>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00021}00021         <img src=\textcolor{stringliteral}{"{}assets/images/card-\/pattern.svg"{}} alt=\textcolor{stringliteral}{"{}pattern card"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_header-\/image"{}} />}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00022}00022         <img src=\textcolor{stringliteral}{"{}assets/images/victor.jpg"{}} alt=\textcolor{stringliteral}{"{}profile image"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_header-\/profile"{}} />}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00023}00023       </header>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00024}00024       <section \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_body"{}}>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00025}00025         <p \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_text"{}}>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00026}00026         <?php  echo \textcolor{stringliteral}{"{}\{\$row["{}}AL\_NOM\_ALUMNO\textcolor{stringliteral}{"{}]\} <br>"{}};?>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00027}00027           <span \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_text card\_\_text-\/-\/light"{}}>   <?php  echo \textcolor{stringliteral}{"{}\{\$row["{}}AL\_MATRICULA\textcolor{stringliteral}{"{}]\} <br>"{}};?></span>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00028}00028         </p>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00029}00029         <p \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_text card\_\_text-\/-\/light"{}}><?php  echo \textcolor{stringliteral}{"{}\{\$row["{}}AL\_CORREO\textcolor{stringliteral}{"{}]\} <br>"{}};?></p>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00030}00030       </section>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00031}00031       <footer \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_footer"{}}>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00032}00032         <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_stats"{}}>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00033}00033           <p \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_number"{}}><?php  echo \textcolor{stringliteral}{"{}\{\$row["{}}AL\_SEMESTRE\textcolor{stringliteral}{"{}]\} <br>"{}};?></p>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00034}00034           <p \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_text card\_\_text-\/-\/light"{}}>Semestre</p>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00035}00035         </div>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00036}00036         <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_stats"{}}>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00037}00037           <p \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_number"{}}><?php  echo \textcolor{stringliteral}{"{}\{\$row["{}}AL\_PLAN\textcolor{stringliteral}{"{}]\} <br>"{}};?></p>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00038}00038           <p \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_text card\_\_text-\/-\/light"{}}>Plan</p>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00039}00039         </div>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00040}00040         <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_stats"{}}>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00041}00041           <p \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_number"{}}><?php  echo \textcolor{stringliteral}{"{}\{\$row["{}}AL\_CDTOS\_SEMESTRE\textcolor{stringliteral}{"{}]\} <br>"{}};?></p>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00042}00042           <p \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}card\_\_text card\_\_text-\/-\/light"{}}>Creditos</p>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00043}00043         </div>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00044}00044       </footer>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00045}00045     </article>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00046}00046     <?php \} ?>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00047}00047 </div>}
+\DoxyCodeLine{\Hypertarget{index_alumno_8php_source_l00048}00048 <?php require\_once \textcolor{stringliteral}{"{}vistas/parte\_inferior.php"{}}?>}
+
+\end{DoxyCode}

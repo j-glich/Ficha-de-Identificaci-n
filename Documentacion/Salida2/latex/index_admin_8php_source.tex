@@ -1,0 +1,111 @@
+\hypertarget{index_admin_8php_source}{}\doxysection{index\+Admin.\+php}
+\label{index_admin_8php_source}\index{C:/xampp/htdocs/Ficha/vista/indexAdmin.php@{C:/xampp/htdocs/Ficha/vista/indexAdmin.php}}
+\mbox{\hyperlink{index_admin_8php}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00001}00001 <?php require\_once \textcolor{stringliteral}{"{}vistas/parte\_superior.php"{}}?>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00003}00003 <!-\/-\/INICIO del cont principal-\/-\/>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00004}00004 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}container"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00005}00005     <h1>Contenido principal</h1>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00006}00006 <?php}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00007}00007 include\_once \textcolor{stringliteral}{'cnx.php'};}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00008}\mbox{\hyperlink{index_admin_8php_acabcbb58bb693a8fb04dd7d5d720974f}{00008}} \mbox{\hyperlink{index_admin_8php_acabcbb58bb693a8fb04dd7d5d720974f}{\$objeto}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_conexion}{Conexion}}();}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00009}\mbox{\hyperlink{index_admin_8php_a881924afaecbe8ee5c0d26174a1e8081}{00009}} \mbox{\hyperlink{index_admin_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}} = \mbox{\hyperlink{index_admin_8php_acabcbb58bb693a8fb04dd7d5d720974f}{\$objeto}}-\/>Conectar();}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00010}\mbox{\hyperlink{index_admin_8php_a047170d6020a882807665812a27e2525}{00010}} \mbox{\hyperlink{index_admin_8php_a047170d6020a882807665812a27e2525}{\$sql}} = \textcolor{stringliteral}{'CALL cima2.sp\_fi\_listar\_alumnos()'};}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00011}\mbox{\hyperlink{index_admin_8php_af27a9140d5f2658693e7fd107f716449}{00011}} \mbox{\hyperlink{index_admin_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}} = \mbox{\hyperlink{index_admin_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}}-\/>prepare(\mbox{\hyperlink{index_admin_8php_a047170d6020a882807665812a27e2525}{\$sql}});}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00012}00012 \mbox{\hyperlink{index_admin_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}}-\/>execute();}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00013}\mbox{\hyperlink{index_admin_8php_a6efc15b5a2314dd4b5aaa556a375c6d6}{00013}} \mbox{\hyperlink{index_admin_8php_a6efc15b5a2314dd4b5aaa556a375c6d6}{\$data}}=\mbox{\hyperlink{index_admin_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}}-\/>fetchAll(PDO::FETCH\_ASSOC);}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00014}00014 ?>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00015}00015 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}container"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00016}00016         <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}row"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00017}00017             <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}col-\/lg-\/12"{}}>            }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00018}00018             <button \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}btnNuevo"{}} type=\textcolor{stringliteral}{"{}button"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}btn btn-\/success"{}} data-\/toggle=\textcolor{stringliteral}{"{}modal"{}}>Nuevo</button>    }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00019}00019             </div>    }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00020}00020         </div>    }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00021}00021     </div>    }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00022}00022     <br>  }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00023}00023 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}container"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00024}00024         <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}row"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00025}00025                 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}col-\/lg-\/12"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00026}00026                     <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}table-\/responsive"{}}>        }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00027}00027                         <table \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}tablaPersonas"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}table table-\/striped table-\/bordered table-\/condensed"{}} style=\textcolor{stringliteral}{"{}width:100\%"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00028}00028                         <thead \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}text-\/center"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00029}00029                             <tr>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00030}00030                                 <th>Matricula</th>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00031}00031                                 <th>Nombre completo</th>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00032}00032                                 <th>Semestre</th>                                }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00033}00033                                 <th>Correo</th>  }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00034}00034                                 <th>Acciones</th>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00035}00035                             </tr>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00036}00036                         </thead>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00037}00037                         <tbody>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00038}00038                             <?php                            }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00039}00039                             \textcolor{keywordflow}{foreach}(\mbox{\hyperlink{index_admin_8php_a6efc15b5a2314dd4b5aaa556a375c6d6}{\$data}} as \$dat) \{                                                        }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00040}00040                             ?>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00041}00041                             <tr>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00042}00042                                 <td><?php echo \$dat[\textcolor{stringliteral}{'AL\_MATRICULA'}] ?></td>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00043}00043                                 <td><?php echo \$dat[\textcolor{stringliteral}{'AL\_NOM\_ALUMNO'}] ?></td>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00044}00044                                 <td><?php echo \$dat[\textcolor{stringliteral}{'AL\_SEMESTRE'}] ?></td>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00045}00045                                 <td><?php echo \$dat[\textcolor{stringliteral}{'AL\_CORREO'}] ?></td>    }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00046}00046                                 <td></td>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00047}00047                             </tr>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00048}00048                             <?php}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00049}00049                                 \}}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00050}00050                             ?>                                }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00051}00051                         </tbody>        }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00052}00052                     </table>                    }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00053}00053                 </div>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00054}00054             </div>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00055}00055         </div>  }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00056}00056     </div>    }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00057}00057 <!-\/-\/Modal para CRUD-\/-\/>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00058}00058 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal fade"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}modalCRUD"{}} tabindex=\textcolor{stringliteral}{"{}-\/1"{}} role=\textcolor{stringliteral}{"{}dialog"{}} aria-\/labelledby=\textcolor{stringliteral}{"{}exampleModalLabel"{}} aria-\/hidden=\textcolor{stringliteral}{"{}true"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00059}00059     <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/dialog"{}} role=\textcolor{stringliteral}{"{}document"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00060}00060         <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/content"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00061}00061             <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/header"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00062}00062                 <h5 \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/title"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}exampleModalLabel"{}}></h5>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00063}00063                 <button type=\textcolor{stringliteral}{"{}button"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}close"{}} data-\/dismiss=\textcolor{stringliteral}{"{}modal"{}} aria-\/label=\textcolor{stringliteral}{"{}Close"{}}><span aria-\/hidden=\textcolor{stringliteral}{"{}true"{}}>\&\mbox{\hyperlink{vista_reportes_8php_a3d22b3346ddd8f37ebe788cb96d4368a}{times}};</span>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00064}00064                 </button>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00065}00065             </div>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00066}00066         <\mbox{\hyperlink{_datos_escolares_8php_a5250c7b8d4db609ffe17f7211a9b7619}{form}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}formPersonas"{}} method=\textcolor{stringliteral}{"{}POST"{}}>    }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00067}00067             <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/body"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00068}00068                 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/group"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00069}00069                 <label \textcolor{keywordflow}{for}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}col-\/form-\/label"{}}>Matricula:</label>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00070}00070                 <input type=\textcolor{stringliteral}{"{}text"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/control"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00071}00071                 </div>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00072}00072                 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/group"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00073}00073                 <label \textcolor{keywordflow}{for}=\textcolor{stringliteral}{"{}nombre"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}col-\/form-\/label"{}}>Nombre completo:</label>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00074}00074                 <input type=\textcolor{stringliteral}{"{}text"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/control"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}nombre"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00075}00075                 </div>                }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00076}00076                 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/group"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00077}00077                 <label \textcolor{keywordflow}{for}=\textcolor{stringliteral}{"{}plan-\/academico"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}col-\/form-\/label"{}}>Plan Academico:</label>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00078}00078                 <input type=\textcolor{stringliteral}{"{}text"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/control"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}plan-\/academico"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00079}00079                 </div>   }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00080}00080                 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/group"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00081}00081                 <label \textcolor{keywordflow}{for}=\textcolor{stringliteral}{"{}correo"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}col-\/form-\/label"{}}>Correo:</label>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00082}00082                 <input type=\textcolor{stringliteral}{"{}text"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/control"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}correo"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00083}00083                 </div>    }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00084}00084                 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/group"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00085}00085                 <label \textcolor{keywordflow}{for}=\textcolor{stringliteral}{"{}semestre"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}col-\/form-\/label"{}}>Semestre:</label>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00086}00086                 <input type=\textcolor{stringliteral}{"{}text"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/control"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}semestre"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00087}00087                 </div>         }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00088}00088                 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/group"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00089}00089                 <label \textcolor{keywordflow}{for}=\textcolor{stringliteral}{"{}activo"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}col-\/form-\/label"{}}>Estado del Estudiante:</label>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00090}00090                 <select \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/control"{}} name=\textcolor{stringliteral}{"{}activo"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}activo"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00091}00091                     <option value=\textcolor{stringliteral}{"{}A"{}}>Activo</option>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00092}00092                     <option value=\textcolor{stringliteral}{"{}I"{}}>Inactivo</option>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00093}00093                 </select>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00094}00094                 </div>              }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00095}00095             </div>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00096}00096             <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/footer"{}}>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00097}00097                 <button type=\textcolor{stringliteral}{"{}button"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}btn btn-\/light"{}} data-\/dismiss=\textcolor{stringliteral}{"{}modal"{}}>Cancelar</button>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00098}00098                 <button type=\textcolor{stringliteral}{"{}submit"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}btnGuardar"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}btn btn-\/dark"{}}>Guardar</button>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00099}00099             </div>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00100}00100         </\mbox{\hyperlink{_datos_escolares_8php_a5250c7b8d4db609ffe17f7211a9b7619}{form}}>    }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00101}00101         </div>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00102}00102     </div>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00103}00103 </div>  }
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00104}00104 </div>}
+\DoxyCodeLine{\Hypertarget{index_admin_8php_source_l00105}00105 <?php require\_once \textcolor{stringliteral}{"{}vistas/parte\_inferior.php"{}}?>}
+
+\end{DoxyCode}

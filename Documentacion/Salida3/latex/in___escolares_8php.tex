@@ -1,0 +1,198 @@
+\hypertarget{in___escolares_8php}{}\doxysection{Referencia del Archivo C\+:/xampp/htdocs/\+Ficha/vista/\+Registros/control/in\+\_\+\+Escolares.php}
+\label{in___escolares_8php}\index{C:/xampp/htdocs/Ficha/vista/Registros/control/in\_Escolares.php@{C:/xampp/htdocs/Ficha/vista/Registros/control/in\_Escolares.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{in___escolares_8php_acabcbb58bb693a8fb04dd7d5d720974f}{\$objeto}} = new \mbox{\hyperlink{class_conexion}{Conexion}}()
+\item 
+\mbox{\hyperlink{in___escolares_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}} = \$objeto-\/$>$Conectar()
+\item 
+\mbox{\hyperlink{in___escolares_8php_a981952d6d80353d7e767797f7eeac2f6}{\$matricula}} =\$\+\_\+\+SESSION\mbox{[}\char`\"{}id\+\_\+\+Cliente\char`\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{in___escolares_8php_a047170d6020a882807665812a27e2525}{\$sql}} = \textquotesingle{}CALL cima2.\+sp\+\_\+fi\+\_\+listar\+\_\+ant\+\_\+escolares(?)\textquotesingle{}
+\item 
+\mbox{\hyperlink{in___escolares_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}} = \$conexion-\/$>$prepare(\$sql)
+\item 
+\mbox{\hyperlink{in___escolares_8php_ac926549b713e71c5f5fd63999cebfb8c}{\$num\+\_\+rows}} = \$stmt-\/$>$fetch\+Column()
+\item 
+if(\$num\+\_\+rows $>$ 0) \mbox{\hyperlink{in___escolares_8php_a86338f5e7d197d15c4324193644e9ac3}{else}}
+\item 
+\mbox{\hyperlink{in___escolares_8php_ac8863cf9055fcd6c7450b8c3f0fc2aca}{\$escolaridad}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo\textquotesingle{}\mbox{]} \+: \textquotesingle{}Bachillerato Técnico\textquotesingle{}
+\item 
+\mbox{\hyperlink{in___escolares_8php_abb37403607d2f1a03a05f70815badc86}{\$especialidad}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}especilidad\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}especilidad\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\item 
+\mbox{\hyperlink{in___escolares_8php_a7ed3d0579c85fb11b16ca4b6ec124e4b}{\$nombre\+Institucion}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}nom\+Institucion\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}nom\+Institucion\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\hyperlink{in___escolares_8php_a2ab2a4e2a5de89c02ffdc6825211ae21}{\$promedio\+General}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}promedio\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}promedio\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\hyperlink{in___escolares_8php_ab68a9a50f58fc09d68a709909abfc7e8}{\$beca}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}gru\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}gru\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\hyperlink{in___escolares_8php_a39b153840f8f85287320c9a707919e61}{\$tipobeca}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup\textquotesingle{}\mbox{]} \+: \textquotesingle{}Otro\textquotesingle{}
+\item 
+\mbox{\hyperlink{in___escolares_8php_aeea8d31868026830237dba19f210256c}{\$otrotipbeca}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}tibeca\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}tibeca\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguno\textquotesingle{}
+\item 
+\mbox{\hyperlink{in___escolares_8php_a4c86d62d23b90c07a81a54323bdae557}{\$estu\+\_\+viviras}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}vivir\+\_\+con\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}vivir\+\_\+con\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{in___escolares_8php_ab68a9a50f58fc09d68a709909abfc7e8}\label{in___escolares_8php_ab68a9a50f58fc09d68a709909abfc7e8}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$beca@{\$beca}}
+\index{\$beca@{\$beca}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$beca}{$beca}}
+{\footnotesize\ttfamily \$beca = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}gru\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}gru\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00034}{34}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_a881924afaecbe8ee5c0d26174a1e8081}\label{in___escolares_8php_a881924afaecbe8ee5c0d26174a1e8081}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$conexion@{\$conexion}}
+\index{\$conexion@{\$conexion}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$conexion}{$conexion}}
+{\footnotesize\ttfamily \$conexion = \$objeto-\/$>$Conectar()}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00006}{6}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_ac8863cf9055fcd6c7450b8c3f0fc2aca}\label{in___escolares_8php_ac8863cf9055fcd6c7450b8c3f0fc2aca}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$escolaridad@{\$escolaridad}}
+\index{\$escolaridad@{\$escolaridad}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$escolaridad}{$escolaridad}}
+{\footnotesize\ttfamily \$escolaridad = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo\textquotesingle{}\mbox{]} \+: \textquotesingle{}Bachillerato Técnico\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00030}{30}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_abb37403607d2f1a03a05f70815badc86}\label{in___escolares_8php_abb37403607d2f1a03a05f70815badc86}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$especialidad@{\$especialidad}}
+\index{\$especialidad@{\$especialidad}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$especialidad}{$especialidad}}
+{\footnotesize\ttfamily \$especialidad = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}especilidad\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}especilidad\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00031}{31}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_a4c86d62d23b90c07a81a54323bdae557}\label{in___escolares_8php_a4c86d62d23b90c07a81a54323bdae557}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$estu\_viviras@{\$estu\_viviras}}
+\index{\$estu\_viviras@{\$estu\_viviras}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$estu\_viviras}{$estu\_viviras}}
+{\footnotesize\ttfamily \$estu\+\_\+viviras = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}vivir\+\_\+con\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}vivir\+\_\+con\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00037}{37}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_a981952d6d80353d7e767797f7eeac2f6}\label{in___escolares_8php_a981952d6d80353d7e767797f7eeac2f6}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$matricula@{\$matricula}}
+\index{\$matricula@{\$matricula}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$matricula}{$matricula}}
+{\footnotesize\ttfamily \$matricula =\$\+\_\+\+SESSION\mbox{[}\char`\"{}id\+\_\+\+Cliente\char`\"{}\mbox{]}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00007}{7}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_a7ed3d0579c85fb11b16ca4b6ec124e4b}\label{in___escolares_8php_a7ed3d0579c85fb11b16ca4b6ec124e4b}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$nombreInstitucion@{\$nombreInstitucion}}
+\index{\$nombreInstitucion@{\$nombreInstitucion}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$nombreInstitucion}{$nombreInstitucion}}
+{\footnotesize\ttfamily \$nombre\+Institucion = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}nom\+Institucion\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}nom\+Institucion\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00032}{32}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_ac926549b713e71c5f5fd63999cebfb8c}\label{in___escolares_8php_ac926549b713e71c5f5fd63999cebfb8c}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$num\_rows@{\$num\_rows}}
+\index{\$num\_rows@{\$num\_rows}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$num\_rows}{$num\_rows}}
+{\footnotesize\ttfamily \$num\+\_\+rows = \$stmt-\/$>$fetch\+Column()}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00013}{13}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_acabcbb58bb693a8fb04dd7d5d720974f}\label{in___escolares_8php_acabcbb58bb693a8fb04dd7d5d720974f}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$objeto@{\$objeto}}
+\index{\$objeto@{\$objeto}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$objeto}{$objeto}}
+{\footnotesize\ttfamily \$objeto = new \mbox{\hyperlink{class_conexion}{Conexion}}()}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00005}{5}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_aeea8d31868026830237dba19f210256c}\label{in___escolares_8php_aeea8d31868026830237dba19f210256c}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$otrotipbeca@{\$otrotipbeca}}
+\index{\$otrotipbeca@{\$otrotipbeca}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$otrotipbeca}{$otrotipbeca}}
+{\footnotesize\ttfamily \$otrotipbeca = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}tibeca\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}tibeca\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguno\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00036}{36}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_a2ab2a4e2a5de89c02ffdc6825211ae21}\label{in___escolares_8php_a2ab2a4e2a5de89c02ffdc6825211ae21}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$promedioGeneral@{\$promedioGeneral}}
+\index{\$promedioGeneral@{\$promedioGeneral}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$promedioGeneral}{$promedioGeneral}}
+{\footnotesize\ttfamily \$promedio\+General = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}promedio\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}promedio\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00033}{33}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_a047170d6020a882807665812a27e2525}\label{in___escolares_8php_a047170d6020a882807665812a27e2525}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$sql@{\$sql}}
+\index{\$sql@{\$sql}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$sql}{$sql}}
+{\footnotesize\ttfamily \$sql = \textquotesingle{}CALL cima2.\+sp\+\_\+fi\+\_\+listar\+\_\+ant\+\_\+escolares(?)\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00008}{8}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_af27a9140d5f2658693e7fd107f716449}\label{in___escolares_8php_af27a9140d5f2658693e7fd107f716449}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$stmt@{\$stmt}}
+\index{\$stmt@{\$stmt}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$stmt}{$stmt}}
+{\footnotesize\ttfamily \$stmt = \$conexion-\/$>$prepare(\$sql)}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00009}{9}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_a39b153840f8f85287320c9a707919e61}\label{in___escolares_8php_a39b153840f8f85287320c9a707919e61}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!\$tipobeca@{\$tipobeca}}
+\index{\$tipobeca@{\$tipobeca}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{\$tipobeca}{$tipobeca}}
+{\footnotesize\ttfamily \$tipobeca = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup\textquotesingle{}\mbox{]} \+: \textquotesingle{}Otro\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00035}{35}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+
+\mbox{\Hypertarget{in___escolares_8php_a86338f5e7d197d15c4324193644e9ac3}\label{in___escolares_8php_a86338f5e7d197d15c4324193644e9ac3}} 
+\index{in\_Escolares.php@{in\_Escolares.php}!else@{else}}
+\index{else@{else}!in\_Escolares.php@{in\_Escolares.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily if ( \$num\+\_\+rows $>$ 0) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  echo \textcolor{stringliteral}{'<script>}}
+\DoxyCodeLine{\textcolor{stringliteral}{  Swal.fire(}}
+\DoxyCodeLine{\textcolor{stringliteral}{  "{}Registro Exitoso"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{  "{}Corecto!"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{  "{}success"{})</script>'}}
+
+\end{DoxyCode}
+
+
+Definición en la línea \mbox{\hyperlink{in___escolares_8php_source_l00023}{23}} del archivo \mbox{\hyperlink{in___escolares_8php_source}{in\+\_\+\+Escolares.\+php}}.
+

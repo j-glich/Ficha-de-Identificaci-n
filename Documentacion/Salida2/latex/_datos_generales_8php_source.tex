@@ -1,0 +1,111 @@
+\hypertarget{_datos_generales_8php_source}{}\doxysection{Datos\+Generales.\+php}
+\label{_datos_generales_8php_source}\index{C:/xampp/htdocs/Ficha/vista/DatosGenerales.php@{C:/xampp/htdocs/Ficha/vista/DatosGenerales.php}}
+\mbox{\hyperlink{_datos_generales_8php}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00001}00001 <?php require\_once \textcolor{stringliteral}{"{}vistas/parte\_superiorAlumno.php"{}}?>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00002}00002 <link rel=\textcolor{stringliteral}{"{}stylesheet"{}} href=\textcolor{stringliteral}{"{}../vista/estilos/s\_General.css"{}} />}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00003}00003 <script src=\textcolor{stringliteral}{"{}../vista/js/js\_Generales.js"{}}></script>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00004}00004 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}container"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{'container'}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00005}00005     <h1 style=\textcolor{stringliteral}{"{}text-\/align: center;"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}Titulo\_\_label"{}}>Ficha de identificación</h1>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00006}00006     <h3 style=\textcolor{stringliteral}{"{}text-\/align: center;"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}Subtitulo\_\_label"{}}>Datos generales</h3>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00007}00007     <\mbox{\hyperlink{_datos_escolares_8php_a5250c7b8d4db609ffe17f7211a9b7619}{form}}  method = \textcolor{stringliteral}{'post'} action= \textcolor{stringliteral}{'DatosEscolares.php'} >}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00008}00008         <section \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/register"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00009}00009 <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{'cam1'}> }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00010}00010         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00011}00011         <select \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}} name=\textcolor{stringliteral}{"{}carrera"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}carrera"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00012}00012             <option value=\textcolor{stringliteral}{"{}Ingeniería en Sistemas Computacionales"{}}>Ing.En Sistemas Computacionales</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00013}00013             <option value=\textcolor{stringliteral}{"{}Arquitectura"{}}>Arquitectura</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00014}00014             <option value=\textcolor{stringliteral}{"{}Ingeniería Electromecánica"{}}>Ing.Electromecánica</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00015}00015             <option value=\textcolor{stringliteral}{"{}Ingeniería en Industrias Alimentarias"{}}>Ing.En Industrias Alimentarias</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00016}00016             <option value=\textcolor{stringliteral}{"{}Ingeniería en Gestión Empresarial"{}}>Ing.En Gestión Empresarial</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00017}00017             <option value=\textcolor{stringliteral}{"{}Ingeniería en Logística"{}}>Ing.En Logística</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00018}00018             <option value=\textcolor{stringliteral}{"{}TICS"{}}>Ing.En Tecnologías de la Información y Comunicaciones</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00019}00019             <option value=\textcolor{stringliteral}{"{}Ingeniería Industrial"{}}>Ing.Industrial</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00020}00020         </select>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00021}00021         <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Carrera:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00022}00022         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00023}00023         <br>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00024}00024         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00025}00025             <input onkeypress=\textcolor{stringliteral}{"{}return solonumeros(event)"{}} maxlength=\textcolor{stringliteral}{"{}8"{}} type=\textcolor{stringliteral}{"{}text"{}} name=\textcolor{stringliteral}{"{}matricula"{}} autocomplete=\textcolor{stringliteral}{"{}off"{}} placeholder=\textcolor{stringliteral}{"{} "{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00026}00026             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Matricula:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00027}00027         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00028}00028         <br>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00029}00029         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00030}00030             <input type=\textcolor{stringliteral}{"{}text"{}} name=\textcolor{stringliteral}{"{}nombre"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}nombre"{}} placeholder=\textcolor{stringliteral}{"{} "{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}} autocomplete=\textcolor{stringliteral}{"{}off"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00031}00031             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Nombre completo:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00032}00032         </div>   }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00033}00033         <br>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00034}00034         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00035}00035             <input onkeypress=\textcolor{stringliteral}{"{}return solonumeros(event)"{}} autocomplete=\textcolor{stringliteral}{"{}off"{}} maxlength=\textcolor{stringliteral}{"{}1"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}} type=\textcolor{stringliteral}{"{}text"{}} name=\textcolor{stringliteral}{"{}semestre"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}semestre"{}} placeholder=\textcolor{stringliteral}{"{} "{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00036}00036             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Semestre:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00037}00037         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00038}00038         <br>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00039}00039         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00040}00040             <input \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}} type=\textcolor{stringliteral}{"{}text"{}} name=\textcolor{stringliteral}{"{}grupo1"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}grupo1"{}} placeholder=\textcolor{stringliteral}{"{} "{}} autocomplete=\textcolor{stringliteral}{"{}off"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00041}00041             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Grupo:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00042}00042         </div>  }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00043}00043         <br>   }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00044}00044         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00045}00045             <input \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}} type=\textcolor{stringliteral}{"{}date"{}} name=\textcolor{stringliteral}{"{}fecha"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}fecha"{}} placeholder=\textcolor{stringliteral}{"{} "{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00046}00046             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Fecha:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00047}00047         </div> }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00048}00048         <br>   }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00049}00049         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00050}00050             <input \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}} type=\textcolor{stringliteral}{"{}text"{}} name=\textcolor{stringliteral}{"{}lugarNac"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}lugarNac"{}} placeholder=\textcolor{stringliteral}{"{} "{}} autocomplete=\textcolor{stringliteral}{"{}off"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00051}00051             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Lugar de Nacimiento:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00052}00052         </div> }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00053}00053     </div>    }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00054}00054     <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{'cam2'}> }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00055}00055         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00056}00056             <input \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}} type=\textcolor{stringliteral}{"{}text"{}} name=\textcolor{stringliteral}{"{}correo"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}correo"{}} placeholder=\textcolor{stringliteral}{"{} "{}} autocomplete=\textcolor{stringliteral}{"{}off"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00057}00057             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Correo institucional:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00058}00058         </div> }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00059}00059         <br>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00060}00060         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00061}00061             <select \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}} name=\textcolor{stringliteral}{"{}sexo"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}sexo"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00062}00062                 <option value=\textcolor{stringliteral}{"{}F"{}}>Fenenino</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00063}00063                 <option value=\textcolor{stringliteral}{"{}M"{}}>Masculino</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00064}00064             </select> }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00065}00065             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Sexo:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00066}00066         </div> }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00067}00067         <br>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00068}00068         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00069}00069         <select \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}} name=\textcolor{stringliteral}{"{}estadoCivil"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}estadoCivil"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00070}00070             <option value=\textcolor{stringliteral}{"{}casado"{}}>Casado</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00071}00071             <option value=\textcolor{stringliteral}{"{}soltero"{}}>Soltero</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00072}00072             <option value=\textcolor{stringliteral}{"{}separado"{}}>Separado</option>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00073}00073             </select> }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00074}00074             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Estado civil:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00075}00075         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00076}00076         <br>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00077}00077         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00078}00078             <input \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}} type=\textcolor{stringliteral}{"{}text"{}} autocomplete=\textcolor{stringliteral}{"{}off"{}} name=\textcolor{stringliteral}{"{}domicilio"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}domicilio"{}} placeholder=\textcolor{stringliteral}{"{} "{}}>         }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00079}00079             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Domicilio Actual:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00080}00080         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00081}00081         <br>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00082}00082         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00083}00083             <input \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}} onkeypress=\textcolor{stringliteral}{"{}return solonumeros(event)"{}} maxlength=\textcolor{stringliteral}{"{}10"{}} type=\textcolor{stringliteral}{"{}text"{}} autocomplete=\textcolor{stringliteral}{"{}off"{}} name=\textcolor{stringliteral}{"{}numerocasa"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}numerocasa"{}} placeholder=\textcolor{stringliteral}{"{} "{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00084}00084             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Telefono(casa):</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00085}00085         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00086}00086         <br>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00087}00087         <div id=\textcolor{stringliteral}{"{}matricula"{}} class=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00088}00088             <input class=\textcolor{stringliteral}{"{}textbox"{}} onkeypress=\textcolor{stringliteral}{"{}return solonumeros(event)"{}} maxlength=\textcolor{stringliteral}{"{}10"{}} type=\textcolor{stringliteral}{"{}text"{}} autocomplete=\textcolor{stringliteral}{"{}off"{}} name=\textcolor{stringliteral}{"{}numeroCelular"{}} id=\textcolor{stringliteral}{"{}numeroCelular"{}} placeholder=\textcolor{stringliteral}{"{} "{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00089}00089             <label class=\textcolor{stringliteral}{"{}form\_label"{}}>Telefono(celular):</label>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00090}00090         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00091}00091         <label class=\textcolor{stringliteral}{'label'}>Tienes hijos:</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00092}00092         }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00093}00093         <label class=\textcolor{stringliteral}{'label'}>Si:</label>\&nbsp\&nbsp<input  type=\textcolor{stringliteral}{'radio'} id=\textcolor{stringliteral}{'radio1'} name=\textcolor{stringliteral}{'grupo'} value=\textcolor{stringliteral}{"{}si"{}} readonly onclick=\textcolor{stringliteral}{'crearInput()'}>\&nbsp\&nbsp}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00094}00094         <label class=\textcolor{stringliteral}{'label'}>No:</label>\&nbsp\&nbsp<input  type=\textcolor{stringliteral}{'radio'} id=\textcolor{stringliteral}{'radio2'} name=\textcolor{stringliteral}{'grupo'} value=\textcolor{stringliteral}{"{}no"{}}onclick=\textcolor{stringliteral}{"{}Eliminar('id\_input','id\_eti')"{}} >}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00095}00095         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00096}00096         <div id=\textcolor{stringliteral}{'boton'}> }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00097}00097         <button  type=\textcolor{stringliteral}{"{}submit"{}} class=\textcolor{stringliteral}{"{}button button4"{}}>Siguiente</button>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00098}00098         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00099}00099     </section>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00100}00100 </\mbox{\hyperlink{_datos_escolares_8php_a5250c7b8d4db609ffe17f7211a9b7619}{form}}>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00101}00101 </div>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00103}00103 <!-\/-\/FIN del cont principal-\/-\/>}
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_datos_generales_8php_source_l00105}00105 <?php require\_once \textcolor{stringliteral}{"{}vistas/parte\_inferior.php"{}}?>}
+
+\end{DoxyCode}

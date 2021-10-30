@@ -1,0 +1,22 @@
+\hypertarget{cnx_8php_source}{}\doxysection{cnx.\+php}
+\label{cnx_8php_source}\index{C:/xampp/htdocs/Ficha/vista/Registros/control/cnx.php@{C:/xampp/htdocs/Ficha/vista/Registros/control/cnx.php}}
+\mbox{\hyperlink{cnx_8php}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00001}00001     <?php }
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00002}\mbox{\hyperlink{class_conexion}{00002}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_conexion}{Conexion}}\{   }
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00003}\mbox{\hyperlink{class_conexion_a61fbcfc612cb24555e0acdf96e1e46d6}{00003}}         \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{function} \mbox{\hyperlink{class_conexion_a61fbcfc612cb24555e0acdf96e1e46d6}{Conectar}}() \{        }
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00004}00004             define(\textcolor{stringliteral}{'servidor'}, \textcolor{stringliteral}{'localhost'});}
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00005}00005             define(\textcolor{stringliteral}{'nombre\_bd'}, \textcolor{stringliteral}{'cima2'});}
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00006}00006             define(\textcolor{stringliteral}{'usuario'}, \textcolor{stringliteral}{'root'});}
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00007}00007             define(\textcolor{stringliteral}{'password'}, \textcolor{stringliteral}{'itsoeh'});                           }
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00008}00008             \$opciones = array(PDO::MYSQL\_ATTR\_INIT\_COMMAND => \textcolor{stringliteral}{'SET NAMES utf8'});            }
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00009}00009             \textcolor{keywordflow}{try}\{}
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00010}00010                 \mbox{\hyperlink{in__cordenadas_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}} = \textcolor{keyword}{new} PDO(\textcolor{stringliteral}{"{}mysql:host="{}}.servidor.\textcolor{stringliteral}{"{}; dbname="{}}.nombre\_bd, usuario, password, \$opciones);           }
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00011}00011                 \textcolor{keywordflow}{return} \mbox{\hyperlink{in__cordenadas_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}};}
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00012}00012             \}\textcolor{keywordflow}{catch} (Exception \$e)\{}
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00013}00013                 die(\textcolor{stringliteral}{"{}El error de Conexión es: "{}}. \$e-\/>getMessage());}
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00014}00014             \}}
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00015}00015         \}}
+\DoxyCodeLine{\Hypertarget{cnx_8php_source_l00016}00016     \}}
+
+\end{DoxyCode}

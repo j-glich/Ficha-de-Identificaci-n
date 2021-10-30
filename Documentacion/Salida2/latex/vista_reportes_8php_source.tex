@@ -1,0 +1,137 @@
+\hypertarget{vista_reportes_8php_source}{}\doxysection{vista\+Reportes.\+php}
+\label{vista_reportes_8php_source}\index{C:/xampp/htdocs/Ficha/vista/vistaReportes.php@{C:/xampp/htdocs/Ficha/vista/vistaReportes.php}}
+\mbox{\hyperlink{vista_reportes_8php}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00001}00001 <?php require\_once \textcolor{stringliteral}{"{}vistas/parte\_superior.php"{}}?>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00002}00002 <link rel=\textcolor{stringliteral}{"{}stylesheet"{}} href=\textcolor{stringliteral}{"{}../vista/estilos/s\_VistaReportes.css"{}} />}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00003}00003 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}container"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00004}00004     <h1 style=\textcolor{stringliteral}{"{}text-\/align: center;"{}}>Reportes de servicio</h1>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00005}00005 </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00006}00006 <!-\/-\/FIN del cont principal-\/-\/>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00007}00007 <?php}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00008}00008 include\_once \textcolor{stringliteral}{'cnx.php'};}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00009}\mbox{\hyperlink{vista_reportes_8php_acabcbb58bb693a8fb04dd7d5d720974f}{00009}} \mbox{\hyperlink{vista_reportes_8php_acabcbb58bb693a8fb04dd7d5d720974f}{\$objeto}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_conexion}{Conexion}}();}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00010}\mbox{\hyperlink{vista_reportes_8php_a881924afaecbe8ee5c0d26174a1e8081}{00010}} \mbox{\hyperlink{vista_reportes_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}} = \mbox{\hyperlink{vista_reportes_8php_acabcbb58bb693a8fb04dd7d5d720974f}{\$objeto}}-\/>Conectar();}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00011}\mbox{\hyperlink{vista_reportes_8php_a047170d6020a882807665812a27e2525}{00011}} \mbox{\hyperlink{vista_reportes_8php_a047170d6020a882807665812a27e2525}{\$sql}} = \textcolor{stringliteral}{'CALL cima2.sp\_fi\_listar\_alumnos()'};}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00012}\mbox{\hyperlink{vista_reportes_8php_af27a9140d5f2658693e7fd107f716449}{00012}} \mbox{\hyperlink{vista_reportes_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}} = \mbox{\hyperlink{vista_reportes_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}}-\/>prepare(\mbox{\hyperlink{vista_reportes_8php_a047170d6020a882807665812a27e2525}{\$sql}});}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00013}00013 \mbox{\hyperlink{vista_reportes_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}}-\/>execute();}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00014}\mbox{\hyperlink{vista_reportes_8php_a6efc15b5a2314dd4b5aaa556a375c6d6}{00014}} \mbox{\hyperlink{vista_reportes_8php_a6efc15b5a2314dd4b5aaa556a375c6d6}{\$data}}=\mbox{\hyperlink{vista_reportes_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}}-\/>fetchAll(PDO::FETCH\_ASSOC);}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00015}00015 ?>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00016}00016 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}container"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00017}00017         <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}row"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00018}00018             <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}col-\/lg-\/12"{}}>            }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00019}00019             <button \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}btnMapa"{}} type=\textcolor{stringliteral}{"{}button"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}btn text-\/light btnMapa "{}} data-\/toggle=\textcolor{stringliteral}{"{}modal"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00020}00020             <i \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}bi bi-\/pin-\/map-\/fill"{}}></i>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00021}00021             <svg xmlns=\textcolor{stringliteral}{"{}http://www.w3.org/2000/svg"{}} width=\textcolor{stringliteral}{"{}30"{}} height=\textcolor{stringliteral}{"{}30"{}} fill=\textcolor{stringliteral}{"{}currentColor"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}bi bi-\/pin-\/map-\/fill text-\/primary"{}} viewBox=\textcolor{stringliteral}{"{}0 0 16 16"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00022}00022             <path fill-\/rule=\textcolor{stringliteral}{"{}evenodd"{}} d=\textcolor{stringliteral}{"{}M3.1 11.2a.5.5 0 0 1 .4-\/.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-\/2.25-\/3H10a.5.5 0 0 1 0-\/1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-\/.4.8H.5a.5.5 0 0 1-\/.4-\/.8l3-\/4z"{}}/>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00023}00023             <path fill-\/rule=\textcolor{stringliteral}{"{}evenodd"{}} d=\textcolor{stringliteral}{"{}M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-\/1 0V7.97A4 4 0 0 1 4 3.999z"{}}/>\}}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00024}00024             </svg>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00025}00025             </button>    }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00026}00026             </div>    }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00027}00027         </div>    }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00028}00028     </div>    }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00029}00029     <br> }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00030}00030 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}container"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00031}00031 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}row"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00032}00032                 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}col-\/lg-\/12"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00033}00033                     <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}table-\/responsive"{}}>        }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00034}00034                         <table \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}tablaPersonas2"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}table table-\/striped"{}} style=\textcolor{stringliteral}{"{}width:100\%"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00035}00035                         <thead \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}text-\/center"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00036}00036                             <tr>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00037}00037                                 <td>Matricula</td>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00038}00038                                 <td>Nombre completo</td>                               }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00039}00039                                 <td>Correo</td>  }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00040}00040                                 <td>Estado</td>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00041}00041                                 <td>Acciones</td>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00042}00042                                 }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00043}00043                             </tr>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00044}00044                         </thead>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00045}00045                         <tbody>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00046}00046                             <?php                            }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00047}\mbox{\hyperlink{vista_reportes_8php_a6e485d5ec7e8e743b588a372a655c94b}{00047}}                             \textcolor{keywordflow}{foreach}(\mbox{\hyperlink{vista_reportes_8php_a6efc15b5a2314dd4b5aaa556a375c6d6}{\$data}} as \$dat) \{                                                        }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00048}00048                             ?>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00049}00049                             <tr>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00050}00050                                 <td><?php echo \$dat[\textcolor{stringliteral}{'AL\_MATRICULA'}] ?></td>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00051}00051                                 <td><?php echo \$dat[\textcolor{stringliteral}{'AL\_NOM\_ALUMNO'}] ?></td>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00052}00052                                 <td><?php echo \$dat[\textcolor{stringliteral}{'AL\_CORREO'}] ?></td> }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00053}00053                                 <td><?php }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00054}00054                                 \textcolor{keywordflow}{if} (\$dat[\textcolor{stringliteral}{'AL\_EST\_FICHA'}] == \textcolor{stringliteral}{'COMPLETO'}) \{}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00055}00055                                 ?>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00056}00056                                 <center><img src=\textcolor{stringliteral}{"{}../vista/img/completo.jpg"{}} alt=\textcolor{stringliteral}{"{}completo"{}} width=\textcolor{stringliteral}{"{}60px"{}} height=\textcolor{stringliteral}{"{}60px"{}}></center>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00057}00057                                 <?php}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00058}00058                                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00059}00059                                 ?>    }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00060}00060                                 <img src=\textcolor{stringliteral}{"{}../vista/img/dr.png"{}} alt=\textcolor{stringliteral}{"{}incompleto"{}} width=\textcolor{stringliteral}{"{}120px"{}} height=\textcolor{stringliteral}{"{}40px"{}}>  }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00061}00061                                 <?php       }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00062}00062                                 \}  }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00063}00063                                 ?></td>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00064}00064                                 <td></td>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00065}00065                             </tr>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00066}00066                             <?php}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00067}00067                                 \}}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00068}00068                             ?>                                }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00069}00069                         </tbody>        }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00070}00070                         </table>                    }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00071}00071                     </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00072}00072                 </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00073}00073         </div>  }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00074}00074     </div>  }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00075}00075     }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00076}00076     <script type=\textcolor{stringliteral}{"{}text/javascript"{}} src = \textcolor{stringliteral}{'../jsPDF/dist/jspdf.min.js'}></script>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00077}00077     <script type=\textcolor{stringliteral}{"{}text/javascript"{}}>                           }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00078}00078     </script>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00079}00079 <?php require\_once \textcolor{stringliteral}{"{}vistas/parte\_inferior.php"{}}?>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00080}00080 <!-\/-\/Modal para mapa-\/-\/>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00081}00081 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal fade"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}modalCRUD"{}} tabindex=\textcolor{stringliteral}{"{}-\/1"{}} role=\textcolor{stringliteral}{"{}dialog"{}} aria-\/labelledby=\textcolor{stringliteral}{"{}exampleModalLabel"{}} aria-\/hidden=\textcolor{stringliteral}{"{}true"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00082}00082     <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/dialog"{}} role=\textcolor{stringliteral}{"{}document"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00083}00083         <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/content"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00084}00084             <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/header"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00085}00085                 <h5 \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/title"{}} style=\textcolor{stringliteral}{"{}text-\/align: center"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}exampleModalLabel"{}}></h5>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00086}00086                 <button type=\textcolor{stringliteral}{"{}button"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}close"{}} data-\/dismiss=\textcolor{stringliteral}{"{}modal"{}} aria-\/label=\textcolor{stringliteral}{"{}Close"{}}><span aria-\/hidden=\textcolor{stringliteral}{"{}true"{}}>\&\mbox{\hyperlink{vista_reportes_8php_a3d22b3346ddd8f37ebe788cb96d4368a}{times}};</span></button>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00087}00087             </div>   }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00088}00088             <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{'map'} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/body"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00089}00089             </div>            }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00090}00090             <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/footer"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00091}00091                 <button type=\textcolor{stringliteral}{"{}button"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}btn btn-\/light"{}} data-\/dismiss=\textcolor{stringliteral}{"{}modal"{}}>Cancelar</button>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00092}00092                 <button type=\textcolor{stringliteral}{"{}submit"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}btnGuardar"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}btn btn-\/dark"{}}>Guardar</button>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00093}00093             </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00094}00094         </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00095}00095     </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00096}00096 </div>  }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00097}00097 <!-\/-\/Modal interno indivisual de alumnos-\/-\/>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00098}00098 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal1 fade"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}modalUsuario"{}} tabindex=\textcolor{stringliteral}{"{}-\/1"{}} role=\textcolor{stringliteral}{"{}dialog"{}} aria-\/labelledby=\textcolor{stringliteral}{"{}exampleModalLabel"{}} aria-\/hidden=\textcolor{stringliteral}{"{}true"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00099}00099     <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/dialog"{}} role=\textcolor{stringliteral}{"{}document"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00100}00100         <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/content1"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00101}00101             <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/header1"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00102}00102                 <h5 \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/title1"{}}  \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}exampleModalLabel"{}}></h5>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00103}\mbox{\hyperlink{vista_reportes_8php_a3d22b3346ddd8f37ebe788cb96d4368a}{00103}}                 <button type=\textcolor{stringliteral}{"{}button"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}close"{}} data-\/dismiss=\textcolor{stringliteral}{"{}modal"{}} aria-\/label=\textcolor{stringliteral}{"{}Close"{}}><span aria-\/hidden=\textcolor{stringliteral}{"{}true"{}}>\&\mbox{\hyperlink{vista_reportes_8php_a3d22b3346ddd8f37ebe788cb96d4368a}{times}};</span></button>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00104}00104             </div>   }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00105}00105             <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{'body'} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/body"{}}>   }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00106}00106                 <label \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}id\_\_info"{}}>INFORMACIÓN</label>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00107}00107                 <br>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00108}00108             </div>            }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00109}00109             <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/footer"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00110}00110                 <button type=\textcolor{stringliteral}{"{}button"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}btn btn-\/light"{}} data-\/dismiss=\textcolor{stringliteral}{"{}modal"{}}>Salir</button>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00111}00111             </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00112}00112         </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00113}00113     </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00114}00114 </div>  }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00116}00116 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modalmp fade"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}modalmapaindividual"{}} tabindex=\textcolor{stringliteral}{"{}-\/1"{}} role=\textcolor{stringliteral}{"{}dialog"{}} aria-\/labelledby=\textcolor{stringliteral}{"{}exampleModalLabel"{}} aria-\/hidden=\textcolor{stringliteral}{"{}true"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00117}00117     <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/dialog"{}} role=\textcolor{stringliteral}{"{}document"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00118}00118         <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/contentmp"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00119}00119             <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/headermp"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00120}00120                 <h5 \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/titlemp"{}}  \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}exampleModalLabel"{}}></h5>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00121}00121                 <button type=\textcolor{stringliteral}{"{}button"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}close"{}} data-\/dismiss=\textcolor{stringliteral}{"{}modal"{}} aria-\/label=\textcolor{stringliteral}{"{}Close"{}}><span aria-\/hidden=\textcolor{stringliteral}{"{}true"{}}>\&\mbox{\hyperlink{vista_reportes_8php_a3d22b3346ddd8f37ebe788cb96d4368a}{times}};</span></button>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00122}00122             </div>   }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00123}00123             <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{'bodymapa'} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/bodymp"{}}>        }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00124}00124             </div>            }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00125}00125             <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}modal-\/footermp"{}}>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00126}00126                 <button type=\textcolor{stringliteral}{"{}button"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}btn btn-\/light"{}} data-\/dismiss=\textcolor{stringliteral}{"{}modal"{}}>Salir</button>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00127}00127             </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00128}00128         </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00129}00129     </div>}
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00130}00130 </div>  }
+\DoxyCodeLine{\Hypertarget{vista_reportes_8php_source_l00131}00131 }
+
+\end{DoxyCode}

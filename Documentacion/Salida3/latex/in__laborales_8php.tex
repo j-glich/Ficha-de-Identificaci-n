@@ -1,0 +1,270 @@
+\hypertarget{in__laborales_8php}{}\doxysection{Referencia del Archivo C\+:/xampp/htdocs/\+Ficha/vista/\+Registros/control/in\+\_\+laborales.php}
+\label{in__laborales_8php}\index{C:/xampp/htdocs/Ficha/vista/Registros/control/in\_laborales.php@{C:/xampp/htdocs/Ficha/vista/Registros/control/in\_laborales.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{in__laborales_8php_acabcbb58bb693a8fb04dd7d5d720974f}{\$objeto}} = new \mbox{\hyperlink{class_conexion}{Conexion}}()
+\item 
+\mbox{\hyperlink{in__laborales_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}} = \$objeto-\/$>$Conectar()
+\item 
+\mbox{\hyperlink{in__laborales_8php_a981952d6d80353d7e767797f7eeac2f6}{\$matricula}} =\$\+\_\+\+SESSION\mbox{[}\char`\"{}id\+\_\+\+Cliente\char`\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{in__laborales_8php_a047170d6020a882807665812a27e2525}{\$sql}} = \textquotesingle{}CALL cima2.\+sp\+\_\+fi\+\_\+listar\+\_\+ant\+\_\+laborales(?)\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}} = \$conexion-\/$>$prepare(\$sql)
+\item 
+\mbox{\hyperlink{in__laborales_8php_ac926549b713e71c5f5fd63999cebfb8c}{\$num\+\_\+rows}} = \$stmt-\/$>$fetch\+Column()
+\item 
+if(\$num\+\_\+rows $>$ 0) \mbox{\hyperlink{in__laborales_8php_a86338f5e7d197d15c4324193644e9ac3}{else}}
+\item 
+\mbox{\hyperlink{in__laborales_8php_a31e14ba79c9609352a4896ee30ddfff5}{\$trabajas}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo\textquotesingle{}\mbox{]} \+: \textquotesingle{}No\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_a5b7eea71e41e47f527c2af7713efe557}{\$nombre\+\_\+empresa}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}nom\+Empresa\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}nom\+Empresa\textquotesingle{}\mbox{]} \+: \textquotesingle{}No Trabajo\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_aba2afa28f1ec736bf343b4e93b42df74}{\$horario}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}horario\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}horario\textquotesingle{}\mbox{]} \+: \textquotesingle{}Sin horario\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_adb39ed3eac4b6ece90609818536a1ebe}{\$dependesde}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup\textquotesingle{}\mbox{]} \+: \textquotesingle{}Otros\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_a1415d2b12bc78ac1c94aa80cbed2ce78}{\$\+Especifique}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguno\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_a8418f90be636a9cc2bc0ce3d4f23b6da}{\$ingresofamiliar}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Ingreso\+Familiar\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Ingreso\+Familiar\textquotesingle{}\mbox{]} \+: \textquotesingle{}0\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_aa8d304ff79134140b311f34a645d5f89}{\$ingresopersonal}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Ingreso\+Personal\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Ingreso\+Personal\textquotesingle{}\mbox{]} \+: \textquotesingle{}0\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_a901e796979bdcbad2bd485b1c2f75081}{\$padre\+Escolaridad}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup1\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup1\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_a88331863efae39153330a62c68bb1620}{\$padre\+Estatus}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup2\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup2\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_a7fc3bf593dcc4e51db5be6c3d44ba235}{\$padreocupacion}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Ocupacion\+Padre\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Ocupacion\+Padre\textquotesingle{}\mbox{]}\+:\textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_a4c5147e7b6eaedb9e00b4805b4544fca}{\$madre\+Escolaridad}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup3\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup3\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_a746c13ca9668294f9d9bd053e67b9e6e}{\$madre\+Estatus}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup4\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup4\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_a6f4fdd4262baf04e6d2539cbdb69d8ab}{\$madreocupacion}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Ocupacion\+Madre\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Ocupacion\+Madre\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__laborales_8php_aa4b49ee1c3d7d3f7995fbbf4ee9fe7d5}{\$domicilio}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}domicilio\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}domicilio\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{in__laborales_8php_a881924afaecbe8ee5c0d26174a1e8081}\label{in__laborales_8php_a881924afaecbe8ee5c0d26174a1e8081}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$conexion@{\$conexion}}
+\index{\$conexion@{\$conexion}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$conexion}{$conexion}}
+{\footnotesize\ttfamily \$conexion = \$objeto-\/$>$Conectar()}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00006}{6}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_adb39ed3eac4b6ece90609818536a1ebe}\label{in__laborales_8php_adb39ed3eac4b6ece90609818536a1ebe}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$dependesde@{\$dependesde}}
+\index{\$dependesde@{\$dependesde}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$dependesde}{$dependesde}}
+{\footnotesize\ttfamily \$dependesde = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup\textquotesingle{}\mbox{]} \+: \textquotesingle{}Otros\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00033}{33}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_aa4b49ee1c3d7d3f7995fbbf4ee9fe7d5}\label{in__laborales_8php_aa4b49ee1c3d7d3f7995fbbf4ee9fe7d5}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$domicilio@{\$domicilio}}
+\index{\$domicilio@{\$domicilio}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$domicilio}{$domicilio}}
+{\footnotesize\ttfamily \$domicilio = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}domicilio\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}domicilio\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00043}{43}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a1415d2b12bc78ac1c94aa80cbed2ce78}\label{in__laborales_8php_a1415d2b12bc78ac1c94aa80cbed2ce78}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$Especifique@{\$Especifique}}
+\index{\$Especifique@{\$Especifique}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$Especifique}{$Especifique}}
+{\footnotesize\ttfamily \$Especifique = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguno\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00034}{34}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_aba2afa28f1ec736bf343b4e93b42df74}\label{in__laborales_8php_aba2afa28f1ec736bf343b4e93b42df74}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$horario@{\$horario}}
+\index{\$horario@{\$horario}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$horario}{$horario}}
+{\footnotesize\ttfamily \$horario = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}horario\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}horario\textquotesingle{}\mbox{]} \+: \textquotesingle{}Sin horario\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00032}{32}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a8418f90be636a9cc2bc0ce3d4f23b6da}\label{in__laborales_8php_a8418f90be636a9cc2bc0ce3d4f23b6da}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$ingresofamiliar@{\$ingresofamiliar}}
+\index{\$ingresofamiliar@{\$ingresofamiliar}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$ingresofamiliar}{$ingresofamiliar}}
+{\footnotesize\ttfamily \$ingresofamiliar = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Ingreso\+Familiar\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Ingreso\+Familiar\textquotesingle{}\mbox{]} \+: \textquotesingle{}0\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00035}{35}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_aa8d304ff79134140b311f34a645d5f89}\label{in__laborales_8php_aa8d304ff79134140b311f34a645d5f89}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$ingresopersonal@{\$ingresopersonal}}
+\index{\$ingresopersonal@{\$ingresopersonal}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$ingresopersonal}{$ingresopersonal}}
+{\footnotesize\ttfamily \$ingresopersonal = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Ingreso\+Personal\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Ingreso\+Personal\textquotesingle{}\mbox{]} \+: \textquotesingle{}0\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00036}{36}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a4c5147e7b6eaedb9e00b4805b4544fca}\label{in__laborales_8php_a4c5147e7b6eaedb9e00b4805b4544fca}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$madreEscolaridad@{\$madreEscolaridad}}
+\index{\$madreEscolaridad@{\$madreEscolaridad}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$madreEscolaridad}{$madreEscolaridad}}
+{\footnotesize\ttfamily \$madre\+Escolaridad = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup3\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup3\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00040}{40}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a746c13ca9668294f9d9bd053e67b9e6e}\label{in__laborales_8php_a746c13ca9668294f9d9bd053e67b9e6e}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$madreEstatus@{\$madreEstatus}}
+\index{\$madreEstatus@{\$madreEstatus}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$madreEstatus}{$madreEstatus}}
+{\footnotesize\ttfamily \$madre\+Estatus = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup4\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup4\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00041}{41}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a6f4fdd4262baf04e6d2539cbdb69d8ab}\label{in__laborales_8php_a6f4fdd4262baf04e6d2539cbdb69d8ab}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$madreocupacion@{\$madreocupacion}}
+\index{\$madreocupacion@{\$madreocupacion}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$madreocupacion}{$madreocupacion}}
+{\footnotesize\ttfamily \$madreocupacion = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Ocupacion\+Madre\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Ocupacion\+Madre\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00042}{42}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a981952d6d80353d7e767797f7eeac2f6}\label{in__laborales_8php_a981952d6d80353d7e767797f7eeac2f6}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$matricula@{\$matricula}}
+\index{\$matricula@{\$matricula}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$matricula}{$matricula}}
+{\footnotesize\ttfamily \$matricula =\$\+\_\+\+SESSION\mbox{[}\char`\"{}id\+\_\+\+Cliente\char`\"{}\mbox{]}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00007}{7}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a5b7eea71e41e47f527c2af7713efe557}\label{in__laborales_8php_a5b7eea71e41e47f527c2af7713efe557}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$nombre\_empresa@{\$nombre\_empresa}}
+\index{\$nombre\_empresa@{\$nombre\_empresa}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$nombre\_empresa}{$nombre\_empresa}}
+{\footnotesize\ttfamily \$nombre\+\_\+empresa = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}nom\+Empresa\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}nom\+Empresa\textquotesingle{}\mbox{]} \+: \textquotesingle{}No Trabajo\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00031}{31}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_ac926549b713e71c5f5fd63999cebfb8c}\label{in__laborales_8php_ac926549b713e71c5f5fd63999cebfb8c}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$num\_rows@{\$num\_rows}}
+\index{\$num\_rows@{\$num\_rows}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$num\_rows}{$num\_rows}}
+{\footnotesize\ttfamily \$num\+\_\+rows = \$stmt-\/$>$fetch\+Column()}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00013}{13}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_acabcbb58bb693a8fb04dd7d5d720974f}\label{in__laborales_8php_acabcbb58bb693a8fb04dd7d5d720974f}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$objeto@{\$objeto}}
+\index{\$objeto@{\$objeto}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$objeto}{$objeto}}
+{\footnotesize\ttfamily \$objeto = new \mbox{\hyperlink{class_conexion}{Conexion}}()}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00005}{5}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a901e796979bdcbad2bd485b1c2f75081}\label{in__laborales_8php_a901e796979bdcbad2bd485b1c2f75081}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$padreEscolaridad@{\$padreEscolaridad}}
+\index{\$padreEscolaridad@{\$padreEscolaridad}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$padreEscolaridad}{$padreEscolaridad}}
+{\footnotesize\ttfamily \$padre\+Escolaridad = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup1\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup1\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00037}{37}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a88331863efae39153330a62c68bb1620}\label{in__laborales_8php_a88331863efae39153330a62c68bb1620}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$padreEstatus@{\$padreEstatus}}
+\index{\$padreEstatus@{\$padreEstatus}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$padreEstatus}{$padreEstatus}}
+{\footnotesize\ttfamily \$padre\+Estatus = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup2\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup2\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00038}{38}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a7fc3bf593dcc4e51db5be6c3d44ba235}\label{in__laborales_8php_a7fc3bf593dcc4e51db5be6c3d44ba235}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$padreocupacion@{\$padreocupacion}}
+\index{\$padreocupacion@{\$padreocupacion}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$padreocupacion}{$padreocupacion}}
+{\footnotesize\ttfamily \$padreocupacion = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Ocupacion\+Padre\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Ocupacion\+Padre\textquotesingle{}\mbox{]}\+:\textquotesingle{}\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00039}{39}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a047170d6020a882807665812a27e2525}\label{in__laborales_8php_a047170d6020a882807665812a27e2525}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$sql@{\$sql}}
+\index{\$sql@{\$sql}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$sql}{$sql}}
+{\footnotesize\ttfamily \$sql = \textquotesingle{}CALL cima2.\+sp\+\_\+fi\+\_\+listar\+\_\+ant\+\_\+laborales(?)\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00008}{8}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_af27a9140d5f2658693e7fd107f716449}\label{in__laborales_8php_af27a9140d5f2658693e7fd107f716449}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$stmt@{\$stmt}}
+\index{\$stmt@{\$stmt}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$stmt}{$stmt}}
+{\footnotesize\ttfamily \$stmt = \$conexion-\/$>$prepare(\$sql)}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00009}{9}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a31e14ba79c9609352a4896ee30ddfff5}\label{in__laborales_8php_a31e14ba79c9609352a4896ee30ddfff5}} 
+\index{in\_laborales.php@{in\_laborales.php}!\$trabajas@{\$trabajas}}
+\index{\$trabajas@{\$trabajas}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{\$trabajas}{$trabajas}}
+{\footnotesize\ttfamily \$trabajas = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo\textquotesingle{}\mbox{]} \+: \textquotesingle{}No\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00030}{30}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+
+\mbox{\Hypertarget{in__laborales_8php_a86338f5e7d197d15c4324193644e9ac3}\label{in__laborales_8php_a86338f5e7d197d15c4324193644e9ac3}} 
+\index{in\_laborales.php@{in\_laborales.php}!else@{else}}
+\index{else@{else}!in\_laborales.php@{in\_laborales.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily if ( \$num\+\_\+rows $>$ 0) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    echo \textcolor{stringliteral}{'<script>}}
+\DoxyCodeLine{\textcolor{stringliteral}{    Swal.fire(}}
+\DoxyCodeLine{\textcolor{stringliteral}{            "{}Registro Exitoso"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{            "{}Corecto!"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{            "{}success"{})</script>'}}
+
+\end{DoxyCode}
+
+
+Definición en la línea \mbox{\hyperlink{in__laborales_8php_source_l00023}{23}} del archivo \mbox{\hyperlink{in__laborales_8php_source}{in\+\_\+laborales.\+php}}.
+

@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ficha de Identificaion: Fichero Fuente C:/xampp/htdocs/Ficha/vista/Registros/control/in_cordenadas.php</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logg.JPG"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ficha de Identificaion<span id="projectnumber">&#160;v1</span>
+   </div>
+   <div id="projectbrief">Proyecto para automatizar los servicios de ficha de identificación del tutorado como lo marca el Tecnológico Nacional de México en los instrumentos marcados como anexo 6 y anexo 8.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c3c226eaff1699e1d26945b7d3db2bd1.html">vista</a></li><li class="navelem"><a class="el" href="dir_cb9e6a07a2cbbaac7bbbad7e17b7235f.html">Registros</a></li><li class="navelem"><a class="el" href="dir_74b4df0736523944dd9b6a90ab790b4b.html">control</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">in_cordenadas.php</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="in__cordenadas_8php.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>&lt;?php</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span>include_once(__DIR__.<span class="stringliteral">&quot;/cnx.php&quot;</span>);</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#acabcbb58bb693a8fb04dd7d5d720974f">    3</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#acabcbb58bb693a8fb04dd7d5d720974f">$objeto</a> = <span class="keyword">new</span> <a class="code hl_class" href="class_conexion.html">Conexion</a>();</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#a881924afaecbe8ee5c0d26174a1e8081">    4</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#a881924afaecbe8ee5c0d26174a1e8081">$conexion</a> = <a class="code hl_variable" href="in__cordenadas_8php.html#acabcbb58bb693a8fb04dd7d5d720974f">$objeto</a>-&gt;Conectar();</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#a981952d6d80353d7e767797f7eeac2f6">    5</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#a981952d6d80353d7e767797f7eeac2f6">$matricula</a> = (isset($_POST[<span class="stringliteral">&#39;matricula&#39;</span>])) ? $_POST[<span class="stringliteral">&#39;matricula&#39;</span>] : <span class="stringliteral">&#39;&#39;</span>;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#a047170d6020a882807665812a27e2525">    6</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#a047170d6020a882807665812a27e2525">$sql</a> = <span class="stringliteral">&#39;CALL sp_fi_li_ant_d_localizacion(?)&#39;</span>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">    7</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a> = <a class="code hl_variable" href="in__cordenadas_8php.html#a881924afaecbe8ee5c0d26174a1e8081">$conexion</a>-&gt;prepare(<a class="code hl_variable" href="in__cordenadas_8php.html#a047170d6020a882807665812a27e2525">$sql</a>);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//Envio de parametros mediante PDO</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(1, <a class="code hl_variable" href="in__cordenadas_8php.html#a981952d6d80353d7e767797f7eeac2f6">$matricula</a>, PDO::PARAM_STR, 10);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;execute();</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#ac926549b713e71c5f5fd63999cebfb8c">   11</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#ac926549b713e71c5f5fd63999cebfb8c">$num_rows</a> = <a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;fetchColumn();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordflow">if</span> (<a class="code hl_variable" href="in__cordenadas_8php.html#ac926549b713e71c5f5fd63999cebfb8c">$num_rows</a> &gt; 0){ </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_variable" href="in__cordenadas_8php.html#a881924afaecbe8ee5c0d26174a1e8081">$conexion</a> = <span class="keyword">null</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    echo 0;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#a86338f5e7d197d15c4324193644e9ac3">   15</a></span>}<span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="comment">//variables</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>$calle = (isset($_POST[<span class="stringliteral">&#39;calle&#39;</span>])) ? $_POST[<span class="stringliteral">&#39;calle&#39;</span>] : <span class="stringliteral">&#39;&#39;</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#a4dc75065f9ec47cd8993c026fd3e554b">   18</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#a4dc75065f9ec47cd8993c026fd3e554b">$municipio</a> = (isset($_POST[<span class="stringliteral">&#39;municipio&#39;</span>])) ? $_POST[<span class="stringliteral">&#39;municipio&#39;</span>] : <span class="stringliteral">&#39;&#39;</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#add65399d2cbedf45a9f2299cf9555539">   19</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#add65399d2cbedf45a9f2299cf9555539">$estado</a> = (isset($_POST[<span class="stringliteral">&#39;estado&#39;</span>])) ? $_POST[<span class="stringliteral">&#39;estado&#39;</span>] : <span class="stringliteral">&#39;HGO&#39;</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#a622440cb67927775ea39beb95722d559">   20</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#a622440cb67927775ea39beb95722d559">$tutor</a> = (isset($_POST[<span class="stringliteral">&#39;tutor&#39;</span>])) ? $_POST[<span class="stringliteral">&#39;tutor&#39;</span>] : <span class="stringliteral">&#39;&#39;</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#acea90599014c7f8a8a510068af84f6b8">   21</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#acea90599014c7f8a8a510068af84f6b8">$telCasa</a> = (isset($_POST[<span class="stringliteral">&#39;telCasa&#39;</span>])) ? $_POST[<span class="stringliteral">&#39;telCasa&#39;</span>] : <span class="stringliteral">&#39;&#39;</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#adbeeea1a21cda3e444208dd2f4946edb">   22</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#adbeeea1a21cda3e444208dd2f4946edb">$telMovil</a> = (isset($_POST[<span class="stringliteral">&#39;telMovil&#39;</span>])) ? $_POST[<span class="stringliteral">&#39;telMovil&#39;</span>] : <span class="stringliteral">&#39;&#39;</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#aec6647206a75e1b24a02ee4b96aa94f7">   23</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#aec6647206a75e1b24a02ee4b96aa94f7">$cx</a> = (isset($_POST[<span class="stringliteral">&#39;cx&#39;</span>])) ? $_POST[<span class="stringliteral">&#39;cx&#39;</span>] : <span class="stringliteral">&#39;&#39;</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#af9dc8293d103f1e7410f34728690f9d1">   24</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#af9dc8293d103f1e7410f34728690f9d1">$cy</a> = (isset($_POST[<span class="stringliteral">&#39;cy&#39;</span>])) ? $_POST[<span class="stringliteral">&#39;cy&#39;</span>] : <span class="stringliteral">&#39;&#39;</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="in__cordenadas_8php.html#af4bfa3e16bb4c5499264c1d4adef9fc7">   25</a></span><a class="code hl_variable" href="in__cordenadas_8php.html#af4bfa3e16bb4c5499264c1d4adef9fc7">$colonia</a> = (isset($_POST[<span class="stringliteral">&#39;colonia&#39;</span>])) ? $_POST[<span class="stringliteral">&#39;colonia&#39;</span>] : <span class="stringliteral">&#39;&#39;</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> <span class="comment">//Invocacion del procedimiento almacenado</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><a class="code hl_variable" href="in__cordenadas_8php.html#a047170d6020a882807665812a27e2525">$sql</a> = <span class="stringliteral">&#39;CALL sp_fi_in_ant_d_localizacion(?,?,?,?,?,?,?,?,?,?)&#39;</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a> = <a class="code hl_variable" href="in__cordenadas_8php.html#a881924afaecbe8ee5c0d26174a1e8081">$conexion</a>-&gt;prepare(<a class="code hl_variable" href="in__cordenadas_8php.html#a047170d6020a882807665812a27e2525">$sql</a>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">//Envio de parametros mediante PDO</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(1, $calle, PDO::PARAM_STR, 30);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(2, <a class="code hl_variable" href="in__cordenadas_8php.html#a4dc75065f9ec47cd8993c026fd3e554b">$municipio</a>, PDO::PARAM_STR, 45);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(3, <a class="code hl_variable" href="in__cordenadas_8php.html#add65399d2cbedf45a9f2299cf9555539">$estado</a>, PDO::PARAM_STR, 45);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(4, <a class="code hl_variable" href="in__cordenadas_8php.html#af4bfa3e16bb4c5499264c1d4adef9fc7">$colonia</a>, PDO::PARAM_STR, 45);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(5, <a class="code hl_variable" href="in__cordenadas_8php.html#aec6647206a75e1b24a02ee4b96aa94f7">$cx</a>, PDO::PARAM_STR, 70);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(6, <a class="code hl_variable" href="in__cordenadas_8php.html#af9dc8293d103f1e7410f34728690f9d1">$cy</a>, PDO::PARAM_STR, 70);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(7, <a class="code hl_variable" href="in__cordenadas_8php.html#a622440cb67927775ea39beb95722d559">$tutor</a>, PDO::PARAM_STR, 70);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(8, <a class="code hl_variable" href="in__cordenadas_8php.html#acea90599014c7f8a8a510068af84f6b8">$telCasa</a>, PDO::PARAM_STR, 70);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(9, <a class="code hl_variable" href="in__cordenadas_8php.html#adbeeea1a21cda3e444208dd2f4946edb">$telMovil</a>, PDO::PARAM_STR, 70);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;bindParam(10, <a class="code hl_variable" href="in__cordenadas_8php.html#a981952d6d80353d7e767797f7eeac2f6">$matricula</a>, PDO::PARAM_STR, 70);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>echo  <a class="code hl_variable" href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a>-&gt;execute();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>?&gt;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="ttc" id="aclass_conexion_html"><div class="ttname"><a href="class_conexion.html">Conexion</a></div><div class="ttdef"><b>Definition:</b> <a href="cnx_8php_source.html#l00002">cnx.php:2</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_a047170d6020a882807665812a27e2525"><div class="ttname"><a href="in__cordenadas_8php.html#a047170d6020a882807665812a27e2525">$sql</a></div><div class="ttdeci">$sql</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00006">in_cordenadas.php:6</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_a4dc75065f9ec47cd8993c026fd3e554b"><div class="ttname"><a href="in__cordenadas_8php.html#a4dc75065f9ec47cd8993c026fd3e554b">$municipio</a></div><div class="ttdeci">$municipio</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00018">in_cordenadas.php:18</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_a622440cb67927775ea39beb95722d559"><div class="ttname"><a href="in__cordenadas_8php.html#a622440cb67927775ea39beb95722d559">$tutor</a></div><div class="ttdeci">$tutor</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00020">in_cordenadas.php:20</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_a881924afaecbe8ee5c0d26174a1e8081"><div class="ttname"><a href="in__cordenadas_8php.html#a881924afaecbe8ee5c0d26174a1e8081">$conexion</a></div><div class="ttdeci">$conexion</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00004">in_cordenadas.php:4</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_a981952d6d80353d7e767797f7eeac2f6"><div class="ttname"><a href="in__cordenadas_8php.html#a981952d6d80353d7e767797f7eeac2f6">$matricula</a></div><div class="ttdeci">$matricula</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00005">in_cordenadas.php:5</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_ac926549b713e71c5f5fd63999cebfb8c"><div class="ttname"><a href="in__cordenadas_8php.html#ac926549b713e71c5f5fd63999cebfb8c">$num_rows</a></div><div class="ttdeci">$num_rows</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00011">in_cordenadas.php:11</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_acabcbb58bb693a8fb04dd7d5d720974f"><div class="ttname"><a href="in__cordenadas_8php.html#acabcbb58bb693a8fb04dd7d5d720974f">$objeto</a></div><div class="ttdeci">$objeto</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00003">in_cordenadas.php:3</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_acea90599014c7f8a8a510068af84f6b8"><div class="ttname"><a href="in__cordenadas_8php.html#acea90599014c7f8a8a510068af84f6b8">$telCasa</a></div><div class="ttdeci">$telCasa</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00021">in_cordenadas.php:21</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_adbeeea1a21cda3e444208dd2f4946edb"><div class="ttname"><a href="in__cordenadas_8php.html#adbeeea1a21cda3e444208dd2f4946edb">$telMovil</a></div><div class="ttdeci">$telMovil</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00022">in_cordenadas.php:22</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_add65399d2cbedf45a9f2299cf9555539"><div class="ttname"><a href="in__cordenadas_8php.html#add65399d2cbedf45a9f2299cf9555539">$estado</a></div><div class="ttdeci">$estado</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00019">in_cordenadas.php:19</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_aec6647206a75e1b24a02ee4b96aa94f7"><div class="ttname"><a href="in__cordenadas_8php.html#aec6647206a75e1b24a02ee4b96aa94f7">$cx</a></div><div class="ttdeci">$cx</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00023">in_cordenadas.php:23</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_af27a9140d5f2658693e7fd107f716449"><div class="ttname"><a href="in__cordenadas_8php.html#af27a9140d5f2658693e7fd107f716449">$stmt</a></div><div class="ttdeci">$stmt</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00007">in_cordenadas.php:7</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_af4bfa3e16bb4c5499264c1d4adef9fc7"><div class="ttname"><a href="in__cordenadas_8php.html#af4bfa3e16bb4c5499264c1d4adef9fc7">$colonia</a></div><div class="ttdeci">$colonia</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00025">in_cordenadas.php:25</a></div></div>
+<div class="ttc" id="ain__cordenadas_8php_html_af9dc8293d103f1e7410f34728690f9d1"><div class="ttname"><a href="in__cordenadas_8php.html#af9dc8293d103f1e7410f34728690f9d1">$cy</a></div><div class="ttdeci">$cy</div><div class="ttdef"><b>Definition:</b> <a href="in__cordenadas_8php_source.html#l00024">in_cordenadas.php:24</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.2
+</small></address>
+</body>
+</html>

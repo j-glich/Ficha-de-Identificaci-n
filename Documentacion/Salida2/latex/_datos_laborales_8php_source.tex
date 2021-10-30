@@ -1,0 +1,103 @@
+\hypertarget{_datos_laborales_8php_source}{}\doxysection{Datos\+Laborales.\+php}
+\label{_datos_laborales_8php_source}\index{C:/xampp/htdocs/Ficha/vista/DatosLaborales.php@{C:/xampp/htdocs/Ficha/vista/DatosLaborales.php}}
+\mbox{\hyperlink{_datos_laborales_8php}{Ir a la documentación de este archivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00002}00002 <?php require\_once \textcolor{stringliteral}{"{}Registros/control/in\_genSalud.php"{}}?>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00003}00003 <?php require\_once \textcolor{stringliteral}{"{}vistas/parte\_superiorAlumno.php"{}}?>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00004}00004 <link rel=\textcolor{stringliteral}{"{}stylesheet"{}} href=\textcolor{stringliteral}{"{}../vista/estilos/s\_Laborales.css"{}} />}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00005}00005 <script src=\textcolor{stringliteral}{"{}../vista/js/js\_Laborales.js"{}}></script>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00006}00006 <!-\/-\/INICIO del cont principal-\/-\/>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00008}00008 <div \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}container"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{'container'}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00009}00009     <h1 style=\textcolor{stringliteral}{"{}text-\/align: center;"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}Titulo\_\_label"{}}>Ficha de identificación</h1>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00010}00010     <h3 style=\textcolor{stringliteral}{"{}text-\/align: center;"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}Subtitulo\_\_label"{}}>Datos Laborales</h3>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00011}00011     <\mbox{\hyperlink{_datos_escolares_8php_a5250c7b8d4db609ffe17f7211a9b7619}{form}}  method = \textcolor{stringliteral}{'post'} action= \textcolor{stringliteral}{'DatosGeolocalizacion.php'}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00012}00012     <section \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form-\/register"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00013}00013     <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{'cam1'}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00014}00014             <label \textcolor{keyword}{class }='label'>Trabajas</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00015}00015             <label class=\textcolor{stringliteral}{'label'}>(</label><input  type=\textcolor{stringliteral}{'radio'} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{'radio1'} onclick =\textcolor{stringliteral}{"{}habilitar('nomEmpresa','horario')"{}} name=\textcolor{stringliteral}{'grupo'} value=\textcolor{stringliteral}{"{}si"{}}><label \textcolor{keyword}{class}=\textcolor{stringliteral}{'label'}>) Si</label>  \&nbsp \&nbsp \&nbsp}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00016}00016             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{'label'}>(</label><input  type=\textcolor{stringliteral}{'radio'} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{'radio2'} onclick =\textcolor{stringliteral}{"{}desahabilitar('nomEmpresa','horario')"{}} name=\textcolor{stringliteral}{'grupo'} value=\textcolor{stringliteral}{"{}no"{}}><label \textcolor{keyword}{class}=\textcolor{stringliteral}{'label'}>) No</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00017}00017         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00018}00018             <input type=\textcolor{stringliteral}{"{}text"{}} disabled =\textcolor{stringliteral}{'true'} name=\textcolor{stringliteral}{"{}nomEmpresa"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}nomEmpresa"{}} autocomplete=\textcolor{stringliteral}{"{}off"{}} placeholder=\textcolor{stringliteral}{"{} "{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00019}00019             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Nombre de la empresa:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00020}00020         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00021}00021         <br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00022}00022         <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}matricula"{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00023}00023             <input type=\textcolor{stringliteral}{"{}text"{}} disabled =\textcolor{stringliteral}{'true'} name=\textcolor{stringliteral}{"{}horario"{}} \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}horario"{}} autocomplete=\textcolor{stringliteral}{"{}off"{}} placeholder=\textcolor{stringliteral}{"{} "{}} \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}textbox"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00024}00024             <label \textcolor{keyword}{class}=\textcolor{stringliteral}{"{}form\_label"{}}>Horario:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00025}00025         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00026}00026             <div \textcolor{keywordtype}{id}=\textcolor{stringliteral}{"{}esc3"{}}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00027}00027             <label \textcolor{keyword}{class }='label'>Depende económicamente de:</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00028}00028             <label class='label'>(</label><input type='radio' id='radio8' value="{}Padre"{} name='grup' onclick="{}Eliminar3('id\_Especificacion','id\_eti1')"{}><label class='label'>) Padre</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00029}00029             <label class='label'>(</label><input type='radio' id='radio9' value="{}Madre"{} name='grup' onclick="{}Eliminar3('id\_Especificacion','id\_eti1')"{}><label class='label'>) Madre</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00030}00030             <label class='label'>(</label><input type='radio' id='radio10'value="{}De si mismo"{} name='grup' onclick="{}Eliminar3('id\_Especificacion','id\_eti1')"{}><label class='label'>) De sí mismo</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00031}00031             <label class='label'>(</label><input type='radio' id='radio11'value="{}Otros"{} name='grup' onclick='crearotro()'><label class='label'>) Otros:</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00032}00032             </div>   }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00033}00033             <br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00034}00034             <label class='label'>A cuánto asciende el ingreso mensual familiar: </label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00035}00035         <div id="{}matricula"{} class="{}form"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00036}00036             <input type="{}text"{}  name="{}IngresoFamiliar"{} id="{}IngresoFamiliar"{} autocomplete="{}off"{} placeholder="{} "{} class="{}textbox"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00037}00037             <label class="{}form\_label"{}>\$</label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00038}00038         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00039}00039             }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00040}00040     </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00041}00041     <div id='cam2'> }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00042}00042             <label class='label'>En caso de ser económicamente independiente a cuánto asciende tu ingreso: </label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00043}00043             <div id="{}matricula"{} class="{}form"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00044}00044             <input type="{}text"{}  name="{}IngresoPersonal"{} id="{}IngresoPersonal"{} autocomplete="{}off"{} placeholder="{} "{} class="{}textbox"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00045}00045             <label class="{}form\_label"{}>\$</label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00046}00046         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00047}00047        <br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00048}00048        <div id="{}matricula"{} class="{}form"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00049}00049             <input type="{}text"{}  name="{}domicilio"{} id="{}domicilio"{} autocomplete="{}off"{} placeholder="{} "{} class="{}textbox"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00050}00050             <label class="{}form\_label"{}>Domicilio:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00051}00051     </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00052}00052             <label class='label'>Grado máximo de estudios de: </label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00053}00053             <div id='contened'>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00054}00054                 <div id="{}div1"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00055}00055                     <label class ='label' style="{}text-\/align: center;"{}>Padre:</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00056}00056                     <label class='label'>(</label><input type='radio' id='radio12' value="{}Prim"{} name='grup1' ><label class='label'>) Prim.</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00057}00057                     <label class='label'>(</label><input type='radio' id='radio13' value="{}Sec"{} name='grup1' ><label class='label'>) Sec.</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00058}00058                     <label class='label'>(</label><input type='radio' id='radio14' value="{}Pre"{} name='grup1' ><label class='label'>) Pre.</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00059}00059                     <label class='label'>(</label><input type='radio' id='radio15' value="{}Tec"{} name='grup1' ><label class='label'>) Tec.</label> <br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00060}00060                     <label class='label'>(</label><input type='radio' id='radio16' value="{}Lic"{} name='grup1' ><label class='label'>) Lic.</label> <br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00061}00061                     <label class='label'>(</label><input type='radio' id='radio17' value="{}No esco"{} name='grup1' ><label class='label'>) No escolarizado.</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00062}00062                     <label class='label'>(</label><input type='radio' id='radio18' value="{}Vive"{} name='grup2' ><label class='label'>) Vive</label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00063}00063                     <label class='label'>(</label><input type='radio' id='radio19' value="{}Finado"{} name='grup2' ><label class='label'>) Finado</label><br> }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00064}00064                     <div id="{}matricula"{} class="{}form"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00065}00065                     <input type="{}text"{}  name="{}OcupacionPadre"{} id="{}OcupacionPadre"{} autocomplete="{}off"{} placeholder="{} "{} class="{}textbox"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00066}00066                     <label class="{}form\_label"{}>Ocupacion:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00067}00067                 </div>  }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00068}00068             </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00069}00069             <div id="{}div2"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00070}00070             <label class ='label' style="{}text-\/align: center;"{}>Madre:</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00071}00071             <label class='label'>(</label><input type='radio' id='radio20' value="{}Prim"{} name='grup3' ><label class='label'>) Prim.</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00072}00072             <label class='label'>(</label><input type='radio' id='radio21' value="{}Sec"{} name='grup3' ><label class='label'>) Sec.</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00073}00073             <label class='label'>(</label><input type='radio' id='radio22' value="{}Pre"{} name='grup3' ><label class='label'>) Pre.</label><br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00074}00074             <label class='label'>(</label><input type='radio' id='radio23' value="{}Tec"{} name='grup3' ><label class='label'>) Tec.</label> <br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00075}00075             <label class='label'>(</label><input type='radio' id='radio24' value="{}Lic"{} name='grup3' ><label class='label'>) Lic.</label> <br>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00076}00076             <label class='label'>(</label><input type='radio' id='radio25' value="{}No esco"{} name='grup3' ><label class='label'>) No escolarizado.</label><br> }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00077}00077             <label class='label'>(</label><input type='radio' id='radio26' value="{}Vive"{} name='grup4' ><label class='label'>) Vive</label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00078}00078             <label class='label'>(</label><input type='radio' id='radio27' value="{}Finado"{} name='grup4' ><label class='label'>) Finado</label><br>  }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00079}00079             <div id="{}matricula"{} class="{}form"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00080}00080             <input type="{}text"{}  name="{}OcupacionMadre"{} id="{}OcupacionMadre"{} autocomplete="{}off"{} placeholder="{} "{} class="{}textbox"{}>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00081}00081             <label class="{}form\_label"{}>Ocupacion:</label>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00082}00082             </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00083}00083             </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00084}00084         </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00085}00085 </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00087}00087     <div id='boton'> }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00088}00088         <button  type="{}submit"{} class="{}button button4"{}>Siguiente</button>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00089}00089     </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00090}00090     </section>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00091}00091 </form>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00092}00092 </div>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00094}00094 <!-\/-\/FIN del cont principal-\/-\/>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00096}00096 <?php require\_once "{}vistas/parte\_inferior.php"{}?>}
+\DoxyCodeLine{\Hypertarget{_datos_laborales_8php_source_l00097}00097 }
+
+\end{DoxyCode}

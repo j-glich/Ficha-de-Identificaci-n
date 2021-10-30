@@ -1,0 +1,236 @@
+\hypertarget{in__gen_salud_8php}{}\doxysection{Referencia del Archivo C\+:/xampp/htdocs/\+Ficha/vista/\+Registros/control/in\+\_\+gen\+Salud.php}
+\label{in__gen_salud_8php}\index{C:/xampp/htdocs/Ficha/vista/Registros/control/in\_genSalud.php@{C:/xampp/htdocs/Ficha/vista/Registros/control/in\_genSalud.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_acabcbb58bb693a8fb04dd7d5d720974f}{\$objeto}} = new \mbox{\hyperlink{class_conexion}{Conexion}}()
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}} = \$objeto-\/$>$Conectar()
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_a981952d6d80353d7e767797f7eeac2f6}{\$matricula}} =\$\+\_\+\+SESSION\mbox{[}\char`\"{}id\+\_\+\+Cliente\char`\"{}\mbox{]}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_a047170d6020a882807665812a27e2525}{\$sql}} = \textquotesingle{}CALL cima2.\+sp\+\_\+fi\+\_\+listar\+\_\+ant\+\_\+gen\+\_\+salud(?)\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}} = \$conexion-\/$>$prepare(\$sql)
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_ac926549b713e71c5f5fd63999cebfb8c}{\$num\+\_\+rows}} = \$stmt-\/$>$fetch\+Column()
+\item 
+if(\$num\+\_\+rows $>$ 0) \mbox{\hyperlink{in__gen_salud_8php_a86338f5e7d197d15c4324193644e9ac3}{else}}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_a54e260ec49849ababbd35eddfd4341cb}{\$pro\+\_\+salud}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo-\/al-\/salud\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo-\/al-\/salud\textquotesingle{}\mbox{]} \+: \textquotesingle{}Si\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_a3ce38db1e98e3347e2d5d6ad402c952b}{\$\+Especifique1}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique1\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique1\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_a1de535a6a32e2e9e05ed9787f5bdd2db}{\$tiposagre}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}sangre\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}sangre\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_a4ee9fe8343eee342b6d15a08cc92f348}{\$alergia}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}gru-\/alergias\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}gru-\/alergias\textquotesingle{}\mbox{]} \+: \textquotesingle{}Si\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_a2357ac70bd2bb332478b06833e796b9c}{\$\+Especifique2}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique2\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique2\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_a549efeab652cbad9ee80237d8e209b88}{\$tip\+\_\+alergia}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup-\/ale\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup-\/ale\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_afae48d90b826770931c4eabf72022a4f}{\$sensorial}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo2\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo2\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_ab1c62a1974c3cf511d144f43ab6d8550}{\$motora}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo3\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo3\textquotesingle{}\mbox{]} \+: \textquotesingle{}No\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_a5548c2d49f61d7bc0b9322816e445043}{\$\+Especifique3}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique3\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique3\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_a78f7aa0e526d338b34dfde9edcbf8050}{\$temporal}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo4\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo4\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\item 
+\mbox{\hyperlink{in__gen_salud_8php_ac4977a003a880228f6f74b5474a32240}{\$por\+\_\+su\+\_\+tipo}} = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo5\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo5\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{in__gen_salud_8php_a4ee9fe8343eee342b6d15a08cc92f348}\label{in__gen_salud_8php_a4ee9fe8343eee342b6d15a08cc92f348}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$alergia@{\$alergia}}
+\index{\$alergia@{\$alergia}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$alergia}{$alergia}}
+{\footnotesize\ttfamily \$alergia = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}gru-\/alergias\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}gru-\/alergias\textquotesingle{}\mbox{]} \+: \textquotesingle{}Si\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00036}{36}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_a881924afaecbe8ee5c0d26174a1e8081}\label{in__gen_salud_8php_a881924afaecbe8ee5c0d26174a1e8081}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$conexion@{\$conexion}}
+\index{\$conexion@{\$conexion}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$conexion}{$conexion}}
+{\footnotesize\ttfamily \$conexion = \$objeto-\/$>$Conectar()}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00006}{6}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_a3ce38db1e98e3347e2d5d6ad402c952b}\label{in__gen_salud_8php_a3ce38db1e98e3347e2d5d6ad402c952b}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$Especifique1@{\$Especifique1}}
+\index{\$Especifique1@{\$Especifique1}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$Especifique1}{$Especifique1}}
+{\footnotesize\ttfamily \$Especifique1 = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique1\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique1\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00034}{34}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_a2357ac70bd2bb332478b06833e796b9c}\label{in__gen_salud_8php_a2357ac70bd2bb332478b06833e796b9c}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$Especifique2@{\$Especifique2}}
+\index{\$Especifique2@{\$Especifique2}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$Especifique2}{$Especifique2}}
+{\footnotesize\ttfamily \$Especifique2 = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique2\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique2\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00037}{37}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_a5548c2d49f61d7bc0b9322816e445043}\label{in__gen_salud_8php_a5548c2d49f61d7bc0b9322816e445043}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$Especifique3@{\$Especifique3}}
+\index{\$Especifique3@{\$Especifique3}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$Especifique3}{$Especifique3}}
+{\footnotesize\ttfamily \$Especifique3 = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique3\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}Especifique3\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00041}{41}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_a981952d6d80353d7e767797f7eeac2f6}\label{in__gen_salud_8php_a981952d6d80353d7e767797f7eeac2f6}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$matricula@{\$matricula}}
+\index{\$matricula@{\$matricula}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$matricula}{$matricula}}
+{\footnotesize\ttfamily \$matricula =\$\+\_\+\+SESSION\mbox{[}\char`\"{}id\+\_\+\+Cliente\char`\"{}\mbox{]}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00007}{7}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_ab1c62a1974c3cf511d144f43ab6d8550}\label{in__gen_salud_8php_ab1c62a1974c3cf511d144f43ab6d8550}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$motora@{\$motora}}
+\index{\$motora@{\$motora}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$motora}{$motora}}
+{\footnotesize\ttfamily \$motora = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo3\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo3\textquotesingle{}\mbox{]} \+: \textquotesingle{}No\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00040}{40}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_ac926549b713e71c5f5fd63999cebfb8c}\label{in__gen_salud_8php_ac926549b713e71c5f5fd63999cebfb8c}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$num\_rows@{\$num\_rows}}
+\index{\$num\_rows@{\$num\_rows}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$num\_rows}{$num\_rows}}
+{\footnotesize\ttfamily \$num\+\_\+rows = \$stmt-\/$>$fetch\+Column()}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00013}{13}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_acabcbb58bb693a8fb04dd7d5d720974f}\label{in__gen_salud_8php_acabcbb58bb693a8fb04dd7d5d720974f}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$objeto@{\$objeto}}
+\index{\$objeto@{\$objeto}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$objeto}{$objeto}}
+{\footnotesize\ttfamily \$objeto = new \mbox{\hyperlink{class_conexion}{Conexion}}()}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00005}{5}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_ac4977a003a880228f6f74b5474a32240}\label{in__gen_salud_8php_ac4977a003a880228f6f74b5474a32240}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$por\_su\_tipo@{\$por\_su\_tipo}}
+\index{\$por\_su\_tipo@{\$por\_su\_tipo}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$por\_su\_tipo}{$por\_su\_tipo}}
+{\footnotesize\ttfamily \$por\+\_\+su\+\_\+tipo = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo5\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo5\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00043}{43}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_a54e260ec49849ababbd35eddfd4341cb}\label{in__gen_salud_8php_a54e260ec49849ababbd35eddfd4341cb}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$pro\_salud@{\$pro\_salud}}
+\index{\$pro\_salud@{\$pro\_salud}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$pro\_salud}{$pro\_salud}}
+{\footnotesize\ttfamily \$pro\+\_\+salud = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo-\/al-\/salud\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo-\/al-\/salud\textquotesingle{}\mbox{]} \+: \textquotesingle{}Si\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00033}{33}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_afae48d90b826770931c4eabf72022a4f}\label{in__gen_salud_8php_afae48d90b826770931c4eabf72022a4f}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$sensorial@{\$sensorial}}
+\index{\$sensorial@{\$sensorial}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$sensorial}{$sensorial}}
+{\footnotesize\ttfamily \$sensorial = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo2\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo2\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00039}{39}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_a047170d6020a882807665812a27e2525}\label{in__gen_salud_8php_a047170d6020a882807665812a27e2525}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$sql@{\$sql}}
+\index{\$sql@{\$sql}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$sql}{$sql}}
+{\footnotesize\ttfamily \$sql = \textquotesingle{}CALL cima2.\+sp\+\_\+fi\+\_\+listar\+\_\+ant\+\_\+gen\+\_\+salud(?)\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00008}{8}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_af27a9140d5f2658693e7fd107f716449}\label{in__gen_salud_8php_af27a9140d5f2658693e7fd107f716449}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$stmt@{\$stmt}}
+\index{\$stmt@{\$stmt}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$stmt}{$stmt}}
+{\footnotesize\ttfamily \$stmt = \$conexion-\/$>$prepare(\$sql)}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00009}{9}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_a78f7aa0e526d338b34dfde9edcbf8050}\label{in__gen_salud_8php_a78f7aa0e526d338b34dfde9edcbf8050}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$temporal@{\$temporal}}
+\index{\$temporal@{\$temporal}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$temporal}{$temporal}}
+{\footnotesize\ttfamily \$temporal = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo4\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grupo4\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00042}{42}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_a549efeab652cbad9ee80237d8e209b88}\label{in__gen_salud_8php_a549efeab652cbad9ee80237d8e209b88}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$tip\_alergia@{\$tip\_alergia}}
+\index{\$tip\_alergia@{\$tip\_alergia}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$tip\_alergia}{$tip\_alergia}}
+{\footnotesize\ttfamily \$tip\+\_\+alergia = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}grup-\/ale\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}grup-\/ale\textquotesingle{}\mbox{]} \+: \textquotesingle{}Ninguna\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00038}{38}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_a1de535a6a32e2e9e05ed9787f5bdd2db}\label{in__gen_salud_8php_a1de535a6a32e2e9e05ed9787f5bdd2db}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!\$tiposagre@{\$tiposagre}}
+\index{\$tiposagre@{\$tiposagre}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{\$tiposagre}{$tiposagre}}
+{\footnotesize\ttfamily \$tiposagre = (isset(\$\+\_\+\+POST\mbox{[}\textquotesingle{}sangre\textquotesingle{}\mbox{]})) ? \$\+\_\+\+POST\mbox{[}\textquotesingle{}sangre\textquotesingle{}\mbox{]} \+: \textquotesingle{}\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00035}{35}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+
+\mbox{\Hypertarget{in__gen_salud_8php_a86338f5e7d197d15c4324193644e9ac3}\label{in__gen_salud_8php_a86338f5e7d197d15c4324193644e9ac3}} 
+\index{in\_genSalud.php@{in\_genSalud.php}!else@{else}}
+\index{else@{else}!in\_genSalud.php@{in\_genSalud.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily if ( \$num\+\_\+rows $>$ 0) else}
+
+{\bfseries Valor inicial\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    echo \textcolor{stringliteral}{'<script>}}
+\DoxyCodeLine{\textcolor{stringliteral}{    Swal.fire(}}
+\DoxyCodeLine{\textcolor{stringliteral}{        "{}Registro Exitoso"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{        "{}Corecto!"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{        "{}success"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{      )}}
+\DoxyCodeLine{\textcolor{stringliteral}{        </script>'}}
+
+\end{DoxyCode}
+
+
+Definición en la línea \mbox{\hyperlink{in__gen_salud_8php_source_l00025}{25}} del archivo \mbox{\hyperlink{in__gen_salud_8php_source}{in\+\_\+gen\+Salud.\+php}}.
+

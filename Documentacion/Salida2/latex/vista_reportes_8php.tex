@@ -1,0 +1,92 @@
+\hypertarget{vista_reportes_8php}{}\doxysection{Referencia del Archivo C\+:/xampp/htdocs/\+Ficha/vista/vista\+Reportes.php}
+\label{vista_reportes_8php}\index{C:/xampp/htdocs/Ficha/vista/vistaReportes.php@{C:/xampp/htdocs/Ficha/vista/vistaReportes.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{vista_reportes_8php_acabcbb58bb693a8fb04dd7d5d720974f}{\$objeto}} = new \mbox{\hyperlink{class_conexion}{Conexion}}()
+\item 
+\mbox{\hyperlink{vista_reportes_8php_a881924afaecbe8ee5c0d26174a1e8081}{\$conexion}} = \$objeto-\/$>$Conectar()
+\item 
+\mbox{\hyperlink{vista_reportes_8php_a047170d6020a882807665812a27e2525}{\$sql}} = \textquotesingle{}CALL cima2.\+sp\+\_\+fi\+\_\+listar\+\_\+alumnos()\textquotesingle{}
+\item 
+\mbox{\hyperlink{vista_reportes_8php_af27a9140d5f2658693e7fd107f716449}{\$stmt}} = \$conexion-\/$>$prepare(\$sql)
+\item 
+\mbox{\hyperlink{vista_reportes_8php_a6efc15b5a2314dd4b5aaa556a375c6d6}{\$data}} =\$stmt-\/$>$fetch\+All(PDO\+::\+FETCH\+\_\+\+ASSOC)
+\item 
+\mbox{\hyperlink{vista_reportes_8php_a6e485d5ec7e8e743b588a372a655c94b}{foreach}} ( \$data as \$dat)
+\item 
+$<$/span $>$$<$/button $>$$<$/div $>$$<$ div id=\textquotesingle{}map\textquotesingle{} class=\char`\"{}modal-\/body\char`\"{}$>$$<$/div $>$$<$ div class=\char`\"{}modal-\/footer\char`\"{}$>$$<$ button type=\char`\"{}button\char`\"{} class=\char`\"{}btn btn-\/light\char`\"{} data-\/dismiss=\char`\"{}modal\char`\"{}$>$ Cancelar$<$/button $>$$<$ button type=\char`\"{}submit\char`\"{} id=\char`\"{}btn\+Guardar\char`\"{} class=\char`\"{}btn btn-\/dark\char`\"{}$>$ Guardar$<$/button $>$$<$/div $>$$<$/div $>$$<$/div $>$$<$/div $>$$<$!-\/-\/Modal interno indivisual de alumnos-\/-\/$>$$<$ div class=\char`\"{}modal1 fade\char`\"{} id=\char`\"{}modal\+Usuario\char`\"{} tabindex=\char`\"{}-\/1\char`\"{} role=\char`\"{}dialog\char`\"{} aria-\/labelledby=\char`\"{}example\+Modal\+Label\char`\"{} aria-\/hidden=\char`\"{}true\char`\"{}$>$$<$ div class=\char`\"{}modal-\/dialog\char`\"{} role=\char`\"{}document\char`\"{}$>$$<$ div class=\char`\"{}modal-\/content1\char`\"{}$>$$<$ div class=\char`\"{}modal-\/header1\char`\"{}$>$$<$ h5 class=\char`\"{}modal-\/title1\char`\"{} id=\char`\"{}example\+Modal\+Label\char`\"{}$>$$<$/h5 $>$$<$ button type=\char`\"{}button\char`\"{} class=\char`\"{}close\char`\"{} data-\/dismiss=\char`\"{}modal\char`\"{} aria-\/label=\char`\"{}Close\char`\"{}$>$$<$ span aria-\/hidden=\char`\"{}true\char`\"{}$>$ \& \mbox{\hyperlink{vista_reportes_8php_a3d22b3346ddd8f37ebe788cb96d4368a}{times}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentación de las variables}
+\mbox{\Hypertarget{vista_reportes_8php_a881924afaecbe8ee5c0d26174a1e8081}\label{vista_reportes_8php_a881924afaecbe8ee5c0d26174a1e8081}} 
+\index{vistaReportes.php@{vistaReportes.php}!\$conexion@{\$conexion}}
+\index{\$conexion@{\$conexion}!vistaReportes.php@{vistaReportes.php}}
+\doxysubsubsection{\texorpdfstring{\$conexion}{$conexion}}
+{\footnotesize\ttfamily \$conexion = \$objeto-\/$>$Conectar()}
+
+
+
+Definición en la línea \mbox{\hyperlink{vista_reportes_8php_source_l00010}{10}} del archivo \mbox{\hyperlink{vista_reportes_8php_source}{vista\+Reportes.\+php}}.
+
+\mbox{\Hypertarget{vista_reportes_8php_a6efc15b5a2314dd4b5aaa556a375c6d6}\label{vista_reportes_8php_a6efc15b5a2314dd4b5aaa556a375c6d6}} 
+\index{vistaReportes.php@{vistaReportes.php}!\$data@{\$data}}
+\index{\$data@{\$data}!vistaReportes.php@{vistaReportes.php}}
+\doxysubsubsection{\texorpdfstring{\$data}{$data}}
+{\footnotesize\ttfamily \$data =\$stmt-\/$>$fetch\+All(PDO\+::\+FETCH\+\_\+\+ASSOC)}
+
+
+
+Definición en la línea \mbox{\hyperlink{vista_reportes_8php_source_l00014}{14}} del archivo \mbox{\hyperlink{vista_reportes_8php_source}{vista\+Reportes.\+php}}.
+
+\mbox{\Hypertarget{vista_reportes_8php_acabcbb58bb693a8fb04dd7d5d720974f}\label{vista_reportes_8php_acabcbb58bb693a8fb04dd7d5d720974f}} 
+\index{vistaReportes.php@{vistaReportes.php}!\$objeto@{\$objeto}}
+\index{\$objeto@{\$objeto}!vistaReportes.php@{vistaReportes.php}}
+\doxysubsubsection{\texorpdfstring{\$objeto}{$objeto}}
+{\footnotesize\ttfamily \$objeto = new \mbox{\hyperlink{class_conexion}{Conexion}}()}
+
+
+
+Definición en la línea \mbox{\hyperlink{vista_reportes_8php_source_l00009}{9}} del archivo \mbox{\hyperlink{vista_reportes_8php_source}{vista\+Reportes.\+php}}.
+
+\mbox{\Hypertarget{vista_reportes_8php_a047170d6020a882807665812a27e2525}\label{vista_reportes_8php_a047170d6020a882807665812a27e2525}} 
+\index{vistaReportes.php@{vistaReportes.php}!\$sql@{\$sql}}
+\index{\$sql@{\$sql}!vistaReportes.php@{vistaReportes.php}}
+\doxysubsubsection{\texorpdfstring{\$sql}{$sql}}
+{\footnotesize\ttfamily \$sql = \textquotesingle{}CALL cima2.\+sp\+\_\+fi\+\_\+listar\+\_\+alumnos()\textquotesingle{}}
+
+
+
+Definición en la línea \mbox{\hyperlink{vista_reportes_8php_source_l00011}{11}} del archivo \mbox{\hyperlink{vista_reportes_8php_source}{vista\+Reportes.\+php}}.
+
+\mbox{\Hypertarget{vista_reportes_8php_af27a9140d5f2658693e7fd107f716449}\label{vista_reportes_8php_af27a9140d5f2658693e7fd107f716449}} 
+\index{vistaReportes.php@{vistaReportes.php}!\$stmt@{\$stmt}}
+\index{\$stmt@{\$stmt}!vistaReportes.php@{vistaReportes.php}}
+\doxysubsubsection{\texorpdfstring{\$stmt}{$stmt}}
+{\footnotesize\ttfamily \$stmt = \$conexion-\/$>$prepare(\$sql)}
+
+
+
+Definición en la línea \mbox{\hyperlink{vista_reportes_8php_source_l00012}{12}} del archivo \mbox{\hyperlink{vista_reportes_8php_source}{vista\+Reportes.\+php}}.
+
+\mbox{\Hypertarget{vista_reportes_8php_a6e485d5ec7e8e743b588a372a655c94b}\label{vista_reportes_8php_a6e485d5ec7e8e743b588a372a655c94b}} 
+\index{vistaReportes.php@{vistaReportes.php}!foreach@{foreach}}
+\index{foreach@{foreach}!vistaReportes.php@{vistaReportes.php}}
+\doxysubsubsection{\texorpdfstring{foreach}{foreach}}
+{\footnotesize\ttfamily foreach(\$data as \$dat) (\begin{DoxyParamCaption}\item[{}]{\$data as }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea \mbox{\hyperlink{vista_reportes_8php_source_l00047}{47}} del archivo \mbox{\hyperlink{vista_reportes_8php_source}{vista\+Reportes.\+php}}.
+
+\mbox{\Hypertarget{vista_reportes_8php_a3d22b3346ddd8f37ebe788cb96d4368a}\label{vista_reportes_8php_a3d22b3346ddd8f37ebe788cb96d4368a}} 
+\index{vistaReportes.php@{vistaReportes.php}!times@{times}}
+\index{times@{times}!vistaReportes.php@{vistaReportes.php}}
+\doxysubsubsection{\texorpdfstring{times}{times}}
+{\footnotesize\ttfamily $<$/span $>$$<$/button $>$$<$/div $>$$<$ div id=\textquotesingle{}body\textquotesingle{} class=\char`\"{}modal-\/body\char`\"{}$>$$<$ label id=\char`\"{}id\+\_\+\+\_\+info\char`\"{}$>$ INFORMACIÓN$<$/label $>$$<$ br $>$$<$/div $>$$<$ div class=\char`\"{}modal-\/footer\char`\"{}$>$$<$ button type=\char`\"{}button\char`\"{} class=\char`\"{}btn btn-\/light\char`\"{} data-\/dismiss=\char`\"{}modal\char`\"{}$>$ Salir$<$/button $>$$<$/div $>$$<$/div $>$$<$/div $>$$<$/div $>$$<$ div class=\char`\"{}modalmp fade\char`\"{} id=\char`\"{}modalmapaindividual\char`\"{} tabindex=\char`\"{}-\/1\char`\"{} role=\char`\"{}dialog\char`\"{} aria-\/labelledby=\char`\"{}example\+Modal\+Label\char`\"{} aria-\/hidden=\char`\"{}true\char`\"{}$>$$<$ div class=\char`\"{}modal-\/dialog\char`\"{} role=\char`\"{}document\char`\"{}$>$$<$ div class=\char`\"{}modal-\/contentmp\char`\"{}$>$$<$ div class=\char`\"{}modal-\/headermp\char`\"{}$>$$<$ h5 class=\char`\"{}modal-\/titlemp\char`\"{} id=\char`\"{}example\+Modal\+Label\char`\"{}$>$$<$/h5 $>$$<$ button type=\char`\"{}button\char`\"{} class=\char`\"{}close\char`\"{} data-\/dismiss=\char`\"{}modal\char`\"{} aria-\/label=\char`\"{}Close\char`\"{}$>$$<$ span aria-\/hidden=\char`\"{}true\char`\"{}$>$ \& times}
+
+
+
+Definición en la línea \mbox{\hyperlink{vista_reportes_8php_source_l00103}{103}} del archivo \mbox{\hyperlink{vista_reportes_8php_source}{vista\+Reportes.\+php}}.
+
