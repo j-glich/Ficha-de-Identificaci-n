@@ -11,16 +11,13 @@
  *
 * @author Jair
  */
-class logout {
-    
-    public function cerrarSesion() {
-        session_start();
-        unset($_SESSION["variable de session"]);
-        session_unset();
-        session_destroy();
-        exit;        
-    }
-    
-}
+session_start();
+unset($_SESSION["id_Cliente"]);
+session_unset();
+session_destroy();
 header("Location:../index.php");
+exit;       
+ 
+
+        
 ?>

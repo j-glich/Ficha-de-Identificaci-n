@@ -7,12 +7,6 @@
 <script type="text/javascript" src="../vista/js//dom-to-image.js"></script>
 <script type="text/javascript" src=""></script>
 <script type="text/javascript" src=""></script>
-
-<h2>Generar Croquis</h2>
-<div class="Pic" id="Pic">
-<canvas id="screenshot"> </canvas>
-
-</div>
 <div class="container" id='container'>
     <h1 style="text-align: center;">Ficha de identificación</h1>
     <h3 style="text-align: center;">Datos de localización</h3>
@@ -29,11 +23,8 @@
                 <td>  <input type="text" class= "form-control" name="municipio" placeholder="Municipio" id ="municipio" auntocompleto= "off"> </td>          
               </tr> 
               <tr>
-              <td>  Estado:   </td>
-              <td> <select class= "form-control" name="estado" id ='estado1'>
-                  
-                  <option value="HGO">Hidalgo</option>
-                </select></td>
+              <td>  Colonia:   </td>
+                <td>  <input type="text" class= "form-control" name="colonia" placeholder="Colonia" id ="colonia" auntocompleto= "off"> </td>         
                 <td> <button type="button" id='BOTON' onclick="buscar('calle','municipio','estado1')"></button></td> 
               </tr>
               <tr>
@@ -62,7 +53,7 @@
                 </tr>
             </table>
         </form>
-        <button id="capturar"> Capturar img</button>
+
 </div> 
 <div id="estado" style="display:none;"></div>  
 </div>
@@ -71,19 +62,19 @@
   <script>
     $(document).on('click', '#btn_grabar', function(e){
             e.preventDefault();
-            var calle = $('#calle').val(), municipio = $('#municipio').val(), estado= $('#estado1').val();
+            var calle = $('#calle').val(), municipio = $('#municipio').val(), colonia= $('#colonia').val();
             var tutor = $('#nombreTutor').val(), telCasa = $('#telCasa').val(), telMovil= $('#telMovil').val() , cx= $('#cx').val(), cy= $('#cy').val();
             //alert(calle + municipio + estado + tutor + telMovil + telCasa);
             var matricula = <?php  echo $_SESSION['id_Cliente']  ?>;
             $.ajax({
               url: '../vista/Registros/control/in_cordenadas.php', // Es importante que la ruta sea correcta si no, no se va a ejecutar
               method: 'POST',
-              data: {calle:calle, municipio:municipio ,estado:estado , cx:cx , cy:cy , tutor:tutor, telCasa:telCasa , telMovil:telMovil, matricula:matricula},
+              data: {calle:calle, municipio:municipio ,colonia:colonia , cx:cx , cy:cy , tutor:tutor, telCasa:telCasa , telMovil:telMovil, matricula:matricula},
               beforeSend: function(){
                 $('#estado').css('display','block');
                 $('#estado p').html('Guardando datos...');
               },
-              
+              //en caso de que se ejecute  r retornara 1 
               success: function(r){
                 console.log(r);
                 if(r==1){
@@ -355,17 +346,21 @@ var map = new H.Map(document.getElementById('map'),
                 prox: direccion,
                 mode: 'retrieveAddresses',
                 maxresults: '1'};
+                //metodo que permite la codificiacion inversa al hacer clil
             geocoder.reverseGeocode(parameters,
               function (result) {
+                console.log(result);
                 const calle = result.Response.View[0].Result[0].Location.Address.Street;
                 const mun =  result.Response.View[0].Result[0].Location.Address.City;
+                const distrito = result.Response.View[0].Result[0].Location.Address.District;
                 if(calle){
                   document.getElementById("calle").value = calle;    
                 }else{
-                  const distrito = result.Response.View[0].Result[0].Location.Address.District;
                   document.getElementById("calle").value = distrito; 
                 }
                 document.getElementById("municipio").value = mun;  
+                document.getElementById("colonia").value = distrito;  
+
               }, function (error) {
                 console.log(error);
               });
@@ -427,17 +422,20 @@ var map = new H.Map(document.getElementById('map'),
                 prox: direccion,
                 mode: 'retrieveAddresses',
                 maxresults: '1'};
-            geocoder.reverseGeocode(parameters,
+                geocoder.reverseGeocode(parameters,
               function (result) {
+                console.log(result);
                 const calle = result.Response.View[0].Result[0].Location.Address.Street;
                 const mun =  result.Response.View[0].Result[0].Location.Address.City;
+                const distrito = result.Response.View[0].Result[0].Location.Address.District;
                 if(calle){
-                  document.getElementById("calle").value = calle;   
+                  document.getElementById("calle").value = calle;    
                 }else{
-                  const distrito = result.Response.View[0].Result[0].Location.Address.District;
                   document.getElementById("calle").value = distrito; 
-                }   
-                document.getElementById("municipio").value = mun;     
+                }
+                document.getElementById("municipio").value = mun;  
+                document.getElementById("colonia").value = distrito;  
+
               }, function (error) {
                 console.log(error);
               });

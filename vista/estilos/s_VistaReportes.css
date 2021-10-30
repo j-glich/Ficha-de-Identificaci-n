@@ -41,8 +41,8 @@
 
 .modal1 {
   position: fixed;
-  top: 50px;
-  left: 50px;
+  top: 40px;
+  left: 40px;
   z-index: 1050;
   display: none;
   width: 100%;
@@ -81,25 +81,7 @@ outline: 0;
   overflow: hidden;
   outline: 0;
 }
-.modal-contentmp {
-    width: 650px;
-    height:600px;
-position: relative;
-display: -webkit-box;
-display: -ms-flexbox;
-display: flex;
--webkit-box-orient: vertical;
--webkit-box-direction: normal;
--ms-flex-direction: column;
-flex-direction: column;
-width: 100%;
-pointer-events: auto;
-background-color: #fff;
-background-clip: padding-box;
-border: 1px solid rgba(0, 0, 0, 0.2);
-border-radius: 0.3rem;
-outline: 0;
-}
+
 
 
 .modal-backdrop {
@@ -151,11 +133,8 @@ outline: 0;
   border-top-right-radius: 0.3rem;
 }
 
+
 .modal-header .close {
-  padding: 1rem 1rem;
-  margin: -1rem -1rem -1rem auto;
-}
-.modal-headermp .close {
     padding: 1rem 1rem;
     margin: -1rem -1rem -1rem auto;
   }
@@ -177,13 +156,6 @@ outline: 0;
   flex: 1 1 auto;
   padding: 1rem;
 }
-.modal-bodymp {
-    position: relative;
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding: 1rem;
-  }
   
 .modal-footer {
   display: -webkit-box;
@@ -200,29 +172,7 @@ outline: 0;
   border-bottom-right-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
 }
-.modal-footermp {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding: 1rem;
-  border-top: 1px solid #e3e6f0;
-  border-bottom-right-radius: 0.3rem;
-  border-bottom-left-radius: 0.3rem;
-}
 
-.modal-footermp > :not(:first-child) {
-    margin-left: .25rem;
-  }
-  
-  .modal-footermp > :not(:last-child) {
-    margin-right: .25rem;
-  }
 .modal-footer > :not(:first-child) {
   margin-left: .25rem;
 }
@@ -247,7 +197,7 @@ outline: 0;
   .modal-dialog-scrollable {
     max-height: calc(100% - 3.5rem);
   }
-  .modal-dialog-scrollable .modal-content {
+  .modal-dialog-scrollable .modal-contentmp {
     max-height: calc(100vh - 3.5rem);
   }
   .modal-dialog-centered {
@@ -283,3 +233,61 @@ outline: 0;
     position: relative;
     left: 0px;
 }
+
+.modal-contentmp {
+  width: 850px;
+  height:500px;
+position: relative;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-ms-flex-direction: column;
+flex-direction: column;
+width: 100%;
+pointer-events: auto;
+background-color: #fff;
+background-clip: padding-box;
+border: 1px solid rgba(0, 0, 0, 0.2);
+border-radius: 0.3rem;
+outline: 0;
+}
+
+.modal-headermp .close {
+  padding: 1rem 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+
+.modal-bodymp {
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+.modal-footermp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #e3e6f0;
+  border-bottom-right-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.modal-footermp > :not(:first-child) {
+    margin-left: .25rem;
+  }
+  
+  .modal-footermp > :not(:last-child) {
+    margin-right: .25rem;
+  }
+

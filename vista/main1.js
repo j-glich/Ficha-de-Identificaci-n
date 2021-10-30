@@ -148,8 +148,7 @@ function getDate(){
         res= "Diciembre";
     }
     var anio = ahora.getUTCFullYear();
-    return dia +" de " + res +' de '+anio;
-}
+    return dia +" de " + res +' de '+anio;}
 function head() {
     var doc = new jsPDF();
     doc.setFont('Arial','bold');
@@ -208,8 +207,7 @@ function head() {
     doc.setFont('Arial','');
     doc.setFontSize(16);
     doc.text(183,38,'00');
-    return doc;
-}
+    return doc;}
 function head1() {
     doc.setFont('Arial','bold');
     doc.setFontSize(15);
@@ -267,8 +265,7 @@ function head1() {
     doc.setFont('Arial','');
     doc.setFontSize(16);
     doc.text(183,38,'00');
-    return doc;
-}
+    return doc;}
 function body_ant_generales(programa, matricula, semestre, grupo, fecha , nombre , sexo, correo,telcasa , telmovil,fechanac , lugarnac , estadocivil , domicilioa , tienehijos, cuantos){
      //Rectangulo superior
      doc.setDrawColor(255,149,96);
@@ -515,8 +512,7 @@ function body_ant_generales(programa, matricula, semestre, grupo, fecha , nombre
             doc.setDrawColor(255,149,96);
             doc.setLineWidth(.4);
             doc.rect(13.5, 111, 184.5,5);
-            return doc;
-}
+    return doc;}
 function body_ant_escolares(escolaridad,especialidad,nom_inst,promedio,beca,tipobeca,cual,vive_con){
      //Rectangulo superior ant escolares
      doc.setDrawColor(255,149,96);
@@ -753,8 +749,7 @@ function body_ant_escolares(escolaridad,especialidad,nom_inst,promedio,beca,tipo
     doc.setLineWidth(.4); 
     doc.rect(13.5, 180,117,6);
 
-    return doc;
-}
+    return doc;}
 function body_ante_gen_salud( pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_sensorial,tipo_dis_temporal){
     //Rectangulo superior ant gen salud
     doc.setDrawColor(255,149,96);
@@ -1061,8 +1056,7 @@ function body_ante_gen_salud( pro_salud,angs_especifique, tiposangre,alergias,ti
         doc.text(157.5,246,'x');
     }
     
-    return doc;
-}
+    return doc;}
 function body_ant_laborales( trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar,ing_personal,esc_padre,est_padre,ocup_padre,esc_madre,est_madre,ocup_madre,dom_familiar){
 //Rectangulo superior
 doc.setDrawColor(255,149,96);
@@ -1425,39 +1419,21 @@ doc.text(15,128,'Domicilio:');
 doc.setFont('Times New Roman','');
 doc.setFontSize(11);
 doc.text(70,128,dom_familiar);
-return doc;
-}
-function genPDF(
-    id , programa, matricula, semestre, grupo, fecha , nombre , sexo, correo,telcasa , telmovil,fechanac , lugarnac , estadocivil , domicilioa , tienehijos, cuantos,
-    escolaridad,especialidad,nom_inst,promedio,beca,tipobeca,cual,vive_con,
-    pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_sensorial,tipo_dis_temporal,
-    trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar,ing_personal,esc_padre,est_padre,ocup_padre,esc_madre,est_madre,ocup_madre,dom_familiar,
-    nom_tutor,tel_casa_t,tel_celular_t,domicilio_alum,latitude,logitude
-    ) {
-     //FICHA DE IDENTIFICACIÓN DE LA/EL TUTORADO
-    doc = head();
-    doc = body_ant_generales(programa, matricula, semestre, grupo, fecha , nombre , sexo, correo,telcasa , telmovil,fechanac , lugarnac , estadocivil , domicilioa , tienehijos, cuantos);
-    doc = body_ant_escolares(escolaridad,especialidad,nom_inst,promedio,beca,tipobeca,cual,vive_con);
-    doc = body_ante_gen_salud(pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_sensorial,tipo_dis_temporal);
-    doc.addPage();
-    doc = head1();
-    doc = body_ant_laborales( trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar,ing_personal,esc_padre,est_padre,ocup_padre,esc_madre,est_madre,ocup_madre,dom_familiar);
-        // Titulo
+    return doc;}
+function body_localizacion(nom_tutor,tel_casa_t,tel_celular_t,domicilio_alum,latitude,logitude){
+    // Titulo
     doc.setFont('Arial','bold');
     doc.setFontSize(10);
     doc.text(20,138,'Información que obligatoriamente tiene que proporcionar la/el estudiante y verificada por la/el tutor');
-    
-    
     //Rectangulo superior ant escolares
     doc.setDrawColor(255,149,96);
     doc.setLineWidth(.4); 
     doc.rect(13.5, 124, 40,6);
     // codigo final del documento
-
     doc.setFont('Arial','bold');
     doc.setFontSize(10);
     doc.text(15,145,'En caso de accidente avisar a: Nombre del padre/madre/tutor (a) ');
-
+    
     doc.setFont('Times New Roman','');
     doc.setFontSize(11);
     doc.text(29,152,nom_tutor);
@@ -1476,7 +1452,7 @@ function genPDF(
 
     doc.setDrawColor(255,149,96);
     doc.setLineWidth(.4); 
-    doc.rect(13.5, 162, 184.5,35);
+    doc.rect(13.5, 162, 35,58);
 
     doc.setDrawColor(255,149,96);
     doc.setLineWidth(.4); 
@@ -1489,7 +1465,15 @@ function genPDF(
     doc.setFont('Arial','bold');
     doc.setFontSize(11);
     doc.text(15,185,'Croquis');
-    
+    //Nombre y Firma del Tutor(a)
+
+    doc.setFont('Arial','');
+    doc.setFontSize(10);
+    doc.text(155,265,'Nombre y Firma del Tutor(a)');
+
+    doc.setLineWidth(.4);
+    doc.setDrawColor(0,0,0);
+    doc.line(138, 260, 198,260);
 
     doc.setFont('Arial','');
     doc.setFontSize(10);
@@ -1543,9 +1527,7 @@ function genPDF(
     doc.setFont('Arial','');
     doc.setFontSize(10);
     doc.text(164,154.5,tel_celular_t);
-
-
-
+    
     doc.setLineWidth(1.1);
     doc.setDrawColor(218,42,18);
     doc.line(13, 280, 198,280);
@@ -1554,6 +1536,23 @@ function genPDF(
     doc.setFontSize(10);
     doc.text(187,285,'2');
 
+    return doc;}   
+function genPDF(
+    id , programa, matricula, semestre, grupo, fecha , nombre , sexo, correo,telcasa , telmovil,fechanac , lugarnac , estadocivil , domicilioa , tienehijos, cuantos,
+    escolaridad,especialidad,nom_inst,promedio,beca,tipobeca,cual,vive_con,
+    pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_sensorial,tipo_dis_temporal,
+    trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar,ing_personal,esc_padre,est_padre,ocup_padre,esc_madre,est_madre,ocup_madre,dom_familiar,
+    nom_tutor,tel_casa_t,tel_celular_t,domicilio_alum,latitude,logitude
+    ) {
+     //FICHA DE IDENTIFICACIÓN DE LA/EL TUTORADO
+    doc = head();
+    doc = body_ant_generales(programa, matricula, semestre, grupo, fecha , nombre , sexo, correo,telcasa , telmovil,fechanac , lugarnac , estadocivil , domicilioa , tienehijos, cuantos);
+    doc = body_ant_escolares(escolaridad,especialidad,nom_inst,promedio,beca,tipobeca,cual,vive_con);
+    doc = body_ante_gen_salud(pro_salud,angs_especifique, tiposangre,alergias,tipo_alergia,dis_sensorial,dis_motora,esp_motora,dis_sensorial,tipo_dis_temporal);
+    doc.addPage();
+    doc = head1();
+    doc = body_ant_laborales( trabajas,nom_empresa,horario,dep_economica,esp_economica,ing_familiar,ing_personal,esc_padre,est_padre,ocup_padre,esc_madre,est_madre,ocup_madre,dom_familiar);
+    doc = body_localizacion(nom_tutor,tel_casa_t,tel_celular_t,domicilio_alum,latitude,logitude);
     setTimeout(() => {
         doc.save('FichadeIdentificacion'+ id +'.pdf');
     }, 4000);   
@@ -1660,14 +1659,19 @@ $(document).ready(function(){
                                         var municipio__alumno = document.createElement("label");
                                         var nom__tutor = document.createElement("label");
                                         var num__casa =  document.createElement("label");
+                                        var num__movil =  document.createElement("label");
                                         var br = document.createElement("br");
                                         br.setAttribute('id','id__br');
+                                        
                                         var br1 = document.createElement("br");
                                         br1.setAttribute('id','id__br1');
+                                        
                                         var br2 = document.createElement("br");
                                         br2.setAttribute('id','id__br2');
+                                        
                                         var br3 = document.createElement("br");
                                         br3.setAttribute('id','id__br3');
+                                        
                                         var br4 = document.createElement("br");
                                         br4.setAttribute('id','id__br4');
 
@@ -1686,6 +1690,9 @@ $(document).ready(function(){
                                         num__casa.setAttribute('id','id__numcasa');
                                         num__casa.innerHTML = "No. de Casa: " + data[0].ANLO_TEL_CASA;
 
+                                        num__movil.setAttribute('id','id__numMovil');
+                                        num__movil.innerHTML = "No. de Celular: " + data[0].ANLO_TEL_MOVIL;
+
                                         document.getElementById('body').appendChild(nom__alumno);
                                         document.getElementById('body').appendChild(br);
                                         document.getElementById('body').appendChild(calle__alumno);
@@ -1695,11 +1702,13 @@ $(document).ready(function(){
                                         document.getElementById('body').appendChild(nom__tutor);
                                         document.getElementById('body').appendChild(br3);
                                         document.getElementById('body').appendChild(num__casa);
+                                        document.getElementById('body').appendChild(br4);
+                                        document.getElementById('body').appendChild(num__movil);
                                         auxtempinfo ++;
                                     }
                                 }
                             });
-                            jQuery('#modalUsuario').on('hidden.bs.modal', function (e) {
+                            jQuery('#modalUsuario').on('hidden.bs.modal', function (event) {
                                 auxtempinfo--;
                                 var a = document.getElementById('id__nombre');
                                 var b = document.getElementById('id__calle');
@@ -1711,29 +1720,30 @@ $(document).ready(function(){
                                 var h = document.getElementById('id__br4');
                                 var i = document.getElementById('id__nomTutor');
                                 var j = document.getElementById('id__numcasa');
-                                if(a && b && c && d && e && f && g && h && i && j){            
-                                        padre = a.parentNode;
-                                        padre.removeChild(a);
-                                        padre1 = b.parentNode;
-                                        padre1.removeChild(b);
-                                        padre2 = c.parentNode;
-                                        padre2.removeChild(c);
-                                        padre3 = d.parentNode;
-                                        padre3.removeChild(d);
-                                        padre4 = e.parentNode;
-                                        padre4.removeChild(e);
-                                        padre5 = f.parentNode;
-                                        padre5.removeChild(f);
-                                        padre6 = g.parentNode;
-                                        padre6.removeChild(g);
-                                        padre7 = h.parentNode;
-                                        padre7.removeChild(h);
-                                        padre8 = i.parentNode;
-                                        padre8.removeChild(i);
-                                        padre9 = j.parentNode;
-                                        padre9.removeChild(j);
-
-                                        
+                                var k = document.getElementById('id__numMovil');
+                                if(a && b && c && d && e && f && g && h && i && j && k){            
+                                    padre = a.parentNode;
+                                    padre.removeChild(a);
+                                    padre1 = b.parentNode;
+                                    padre1.removeChild(b);
+                                    padre2 = c.parentNode;
+                                    padre2.removeChild(c);
+                                    padre3 = d.parentNode;
+                                    padre3.removeChild(d);
+                                    padre4 = e.parentNode;
+                                    padre4.removeChild(e);
+                                    padre5 = f.parentNode;
+                                    padre5.removeChild(f);
+                                    padre6 = g.parentNode;
+                                    padre6.removeChild(g);
+                                    padre7 = h.parentNode;
+                                    padre7.removeChild(h);
+                                    padre8 = i.parentNode;
+                                    padre8.removeChild(i);
+                                    padre9 = j.parentNode;
+                                    padre9.removeChild(j);
+                                    padre10 = k.parentNode;
+                                    padre10.removeChild(k);
                                     }
                             });
                             const bubble = new H.ui.InfoBubble(event.target.getGeometry(), {
@@ -1754,7 +1764,7 @@ $(document).ready(function(){
         }
         });
     });
-    jQuery('#modalCRUD').on('hidden.bs.modal', function (e) {
+    jQuery('#modalCRUD').on('hidden.bs.modal', function (event) {
         auxtemp--;
         for (let i = 0; i < dimesion; i++) {
            marcadores.pop(i);
@@ -1770,7 +1780,8 @@ $(document).ready(function(){
         var h = document.getElementById('id__br4');
         var i = document.getElementById('id__nomTutor');
         var j = document.getElementById('id__numcasa');
-        if(a && b && c && d && e && f && g && h && i && j){            
+        var k = document.getElementById('id__numMovil');
+        if(a && b && c && d && e && f && g && h && i && j && k){            
             padre = a.parentNode;
             padre.removeChild(a);
             padre1 = b.parentNode;
@@ -1791,9 +1802,8 @@ $(document).ready(function(){
             padre8.removeChild(i);
             padre9 = j.parentNode;
             padre9.removeChild(j);
-
-
-                
+            padre10 = k.parentNode;
+            padre10.removeChild(k);
             }
     });
 //botón BORRAR
