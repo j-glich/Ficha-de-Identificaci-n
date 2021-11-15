@@ -1949,11 +1949,17 @@ $(document).on("click", "#btnMapaindividual", function(){
         // 
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire(
-                'Visualización Exitosa!',
-                'El mapa a cargado correctamente',
-                'success'
-                );
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Visualización Exitosa!",
+                showConfirmButton: false,
+                timer: 2500})
+           // Swal.fire(
+             //   'Visualización Exitosa!',
+               // 'El mapa a cargado correctamente',
+               // 'success'
+               // );
                 $.ajax({
                     url: "bd/intento1.php",
                     type: "POST",
@@ -1961,18 +1967,20 @@ $(document).on("click", "#btnMapaindividual", function(){
                     data: {opcion:opcion, id:matricula},
                     success: function(data){
                         console.log(data);
-                        latitude = data[0].ANLO_LATITUDE;
-                        logitude = data[0].ANLO_LOGITUDE;
                         let aux = data.length;
+                        console.log(aux);
                         if(aux<1){
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops...',
                                 text: 'No hay reportes de localización del alumno',
-                                footer: '<a href="">Why do I have this issue?</a>'
-                            });
+                                footer: '<a>Alumno sin registro de localizacion</a>',
+                                showConfirmButton: false,
+                                timer: 2500});
                         }else{         
                             if(auxtempmain < 1 ){
+                                latitude = data[0].ANLO_LATITUDE;
+                                logitude = data[0].ANLO_LOGITUDE;
                                 $(".modal-headermp").css("background-color", "#4e73df");
                                 $(".modal-headermp").css("color", "white");
                                 $(".modal-titlemp").text("Localización Individual");            
@@ -1989,7 +1997,7 @@ $(document).on("click", "#btnMapaindividual", function(){
                                         var map = new H.Map(document.getElementById('bodymapa'),
                                             defaultLayers.vector.normal.map,{
                                             center: {lat:lati, lng:long},
-                                            zoom: 10,
+                                            zoom: 13,
                                         pixelRatio: window.devicePixelRatio || 1});
                                         // add a resize listener to make sure that the map occupies the whole container
                                         window.addEventListener('resize', () => map.getViewPort().resize());
@@ -2011,8 +2019,28 @@ $(document).on("click", "#btnMapaindividual", function(){
                                         });
                                         ui.addBubble(bubble);}, false);
                                         map.addObject(ITSOEH);
+
                                         const marker = new H.map.Marker({lat:latitude , lng :logitude});
+                                        marker.setData('<div>'+matricula+'</div>');
+                                        marker.addEventListener("tap",
+                                        event =>{ 
+
+                                            let id = event.target.getData()
+                                            $(".modal-header1").css("background-color", "#4e73df");
+                                            $(".modal-header1").css("color", "white");
+                                            $(".modal-title1").text(event.target.getData());            
+                                            $("#modalUsuarioindividual").modal("show");
+                                        
+                                                                       
+                                            const bubble = new H.ui.InfoBubble(
+                                            event.target.getGeometry(), {
+                                                content: event.target.getData()
+                                            });
+
+                                                ui.addBubble(bubble);
+                                            }, false);
                                         map.addObject(marker);
+
                                         const routingline = new H.geo.LineString();
                                         const params ={
                                         mode : "fastest;car;traffic:enabled",

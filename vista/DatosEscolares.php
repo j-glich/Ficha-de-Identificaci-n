@@ -3,69 +3,6 @@
 <link rel="stylesheet" href="../vista/estilos/s_Escolares.css" />
 <script src="../vista/js/js_Escolares.js"></script>
 <!--INICIO del cont principal-->
-<style>
-
-#control{
-    width: 100%;
-    height: auto;
-    background:none;
-}
-.form{
-    position: relative;
-}
-
-.textbox{
-    width: 80%;
-    height: 45px;
-    border: 1px solid black;
-    border-radius: 5px;
-    outline: none;
-    background: none;
-    padding: 10px;
-    margin:auto;
-    color: black;
-    left: 35px;
-    position: relative;
-}
-.form_label{
-    position: absolute;
-    top: 0.6rem;
-    pointer-events: none;
-    left: 3.4rem;
-    cursor: text;
-    transition: top 100ms, let 100ms, font-size 100ms ease-in;
-    opacity: 0.5;
-}
-.textbox:focus{
-    border: 2px solid #00aae4;
-}
-.textbox:focus ~ .form_label,
-.textbox:not(:placeholder-shown).textbox:not(:focus)~.form_label
-    {
-    top: -0.7rem;
-    left: 2.7rem;
-    font-size: 15px;
-    background: ghostwhite;
-    color: black;   
-    opacity: 1;
-
-}
-#esc{
-    position: relative;
-    background:none;  
-}
-#esc1{
-    position: relative;
-    background:none;  
-}
-.Titulo__label{
-    color: white;
-}
-.Subtitulo__label{
-    color: white;
-}
-
-</style>
 <div class="container" id='container'>
     <h1 style="text-align: center;" class="Titulo__label">Ficha de identificación</h1>
     <h3 style="text-align: center;" class="Subtitulo__label">Datos Escolares</h3>

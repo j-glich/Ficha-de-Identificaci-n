@@ -32,7 +32,23 @@
         </div>   
         <br>
         <div id="matricula" class="form">
-            <input onkeypress="return solonumeros(event)" autocomplete="off" maxlength="1" class="textbox" type="text" name="semestre" id="semestre" placeholder=" ">
+        <select class="textbox" name="semestre" id="semestre">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+
+
+        </select>
             <label class="form_label">Semestre:</label>
         </div>
         <br>
@@ -43,7 +59,7 @@
         <br>   
         <div id="matricula" class="form">
             <input class="textbox" type="date" name="fecha" id="fecha" placeholder=" ">
-            <label class="form_label">Fecha:</label>
+            <label class="form_label">Fecha de Nacimiento:</label>
         </div> 
         <br>   
         <div id="matricula" class="form">

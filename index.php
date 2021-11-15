@@ -1,6 +1,8 @@
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!------ Include the above in your HEAD tag ---------->
 <!DOCTYPE html>
 <html>
@@ -19,7 +21,7 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Sign In</h3>
+				<h3>Iniciar sesión</h3>
 				<div class="d-flex justify-content-end social_icon">
 					<span><i class="fab fa-facebook-square"></i></span>
 					<span><i class="fab fa-google-plus-square"></i></span>
@@ -32,7 +34,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-                        <input type="text" required placeholder="Nombre de usuario" 
+                        <input type="text" required placeholder="Matricula" 
 						autocomplete="off" class="form-control" name="usuario" id="usuario"> 
 					</div>
 					<div class="input-group form-group">
@@ -43,19 +45,39 @@
 						id="contrasenia" required placeholder="Contraseña" class="form-control" autocomplete="off"> 
 					</div>
 					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
+						<input type="checkbox">Recuérdame
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
+						<input type="submit" value="Iniciar" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
 			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="#">Sign Up</a>
+				<div class="d-flex justify-content-center links" style="color : white ;">
+				¿No tienes una cuenta?<a href="controlador/Registar.php">Registrate</a>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
+					<a href="#">¿Olvidaste tu contraseña?</a>
 				</div>
                 </body>
-</html>
+				</html>
+				<script>
+				var aux = <?php echo (isset($_GET['reg'])) ? $_GET['reg'] : '3' ?>;
+				if(aux==1){
+					Swal.fire({
+					icon: 'success',
+					title: 'Registro Exitoso',
+					text: 'Correcto!',
+					showConfirmButton: false,
+					timer: 2500});
+                }else if(aux==0){
+					Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Alumno ya registrado",
+                    showConfirmButton: false,
+                    timer: 2500
+				});
+                }
+
+				</script>

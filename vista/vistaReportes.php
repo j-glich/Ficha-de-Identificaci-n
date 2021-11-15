@@ -95,7 +95,7 @@ $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>  
 <!--Modal interno indivisual de alumnos-->
-<div class="modal1 fade" id="modalUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal1 fade" id="modalUsuario" tabindex="-1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content1">
             <div class="modal-header1">
@@ -113,7 +113,25 @@ $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>  
 
-<div class="modalmp fade" id="modalmapaindividual" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal2 fade" id="modalUsuarioindividual" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content1">
+            <div class="modal-header1">
+                <h5 class="modal-title1"  id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>   
+            <div id='body' class="modal-body">   
+                <label id="id__info">INFORMACIÓN</label>
+                <br>
+            </div>            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Salir</button>
+            </div>
+        </div>
+    </div>
+</div>  
+
+<div class="modal fade" id="modalmapaindividual"  tabindex="-1"   role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-contentmp">
             <div class="modal-headermp">
