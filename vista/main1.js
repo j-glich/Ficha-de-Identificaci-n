@@ -1981,9 +1981,9 @@ $(document).on("click", "#btnMapaindividual", function(){
                             if(auxtempmain < 1 ){
                                 latitude = data[0].ANLO_LATITUDE;
                                 logitude = data[0].ANLO_LOGITUDE;
-                                $(".modal-headermp").css("background-color", "#4e73df");
-                                $(".modal-headermp").css("color", "white");
-                                $(".modal-titlemp").text("Localización Individual");            
+                                $(".modal-header1").css("background-color", "#4e73df");
+                                $(".modal-header1").css("color", "white");
+                                $(".modal-title1").text("Localización Individual");            
                                 $("#modalmapaindividual").modal("show"); 
                                 $("#modalmapaindividual").on('shown.bs.modal', function () {    
                                    
@@ -2024,23 +2024,122 @@ $(document).on("click", "#btnMapaindividual", function(){
                                         marker.setData('<div>'+matricula+'</div>');
                                         marker.addEventListener("tap",
                                         event =>{ 
-
                                             let id = event.target.getData()
-                                            $(".modal-header1").css("background-color", "#4e73df");
-                                            $(".modal-header1").css("color", "white");
-                                            $(".modal-title1").text(event.target.getData());            
+                                            opcion = 7;
+                                            auxinfo =0;
+                                            $(".modal-header2").css("background-color", "#4e73df");
+                                            $(".modal-header2").css("color", "white");
+                                            $(".modal-title2").text(event.target.getData());            
                                             $("#modalUsuarioindividual").modal("show");
-                                        
-                                                                       
+                                            $.ajax({
+                                                url: "bd/intento1.php",
+                                                type: "POST",
+                                                dataType: "json",
+                                                data: {opcion:opcion, id:matricula},
+                                                success: function(data){
+                                                    if (auxinfo < 1) {
+                                                        var nom__alumno = document.createElement("label");
+                                                        var calle__alumno = document.createElement("label");
+                                                        var municipio__alumno = document.createElement("label");
+                                                        var nom__tutor = document.createElement("label");
+                                                        var num__casa =  document.createElement("label");
+                                                        var num__movil =  document.createElement("label");
+                                                        var br = document.createElement("br");
+                                                        br.setAttribute('id','id__br');
+                                                        
+                                                        var br1 = document.createElement("br");
+                                                        br1.setAttribute('id','id__br1');
+                                                        
+                                                        var br2 = document.createElement("br");
+                                                        br2.setAttribute('id','id__br2');
+                                                        
+                                                        var br3 = document.createElement("br");
+                                                        br3.setAttribute('id','id__br3');
+                                                        
+                                                        var br4 = document.createElement("br");
+                                                        br4.setAttribute('id','id__br4');
+    
+                                                        nom__alumno.setAttribute('id','id__nombre');
+                                                        nom__alumno.innerHTML ="Alumn@: " + data[0].ANG_NOMBRE;
+                                                    
+                                                        calle__alumno.setAttribute('id','id__calle');
+                                                        calle__alumno.innerHTML = "Calle: " + data[0].ANLO_CALLE;
+                                                        
+                                                        municipio__alumno.setAttribute('id','id__municipio');
+                                                        municipio__alumno.innerHTML = "Municipio: " + data[0].ANLO_MUNICIPIO;
+    
+                                                        nom__tutor.setAttribute('id','id__nomTutor');
+                                                        nom__tutor.innerHTML = "Tutor: " + data[0].ANLO_NOM_TUTOR;
+    
+                                                        num__casa.setAttribute('id','id__numcasa');
+                                                        num__casa.innerHTML = "No. de Casa: " + data[0].ANLO_TEL_CASA;
+    
+                                                        num__movil.setAttribute('id','id__numMovil');
+                                                        num__movil.innerHTML = "No. de Celular: " + data[0].ANLO_TEL_MOVIL;
+    
+                                                        document.getElementById('body1').appendChild(nom__alumno);
+                                                        document.getElementById('body1').appendChild(br);
+                                                        document.getElementById('body1').appendChild(calle__alumno);
+                                                        document.getElementById('body1').appendChild(br1);
+                                                        document.getElementById('body1').appendChild(municipio__alumno);
+                                                        document.getElementById('body1').appendChild(br2);
+                                                        document.getElementById('body1').appendChild(nom__tutor);
+                                                        document.getElementById('body1').appendChild(br3);
+                                                        document.getElementById('body1').appendChild(num__casa);
+                                                        document.getElementById('body1').appendChild(br4);
+                                                        document.getElementById('body1').appendChild(num__movil);  
+                                                        auxinfo++;   
+                                                    }
+                                                   
+                                                    jQuery('#modalUsuarioindividual').on('hidden.bs.modal', function (event) {
+                                                        auxtempinfo--;
+                                                        var a = document.getElementById('id__nombre');
+                                                        var b = document.getElementById('id__calle');
+                                                        var c = document.getElementById('id__municipio');
+                                                        var d = document.getElementById('id__br');
+                                                        var e = document.getElementById('id__br1');
+                                                        var f = document.getElementById('id__br2');
+                                                        var g = document.getElementById('id__br3');
+                                                        var h = document.getElementById('id__br4');
+                                                        var i = document.getElementById('id__nomTutor');
+                                                        var j = document.getElementById('id__numcasa');
+                                                        var k = document.getElementById('id__numMovil');
+                                                        if(a && b && c && d && e && f && g && h && i && j && k){            
+                                                            padre = a.parentNode;
+                                                            padre.removeChild(a);
+                                                            padre1 = b.parentNode;
+                                                            padre1.removeChild(b);
+                                                            padre2 = c.parentNode;
+                                                            padre2.removeChild(c);
+                                                            padre3 = d.parentNode;
+                                                            padre3.removeChild(d);
+                                                            padre4 = e.parentNode;
+                                                            padre4.removeChild(e);
+                                                            padre5 = f.parentNode;
+                                                            padre5.removeChild(f);
+                                                            padre6 = g.parentNode;
+                                                            padre6.removeChild(g);
+                                                            padre7 = h.parentNode;
+                                                            padre7.removeChild(h);
+                                                            padre8 = i.parentNode;
+                                                            padre8.removeChild(i);
+                                                            padre9 = j.parentNode;
+                                                            padre9.removeChild(j);
+                                                            padre10 = k.parentNode;
+                                                            padre10.removeChild(k);
+                                                            }
+                                                    });
+
+                                                }
+                                            });
                                             const bubble = new H.ui.InfoBubble(
                                             event.target.getGeometry(), {
                                                 content: event.target.getData()
                                             });
-
+            
                                                 ui.addBubble(bubble);
                                             }, false);
                                         map.addObject(marker);
-
                                         const routingline = new H.geo.LineString();
                                         const params ={
                                         mode : "fastest;car;traffic:enabled",
@@ -2071,6 +2170,8 @@ $(document).on("click", "#btnMapaindividual", function(){
                                         },
                                         error=>{console.log(error);}); 
                             });
+
+            
                             jQuery('#modalmapaindividual').on('hidden.bs.modal', function (e) {
                                window.location.reload();
                             });

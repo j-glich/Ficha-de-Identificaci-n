@@ -87,7 +87,7 @@ outline: 0;
 
 
 
-.modal-backdrop {
+.modalmp-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -97,11 +97,11 @@ outline: 0;
   background-color: #000;
 }
 
-.modal-backdrop.fade {
+.modalmp-backdrop.fade {
   opacity: 0;
 }
 
-.modal-backdrop.show {
+.modalmp-backdrop.show {
   opacity: 0.5;
 }
 
@@ -421,21 +421,21 @@ outline: 0;
 }
 
 
-.modal-backdrop {
+.modal1-backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1040;
+  z-index: 3040;
   width: 100vw;
   height: 100vh;
   background-color: #000;
 }
 
-.modal-backdrop.fade {
+.modal1-backdrop.fade {
   opacity: 0;
 }
 
-.modal-backdrop.show {
+.modal1-backdrop.show {
   opacity: 0.5;
 }
 
