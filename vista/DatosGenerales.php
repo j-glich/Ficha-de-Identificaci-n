@@ -22,7 +22,7 @@
         </div>
         <br>
         <div id="matricula" class="form">
-            <input onkeypress="return solonumeros(event)" maxlength="8" type="text" name="matricula" autocomplete="off" placeholder=" " class="textbox">
+            <input onkeypress="return solonumeros(event)" maxlength="8" type="text" name="matricula" id="matricula2" autocomplete="off" placeholder=" " class="textbox">
             <label class="form_label">Matricula:</label>
         </div>
         <br>
@@ -119,3 +119,27 @@
 <!--FIN del cont principal-->
 
 <?php require_once "vistas/parte_inferior.php"?>
+
+<script>
+          $(document).ready(function(){
+               var opcion=8;
+               matricula = <?php echo $_SESSION['id_Cliente'] ?>;
+            $.ajax({
+                url: "../vista/bd/intento1.php",
+                type: "POST",
+                dataType: "json",
+                data: {opcion:opcion, id:matricula},
+                success: function(data){
+                    document.getElementById("matricula2").value = data[0].AL_MATRICULA;
+                    document.getElementById("nombre").value =  data[0].AL_NOM_ALUMNO;
+                    document.getElementById("correo").value =  data[0].AL_CORREO;
+                    console.log(data);
+
+
+                }
+                
+                });
+            
+            
+            });    
+        </script>

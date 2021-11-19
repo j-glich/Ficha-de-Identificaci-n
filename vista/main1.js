@@ -1558,6 +1558,8 @@ function genPDF(
     }, 4000);   
 }
 $(document).ready(function(){
+
+    
     tablaPersonas1 = $("#tablaPersonas2").DataTable({
         "columnDefs":[{
         "targets": -1,

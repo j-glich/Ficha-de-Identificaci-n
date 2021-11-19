@@ -1,5 +1,5 @@
-<?php require_once "Registros/control/in_Generales.php" ?>
 <?php require_once "vistas/parte_superiorAlumno.php"?>
+<?php require_once "Registros/control/in_Generales.php" ?>
 <link rel="stylesheet" href="../vista/estilos/s_Escolares.css" />
 <script src="../vista/js/js_Escolares.js"></script>
 <!--INICIO del cont principal-->

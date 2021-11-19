@@ -85,9 +85,10 @@ if($_SESSION["id_Cliente"] === null){
             <a class="collapse-item" href="">Entrevista</a>
           </div>
         </div>
+        
       </li>
       <i class="bi bi-display"></i>
-      
+     
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -99,6 +100,8 @@ if($_SESSION["id_Cliente"] === null){
     <!-- End of Sidebar -->
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
+  
+      
       <!-- Main Content -->
       <div id="content">
         <!-- Topbar -->
@@ -110,7 +113,7 @@ if($_SESSION["id_Cliente"] === null){
           </button>         
           <img src="../vista/img/sdf.jpg" alt="ITSOEH">
           <img src="../vista/img/LogoTecNM.jpg" alt="ITSOEH" style="position:relative; left: 20px; height: 65px; width: 165px;">
-
+          <img src="../vista/img/ISIC.png" alt="ITSOEH" style="position:relative; left: 20px; height: 65px;">
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 

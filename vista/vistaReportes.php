@@ -8,7 +8,7 @@
 include_once 'cnx.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
-$sql = 'CALL cima2.sp_fi_listar_alumnos()';
+$sql = 'CALL sp_fi_listar_alumnos()';
 $stmt = $conexion->prepare($sql);
 $stmt->execute();
 $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -22,9 +22,11 @@ $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
             <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
             <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>}
             </svg>
-            </button>    
+            </button>
+            <button type="button"  class="btn text-light btnExcel" id='BOTON' onClick=" window.location.href='bd/excel-reporteFI.php'">    
             </div>    
         </div>    
+        
     </div>    
     <br> 
 <div class="container">

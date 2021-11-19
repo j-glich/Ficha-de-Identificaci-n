@@ -42,7 +42,14 @@ switch($opcion){
         $stmt->execute();
         $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
         break;   
-
+    case 8:
+        $sql = "call cima2.sp_fi_listar_alumno(?)";
+        $stmt = $conexion->prepare($sql);
+        //Envio de parametros mediante PDO
+        $stmt->bindParam(1, $id, PDO::PARAM_STR, 10);
+        $stmt->execute();
+        $data=$stmt->fetchAll(PDO::FETCH_ASSOC);
+        break; 
 }
 print json_encode($data, JSON_UNESCAPED_UNICODE); //enviar el array final en formato json a JS
 $conexion = NULL;
