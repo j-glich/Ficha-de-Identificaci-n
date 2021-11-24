@@ -1,4 +1,12 @@
-            function habilitar(id,id2){
+            
+$(document).ready(function(){
+
+    document.querySelector('#radio2').checked = true;
+    
+});
+
+
+function habilitar(id,id2){
                 document.getElementById(id).disabled=false; 
                 document.getElementById(id2).disabled=false;    
             }

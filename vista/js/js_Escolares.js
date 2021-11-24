@@ -1,4 +1,14 @@
-            function crearInput(){
+                       
+$(document).ready(function(){
+    document.querySelector('#radio7').checked = true;
+    $(document).on("click", ".button", function(){
+    document.getElementById("radio11").disabled=false;    
+    });
+});
+
+           
+           
+           function crearInput(){
                 var z = document.createElement('div');
                 z.setAttribute('id','control');
                 z.setAttribute('class','form');

@@ -81,16 +81,81 @@ if($_SESSION["id_Cliente"] === null){
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" id= 'ficha' href="DatosGenerales.php">Ficha de identificacion</a>
-            <a class="collapse-item" href="cards.php">Entrevista</a>
-         
+            <h6 class="collapse-header">Documentos:</h6>
+<style>
+* {
+				margin:0px;
+				padding:0px;
+			}
+			
+			#header {
+				margin:auto;
+				width:500px;
+				font-family:Arial, Helvetica, sans-serif;
+			}
+			.menu{
+        position: relative;
+        left: 20px;
+      }
+			ul, ol {
+				list-style:none;
+			}
+			
+			.nav > li {
+				float:left;
+			}
+			
+			.nav li a {
+				background-color:white;
+				color:#000;
+				text-decoration:none;
+				padding:10px 12px;
+				display:block;
+			}
+			
+			.nav li a:hover {
+				background-color: cornflowerblue;
+			}
+			
+			.nav li ul {
+				display:none;
+				position:absolute;
+				min-width:140px;
+			}
+			
+			.nav li:hover > ul {
+				display:block;
+			}
+			
+			.nav li ul li {
+				position:relative;
+			}
+			
+			.nav li ul li ul {
+				right:-140px;
+				top:0px;
+			}
+			
+
+</style>
+            <ul class="nav">
+				<li> <a class="collapse-item" id= 'ficha' href="DatosGenerales.php">Ficha de identificacion</a>
+					<ul class="menu">
+						<li><a href="./DatosGenerales.php">Datos Generales</a></li>
+						<li><a href="./DatosEscolares.php">Datos Escolares</a></li>
+						<li><a href="./DatosGenSalud.php">Datos Gen Salud</a></li>
+						<li><a href="./DatosLaborales.php">Datos Laborales</a></li>
+            <li><a href="./DatosGeolocalizacion.php">Datos localización</a></li>
+					</ul>
+				</li>
+				
+			</ul>           
           </div>
         </div>
       </li>
 
 
-    
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -117,7 +182,8 @@ if($_SESSION["id_Cliente"] === null){
             <i class="fa fa-bars"></i>
           </button>
           <img src="../vista/img/sdf.jpg" alt="ITSOEH">
-<img src="../vista/img/LogoTecNM.jpg" alt="ITSOEH" style="position:relative; left: 20px; height: 65px; width: 165px;">
+          <img src="../vista/img/LogoTecNM.jpg" alt="ITSOEH" style="position:relative; left: 20px; height: 65px; width: 165px;">
+          <img src="../vista/img/ISIC.png" alt="ITSOEH" style="position:relative; left: 20px; height: 65px;">
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
@@ -142,7 +208,7 @@ if($_SESSION["id_Cliente"] === null){
             </li>
 
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
+            <li style="z-index: 5000;" class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
@@ -191,8 +257,8 @@ if($_SESSION["id_Cliente"] === null){
             </li>
 
             <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li style="z-index: 5000;" class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle"  href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
                 <span class="badge badge-danger badge-counter">7</span>
@@ -257,17 +323,17 @@ if($_SESSION["id_Cliente"] === null){
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="indexAlumno.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
+                  Perfil
                 </a>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="configuraciones.php">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
+                  Configuración 
                 </a>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="acercade.php">
                   <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
+                  Acerca de 
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="../controlador/logout.php">

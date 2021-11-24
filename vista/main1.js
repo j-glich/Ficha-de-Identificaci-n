@@ -1558,13 +1558,12 @@ function genPDF(
     }, 4000);   
 }
 $(document).ready(function(){
-
     
     tablaPersonas1 = $("#tablaPersonas2").DataTable({
         "columnDefs":[{
         "targets": -1,
         "data":null,
-        "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-danger generarPDF'><i class='bi bi-cloud-arrow-down-fill'></i>  <svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' class='bi bi-cloud-arrow-down-fill' viewBox='0 0 16 16'> <path d='M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z'/></svg>    </button><button id='btnMapaindividual' type='button' class='btn text-light btnMapa' data-toggle='modal'><i class='bi bi-geo-alt-fill'></i><svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' class='bi bi-geo-alt-fill text-primary' viewBox='0 0 16 16'><path d='M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z'/></svg>"   
+        "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-danger generarPDF' data-toggle='tooltip' data-placement='top' title='Exportar PDF'><i class='bi bi-cloud-arrow-down-fill'></i>  <svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' class='bi bi-cloud-arrow-down-fill' viewBox='0 0 16 16'> <path d='M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z'/></svg>    </button><button id='btnMapaindividual' type='button' class='btn text-light btnMapa' data-toggle='tooltip' data-placement='top' title='Mapa Individual'><i class='bi bi-geo-alt-fill'></i><svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='currentColor' class='bi bi-geo-alt-fill text-primary' viewBox='0 0 16 16'><path d='M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z'/></svg>"   
     }], 
     "language": {
             "lengthMenu": "Mostrar _MENU_ registros",
@@ -1582,6 +1581,10 @@ $(document).ready(function(){
             "sProcessing":"Procesando...",
         }
     });
+    $('[data-toggle="tooltip"]').tooltip({
+        trigger : 'hover'
+    });   
+    
     auxtemp =0;
     auxtempinfo = 0;
     auxtempmapa = 0;
@@ -2187,5 +2190,19 @@ $(document).on("click", "#btnMapaindividual", function(){
 });
 });
 
+function solonumeros(e) {
+    key= e.keyCode || e.which;
+    teclado = String.fromCharCode(key);
+    numero="0123456789";
+    especiales ="8-37-38-46-250"; //array
+    teclado_es = false;
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            teclado_es = true;
+        }
+    }
+    if(numero.indexOf(teclado) == -1 && !teclado_es){
+    return false;
+}
 
-
+}

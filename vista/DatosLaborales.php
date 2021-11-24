@@ -2,7 +2,6 @@
 <?php require_once "Registros/control/in_genSalud.php"?>
 <?php require_once "vistas/parte_superiorAlumno.php"?>
 <link rel="stylesheet" href="../vista/estilos/s_Laborales.css" />
-<script src="../vista/js/js_Laborales.js"></script>
 <!--INICIO del cont principal-->
 
 <div class="container" id='container'>
@@ -12,15 +11,15 @@
     <section class="form-register">
     <div id='cam1'>
             <label class ='label'>Trabajas</label><br>
-            <label class='label'>(</label><input  type='radio' id='radio1' onclick ="habilitar('nomEmpresa','horario')" name='grupo' value="si"><label class='label'>) Si</label>  &nbsp &nbsp &nbsp
-            <label class='label'>(</label><input  type='radio' id='radio2' onclick ="desahabilitar('nomEmpresa','horario')" name='grupo' value="no"><label class='label'>) No</label><br>
+            <label class='label'>(</label><input  type='radio' id='radio1' onclick ="habilitar('nomEmpresa','horario')" name='grupo' value="Si"><label class='label'>) Si</label>  &nbsp &nbsp &nbsp
+            <label class='label'>(</label><input  type='radio' id='radio2' onclick ="desahabilitar('nomEmpresa','horario')" name='grupo' value="No"><label class='label'>) No</label><br>
         <div id="matricula" class="form">
-            <input type="text" disabled ='true' name="nomEmpresa" id="nomEmpresa" autocomplete="off" placeholder=" " class="textbox">
+            <input type="text"  required disabled ='true' name="nomEmpresa" id="nomEmpresa" autocomplete="off" placeholder=" " class="textbox">
             <label class="form_label">Nombre de la empresa:</label>
         </div>
         <br>
         <div id="matricula" class="form">
-            <input type="text" disabled ='true' name="horario" id="horario" autocomplete="off" placeholder=" " class="textbox">
+            <input required type="text" disabled ='true' name="horario" id="horario" autocomplete="off" placeholder=" " class="textbox">
             <label class="form_label">Horario:</label>
         </div>
             <div id="esc3">
@@ -33,7 +32,7 @@
             <br>
             <label class='label'>A cuánto asciende el ingreso mensual familiar: </label>
         <div id="matricula" class="form">
-            <input type="text"  name="IngresoFamiliar" id="IngresoFamiliar" autocomplete="off" placeholder=" " class="textbox">
+            <input type="text" onkeypress="return solonumeros(event)" maxlength="6" name="IngresoFamiliar" id="IngresoFamiliar" autocomplete="off" placeholder=" " class="textbox">
             <label class="form_label">$</label>
         </div>
             
@@ -41,12 +40,12 @@
     <div id='cam2'> 
             <label class='label'>En caso de ser económicamente independiente a cuánto asciende tu ingreso: </label>
             <div id="matricula" class="form">
-            <input type="text"  name="IngresoPersonal" id="IngresoPersonal" autocomplete="off" placeholder=" " class="textbox">
+            <input type="text"  onkeypress="return solonumeros(event)" maxlength="6" name="IngresoPersonal" id="IngresoPersonal" autocomplete="off" placeholder=" " class="textbox">
             <label class="form_label">$</label>
         </div>
        <br>
        <div id="matricula" class="form">
-            <input type="text"  name="domicilio" id="domicilio" autocomplete="off" placeholder=" " class="textbox">
+            <input type="text" required name="domicilio" id="domicilio" autocomplete="off" placeholder=" " class="textbox">
             <label class="form_label">Domicilio:</label>
     </div>
             <label class='label'>Grado máximo de estudios de: </label>
@@ -62,7 +61,7 @@
                     <label class='label'>(</label><input type='radio' id='radio18' value="Vive" name='grup2' ><label class='label'>) Vive</label>
                     <label class='label'>(</label><input type='radio' id='radio19' value="Finado" name='grup2' ><label class='label'>) Finado</label><br> 
                     <div id="matricula" class="form">
-                    <input type="text"  name="OcupacionPadre" id="OcupacionPadre" autocomplete="off" placeholder=" " class="textbox">
+                    <input required type="text"  name="OcupacionPadre" id="OcupacionPadre" autocomplete="off" placeholder=" " class="textbox">
                     <label class="form_label">Ocupacion:</label>
                 </div>  
             </div>
@@ -77,7 +76,7 @@
             <label class='label'>(</label><input type='radio' id='radio26' value="Vive" name='grup4' ><label class='label'>) Vive</label>
             <label class='label'>(</label><input type='radio' id='radio27' value="Finado" name='grup4' ><label class='label'>) Finado</label><br>  
             <div id="matricula" class="form">
-            <input type="text"  name="OcupacionMadre" id="OcupacionMadre" autocomplete="off" placeholder=" " class="textbox">
+            <input type="text" required name="OcupacionMadre" id="OcupacionMadre" autocomplete="off" placeholder=" " class="textbox">
             <label class="form_label">Ocupacion:</label>
             </div>
             </div>
@@ -95,3 +94,4 @@
 
 <?php require_once "vistas/parte_inferior.php"?>
 
+<script src="../vista/js/js_Laborales.js"></script>

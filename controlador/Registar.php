@@ -28,7 +28,8 @@
 </html>
 <script>
 $(document).ready(function(){
-$(document).on("click", "#registrar", function(){    
+$(document).on("click", "#registrar", function(e){
+    e.preventDefault();     
     matricula = document.getElementById('matricula').value;
     nombre = document.getElementById('name').value;
     $.ajax({

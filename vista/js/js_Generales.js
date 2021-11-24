@@ -1,3 +1,11 @@
+            
+$(document).ready(function(){
+
+    document.querySelector('#radio2').checked = true;
+    
+});
+
+
             function crearInput(){
                 var z = document.createElement('div');
                 z.setAttribute('id','matricula');

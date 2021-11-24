@@ -1,7 +1,7 @@
 <?php require_once "vistas/parte_superiorAlumno.php"?>
 <?php require_once "Registros/control/in_Generales.php" ?>
 <link rel="stylesheet" href="../vista/estilos/s_Escolares.css" />
-<script src="../vista/js/js_Escolares.js"></script>
+
 <!--INICIO del cont principal-->
 <div class="container" id='container'>
     <h1 style="text-align: center;" class="Titulo__label">Ficha de identificación</h1>
@@ -19,12 +19,17 @@
                     </div>
                     <br> 
                 <div id="control" class="form">
-                    <input class="textbox" type="text" name="nomInstitucion" id="nomInstitucion" placeholder=' ' autocomplete="off">
+                    <input required class="textbox" type="text" name="nomInstitucion" id="nomInstitucion" placeholder=' ' autocomplete="off">
                     <label class="form_label">Nombre del instituto de procedencia:</label>
                 </div>
                 <br>
                 <div id="control" class="form">
-                <input class="textbox" type="text" name="promedio" id="promedio" placeholder=" " autocomplete="off" >
+                <select required class="textbox" name="promedio" id="promedio">
+                        <option value="10">10 </option>
+                        <option value="9.0-8.0">9-8</option>
+                        <option value="7.0-6.0">7-6</option>
+                        <option value="5.0">5</option>
+                </select> 
                     <label class="form_label">Promedio general:</label>
                 </div>
                 <br>
@@ -32,8 +37,8 @@
         <div id='cam2'> 
             <div id ='esc1'>
             <label class ='label'>Has estado becado: </label><br>
-            <label class='label'>(</label><input  type='radio' id='radio6' name='gru' value="SI" onclick="habilitar('radio8','radio9','radio10','radio11')" ><label class='label'>) Si</label>  &nbsp &nbsp &nbsp
-            <label class='label'>(</label><input  type='radio' id='radio7' name='gru' value="NO" onclick="desahabilitar('radio8','radio9','radio10','radio11','id_beca','id_eti2')"  ><label class='label'>) No</label><br>
+            <label class='label'>(</label><input  type='radio' id='radio6' name='gru' value="Si" onclick="habilitar('radio8','radio9','radio10','radio11')" ><label class='label'>) Si</label>  &nbsp &nbsp &nbsp
+            <label class='label'>(</label><input  type='radio' id='radio7' name='gru' value="No" onclick="desahabilitar('radio8','radio9','radio10','radio11','id_beca','id_eti2')"  ><label class='label'>) No</label><br>
             <label class='label'>Tipo de beca:</label><br>
             <label class='label'>(</label><input  type='radio' id='radio8' disabled='true' value="Federal" name='grup' onclick="Eliminar1('id_beca','id_eti2')"><label class='label'>) Federal</label><br>
             <label class='label'>(</label><input  type='radio' id='radio9' disabled='true' value="Estatal" name='grup' onclick="Eliminar1('id_beca','id_eti2')"><label class='label'>) Estatal</label><br>
@@ -65,3 +70,4 @@
 
 <?php require_once "vistas/parte_inferior.php"?>
 
+<script src="../vista/js/js_Escolares.js"></script>

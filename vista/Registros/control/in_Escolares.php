@@ -1,5 +1,3 @@
-<?php require_once "vistas/parte_superiorAlumno.php"?>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
 include_once '../vista/bd/conexion.php';
 $objeto = new Conexion();
@@ -12,27 +10,23 @@ $stmt->bindParam(1, $matricula, PDO::PARAM_STR, 10);
 $stmt->execute();
 $num_rows = $stmt->fetchColumn();
 if ($num_rows > 0){ 
-  echo '<script>
-  Swal.fire({
-  position: "top-end",
-  icon: "success",
-  title: "Ya has registrado una respuesta",
-  showConfirmButton: false,
-  timer: 2500})</script>'; 
   $conexion = null;
 }else{
-  echo '<script>
-  Swal.fire(
-  "Registro Exitoso",
-  "Corecto!",
-  "success")</script>';
+ echo "<script>
+  Swal.fire({
+    icon: 'success',
+    title: 'Registro Exitoso',
+    text: 'Correcto!',
+    showConfirmButton: false,
+    timer: 2500});
+      </script>";;
         //variables
         $escolaridad = (isset($_POST['grupo'])) ? $_POST['grupo'] : 'Bachillerato Técnico';
         $especialidad = (isset($_POST['especilidad'])) ? $_POST['especilidad'] : 'Ninguna';  
         $nombreInstitucion = (isset($_POST['nomInstitucion'])) ? $_POST['nomInstitucion'] : '';  
         $promedioGeneral = (isset($_POST['promedio'])) ? $_POST['promedio'] : '';
         $beca = (isset($_POST['gru'])) ? $_POST['gru'] : '';
-        $tipobeca = (isset($_POST['grup'])) ? $_POST['grup'] : 'Otro'; 
+        $tipobeca = (isset($_POST['grup'])) ? $_POST['grup'] : 'Ninguno'; 
         $otrotipbeca = (isset($_POST['tibeca'])) ? $_POST['tibeca'] : 'Ninguno'; 
         $estu_viviras = (isset($_POST['vivir_con'])) ? $_POST['vivir_con'] : '';
         //Invocacion del procedimiento almacenado 

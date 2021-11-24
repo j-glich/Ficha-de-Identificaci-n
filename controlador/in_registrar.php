@@ -3,6 +3,7 @@ include_once(__DIR__."/cnx.php");
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 $matricula = (isset($_POST['matricula'])) ? $_POST['matricula'] : '';
+$pass_cifrado = password_hash($matricula,PASSWORD_DEFAULT);
 $sql = 'CALL sp_fi_listar_alumno(?)';
 $stmt = $conexion->prepare($sql);
 //Envio de parametros mediante PDO
@@ -16,12 +17,12 @@ if ($num_rows > 0){
         //variables
 $nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : '';
  //Invocacion del procedimiento almacenado
-$sql = 'CALL sp_fi_in_alumno_reg_rapido(?,?)';
+$sql = 'CALL sp_fi_in_alumno_reg_rapido(?,?,?)';
 $stmt = $conexion->prepare($sql);
 //Envio de parametros mediante PDO
 $stmt->bindParam(1, $matricula, PDO::PARAM_STR, 10);
 $stmt->bindParam(2, $nombre, PDO::PARAM_STR, 45);
-
+$stmt->bindParam(3, $pass_cifrado, PDO::PARAM_STR, 150);
 echo  $stmt->execute();
 $conexion = null;
 }

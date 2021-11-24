@@ -1,61 +1,70 @@
 <?php
 
 include_once "../modelo/cnx.php";
+$aux =0;
+$aux2 =0;
+$objeto = new Conexion();
+$conexion = $objeto->Conectar();
 
-
-$sql = "SELECT * FROM cima2.usuario WHERE US_ID = '" . $usuario . "' AND US_PASSWORD='" . $contrasenia . "'";
-if(!$resultado = $mysqli->query($sql)) {
-    echo "Error: La consulta fallo, información: \n";
-    echo "Query: " . $sql . "\n";
-    echo "Errno: " . $mysqli->errno . "\n";
-    echo "Error: " . $mysqli->error . "\n";
-    exit;
-}
-if($resultado->num_rows === 0) {
-    $resultado->free();
-$sql = "SELECT * FROM cima2.alumno WHERE AL_MATRICULA = '" . $usuario . "' AND AL_MATRICULA='" . $contrasenia . "'";
-if(!$resultado = $mysqli->query($sql)) {
-    echo "Error: La consulta fallo, información: \n";
-    echo "Query: " . $sql . "\n";
-    echo "Errno: " . $mysqli->errno . "\n";
-    echo "Error: " . $mysqli->error . "\n";
-    exit;
-}
-if($resultado->num_rows === 0) {
-    $resultado->free();
-    include "../modelo/cerrar.php";
-    header("Location: ../index.php");
-} else {
-    session_start();
-    $registro = $resultado->fetch_assoc();
-    $_SESSION["id_Cliente"] = $registro["AL_MATRICULA"];
-    $_SESSION["nombre"] = $registro["AL_NOM_ALUMNO"];
-    $_SESSION["rol"] = $registro["AL_ROL"];
-    $matricula = $registro["AL_MATRICULA"];
-    if($registro["AL_ROL"]==='2'){
-        include "../modelo/cerrar.php";
-    header("Location: ../vista/indexAlumno.php"); 
-    }
+$sql = 'CALL sp_fi_listar_usuario(?)';
+$stmt = $conexion->prepare($sql);
+//Envio de parametros mediante PDO
+$stmt->bindParam(1, $usuario, PDO::PARAM_STR, 10);
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$resultado = $stmt->execute();
+// Mostramos los resultados
+while ($row = $stmt->fetch()){
+    if($contrasenia == $row['US_PASSWORD']){
+        $aux2++;
+    }   
+    if($aux2 > 0){
     
-    $resultado->free();
+        session_start();
     
-}
-} else {
-    session_start();
-    $registro = $resultado->fetch_assoc();
-    $_SESSION["id_Cliente"] = $registro["US_ID"];
-    $_SESSION["nombre"] = $registro["US_NOMBRE"];
-    $_SESSION["rol"] = $registro["US_ROL"];
-    $matricula = $registro["US_ID"];
-    if($registro["US_ROL"]==='1'){
+    $_SESSION["id_Cliente"] = $row["US_NOMBRE"];
+    $_SESSION["rol"] = $row["US_ROL"];
+    $matricula = $row["US_ID"];
+    if($row["US_ROL"]==='1'){
        include "../modelo/cerrar.php";
     header("Location: ../vista/indexAdmin.php");  
     
     }
-    
-    $resultado->free();
-    
-}
+    }else{
+        include "../modelo/cerrar.php";
+    header("Location: ../index.php");
+    }
+} 
+
+
+$sql = 'CALL sp_fi_listar_alumno(?)';
+$stmt = $conexion->prepare($sql);
+//Envio de parametros mediante PDO
+$stmt->bindParam(1, $usuario, PDO::PARAM_STR, 10);
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$resultado = $stmt->execute();
+// Mostramos los resultados
+while ($row = $stmt->fetch()){
+    if(password_verify($contrasenia,$row['AL_PASSWORD'])){
+        $aux++;
+    }   
+    if($aux > 0){
+        session_start();
+        $_SESSION["id_Cliente"] = $row["AL_MATRICULA"];
+        $_SESSION["nombre"] = $row["AL_NOM_ALUMNO"];
+        $_SESSION["rol"] = $row["AL_ROL"];
+        $matricula = $row["AL_MATRICULA"];
+        if($row["AL_ROL"]==='2'){
+            include "../modelo/cerrar.php";
+        header("Location: ../vista/indexAlumno.php"); 
+    }
+    }else{
+        include "../modelo/cerrar.php";
+    header("Location: ../index.php");
+    }
+} 
+
+
+
 
 
 ?>

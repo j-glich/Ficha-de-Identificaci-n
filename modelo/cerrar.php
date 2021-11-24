@@ -1,5 +1,5 @@
 <?php
 
-$mysqli->close();
+$conexion = null;
 
 ?>

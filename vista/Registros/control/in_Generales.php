@@ -12,24 +12,16 @@ $stmt->bindParam(1, $matricula, PDO::PARAM_STR, 10);
 $stmt->execute();
 $num_rows = $stmt->fetchColumn();
 if ($num_rows > 0){ 
-  echo '<script>
-  Swal.fire({
-    position: "top-end",
-    icon: "success",
-    title: "Ya has registrado una respuesta",
-    showConfirmButton: false,
-    timer: 2500
-  })
-        </script>'; 
       $conexion = null;
 }else{
-    echo '<script>
-    Swal.fire(
-        "Registro Exitoso",
-        "Corecto!",
-        "success"
-      )
-        </script>';
+    echo "<script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Registro Exitoso',
+      text: 'Correcto!',
+      showConfirmButton: false,
+      timer: 2500});
+        </script>";
         //variables
         $carrera = (isset($_POST['carrera'])) ? $_POST['carrera'] : '';
         $matricula = (isset($_POST['matricula'])) ? $_POST['matricula'] : '';  
@@ -44,10 +36,20 @@ if ($num_rows > 0){
         $lug_Nacimiento = (isset($_POST['lugarNac'])) ? $_POST['lugarNac'] : '';
         $Est_Civil = (isset($_POST['estadoCivil'])) ? $_POST['estadoCivil'] : '';
         $domicilio = (isset($_POST['domicilio'])) ? $_POST['domicilio'] : '';
-        $hijos = (isset($_POST['grupo'])) ? $_POST['grupo'] : 'si';
+        $hijos = (isset($_POST['grupo'])) ? $_POST['grupo'] : 'Si';
         $Cuantos = (isset($_POST['numhijos'])) ? $_POST['numhijos'] : '0';
+        $correo_personal = (isset($_POST['correo-personal'])) ? $_POST['correo-personal'] : '';
+        $periodo  = date("m");
+        $bandera;
+      if($periodo == 1 || $periodo == 2 || $periodo == 3 || $periodo == 4 || $periodo == 5){
+        $bandera = 'ENE-MAY';
+      }else if ( $periodo == 8 || $periodo == 9 || $periodo == 10 || $periodo == 11 || $periodo == 12 ){  
+        $bandera = 'AGO-DIC';
+      }else if($periodo == 6 || $periodo == 7 ){
+        $bandera = '';
+      }
         //Invocacion del procedimiento almacenado 
-        $sql = 'CALL sp_fi_in_ant_generales(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+        $sql = 'CALL sp_fi_in_ant_generales(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
         $stmt = $conexion->prepare($sql);
         //Envio de parametros mediante PDO
         $stmt->bindParam(1, $carrera, PDO::PARAM_STR, 45);
@@ -65,6 +67,8 @@ if ($num_rows > 0){
         $stmt->bindParam(13, $domicilio, PDO::PARAM_STR, 45);
         $stmt->bindParam(14, $hijos, PDO::PARAM_STR, 2);
         $stmt->bindParam(15, $Cuantos, PDO::PARAM_INT, 11);
+        $stmt->bindParam(16, $correo_personal, PDO::PARAM_STR, 45);
+        $stmt->bindParam(17, $bandera, PDO::PARAM_STR, 10);
         $stmt->execute();
         $conexion= null;
 }

@@ -1,7 +1,6 @@
-<?php require_once "Registros/control/in_Escolares.php"?>
 <?php require_once "vistas/parte_superiorAlumno.php"?>
+<?php require_once "Registros/control/in_Escolares.php"?>
 <link rel="stylesheet" href="../vista/estilos/s_GenSalud.css" />
-<script src="../vista/js/js_GenSalud.js"></script>
 <!--INICIO del cont principal-->
 <div class="container" id='container'>
     <h1 style="text-align: center;" class="Titulo__label">Ficha de identificación</h1>
@@ -47,7 +46,12 @@
             <label class='label'>(</label><input type='radio' id='radio12'  value="Visual" name='grupo2' onclick="Eliminar4('id_Especificacion3','id_eti3')"><label class='label'>) Visual</label><br>
             <label class='label'>(</label><input type='radio' id='radio13' value="Auditiva" name='grupo2' onclick="Eliminar4('id_Especificacion3','id_eti3')"><label class='label'>) Auditiva</label><br>
             <label class='label'>(</label><input type='radio' id='radio14' value="Tactil" name='grupo2' onclick="Eliminar4('id_Especificacion3','id_eti3')"><label class='label'>) Táctil</label><br>
-            <label class='label'>(</label><input type='radio' id='radio15'  value="Si" name='grupo3' onclick='crearotro1()'><label class='label'>) Motora :</label><br>
+            <label class='label'>(</label><input type='radio' id='radio15'  value="Si"  onclick = "habilitarE('id_Especificacion3')" name='grupo3'><label class='label'>) Motora :</label><br>
+            <div id="matricula" class="form">
+            <input class="textbox" disabled='true' type="text" name="Especifique3" id="id_Especificacion3" placeholder=" " onchange="Desabilitar('id_Especificacion3','radio15')">
+            <label class="form_label">Especifique:</label>
+        </div> 
+        <br>   
         </div>
         <label class ='label'>Temporal:</label><br>
         <label class='label'>(</label><input type='radio' id='radio16' value="Transistoria" name='grupo4'><label class='label'>) Transitoria</label><br>
@@ -57,7 +61,7 @@
         <label class='label'>(</label><input type='radio' id='radio19'  value="Total" name='grupo5' ><label class='label'>) Total </label><br>       
     </div>
         <div id='boton'> 
-        <button  type="submit" class="button button4">Siguiente</button>
+        <button  type="submit" class="button button4" style="position: relative; top:30px">Siguiente</button>
         </div>
     </section>
 </form>
@@ -67,3 +71,4 @@
 
 <?php require_once "vistas/parte_inferior.php"?>
 
+<script src="../vista/js/js_GenSalud.js"></script>

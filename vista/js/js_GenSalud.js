@@ -1,4 +1,22 @@
-            function crearInput(){
+                        
+$(document).ready(function(){
+
+    document.querySelector('#radio2').checked = true;
+    document.querySelector('#radio7').checked = true;
+
+
+   
+ 
+  
+});
+function Desabilitar(id,id_che) {
+    valor = document.getElementById(id).value
+    if(valor == ""){
+        document.getElementById(id).disabled=true;
+        document.getElementById(id_che).checked = false;
+    }
+}
+      function crearInput(){
                 var z = document.createElement('div');
                 z.setAttribute('id','matricula');
                 z.setAttribute('class','form');
@@ -17,16 +35,8 @@
                 document.getElementById('esc3').appendChild(z); 
                 document.getElementById("radio11").disabled=true;    
             }
-            function crearotro1(){
-               //input 
-                var z = document.createElement('div');
-                z.setAttribute('id','matricula');
-                z.setAttribute('class','form');
-                z.innerHTML = "<input class='textbox' type='text' autocomplete='off' name='Especifique3' id='id_Especificacion3' placeholder=' '><label id='id_eti3' class='form_label'>Especifique:</label>";
-                //label
-                document.getElementById('div').appendChild(z);  
-                document.getElementById("radio15").disabled=true;  
-                document.querySelectorAll('[name=grupo2]').forEach((x) => x.checked = false);
+            function habilitarE(id){
+                document.getElementById(id).disabled=false; 
             }
             function Eliminar(id,id1){
                 var x = document.getElementById(id);

@@ -1,11 +1,16 @@
-<?php
-
-$mysqli = new mysqli("localhost:3306", "root", "itsoeh", "cima2");
-if($mysqli->connect_errno) {
-    echo "Error: Falló la conexión a MySQL, información: \n";
-    echo "Errno: " . $mysqli->connect_errno . "\n";
-    echo "Error: " . $mysqli->connect_error . "\n";
-    exit;
-}
-
-?>   
+<?php 
+    class Conexion{	  
+        public static function Conectar() {        
+            define('servidor', 'localhost');
+            define('nombre_bd', 'cima2');
+            define('usuario', 'root');
+            define('password', 'itsoeh');					        
+            $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');			
+            try{
+                $conexion = new PDO("mysql:host=".servidor."; dbname=".nombre_bd, usuario, password, $opciones);			
+                return $conexion;
+            }catch (Exception $e){
+                die("El error de Conexión es: ". $e->getMessage());
+            }
+        }
+    }

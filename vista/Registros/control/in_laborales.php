@@ -21,11 +21,14 @@ if ($num_rows > 0){
     timer: 2500})</script>'; 
     $conexion = null;
 }else{
-    echo '<script>
-    Swal.fire(
-            "Registro Exitoso",
-            "Corecto!",
-            "success")</script>';
+    echo "<script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Registro Exitoso',
+      text: 'Correcto!',
+      showConfirmButton: false,
+      timer: 2500});
+        </script>";
         //variables
         $trabajas = (isset($_POST['grupo'])) ? $_POST['grupo'] : 'No';
         $nombre_empresa = (isset($_POST['nomEmpresa'])) ? $_POST['nomEmpresa'] : 'No Trabajo';

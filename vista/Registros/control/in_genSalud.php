@@ -12,24 +12,16 @@ $stmt->bindParam(1, $matricula, PDO::PARAM_STR, 10);
 $stmt->execute();
 $num_rows = $stmt->fetchColumn();
 if ($num_rows > 0){ 
-  echo '<script>
-  Swal.fire({
-    position: "top-end",
-    icon: "success",
-    title: "Ya has registrado una respuesta",
-    showConfirmButton: false,
-    timer: 2500
-  })
-        </script>'; 
     $conexion = null;
 }else{
-    echo '<script>
-    Swal.fire(
-        "Registro Exitoso",
-        "Corecto!",
-        "success"
-      )
-        </script>';
+  echo "<script>
+  Swal.fire({
+    icon: 'success',
+    title: 'Registro Exitoso',
+    text: 'Correcto!',
+    showConfirmButton: false,
+    timer: 2500});
+      </script>";
         $pro_salud = (isset($_POST['grupo-al-salud'])) ? $_POST['grupo-al-salud'] : 'Si';
         $Especifique1 = (isset($_POST['Especifique1'])) ? $_POST['Especifique1'] : 'Ninguna';
         $tiposagre = (isset($_POST['sangre'])) ? $_POST['sangre'] : '';  
